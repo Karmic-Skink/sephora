@@ -199,12 +199,14 @@
 		to_chat(src,"<span class='userdanger'>ERROR: Module installer reply timeout. Please check internal connections.</span>")
 		return
 
+	//NSV13 - Added Munitions borg type
 	var/list/modulelist = list("Standard" = /obj/item/robot_module/standard, \
 	"Engineering" = /obj/item/robot_module/engineering, \
 	"Medical" = /obj/item/robot_module/medical, \
 	"Miner" = /obj/item/robot_module/miner, \
 	"Janitor" = /obj/item/robot_module/janitor, \
-	"Service" = /obj/item/robot_module/butler)
+	"Service" = /obj/item/robot_module/butler, \
+	"Munitions" = /obj/item/robot_module/munitions)
 	if(!CONFIG_GET(flag/disable_peaceborg))
 		modulelist["Peacekeeper"] = /obj/item/robot_module/peacekeeper
 	if(!CONFIG_GET(flag/disable_secborg))
