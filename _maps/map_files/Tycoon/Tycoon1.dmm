@@ -91,7 +91,9 @@
 /turf/open/floor/engine/airless,
 /area/space/nearstation)
 "ap" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/north{
+	pixel_y = 24
+	},
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -122,16 +124,6 @@
 	},
 /turf/open/floor/engine/airless,
 /area/space/nearstation)
-"ar" = (
-/obj/structure/rack,
-/obj/item/storage/toolbox/emergency,
-/obj/structure/extinguisher_cabinet{
-	pixel_y = 26
-	},
-/turf/open/floor/monotile,
-/area/nsv/hanger/deck3{
-	name = "Air traffic control pod"
-	})
 "as" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -312,7 +304,9 @@
 /obj/structure/toilet{
 	dir = 8
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/north{
+	pixel_y = 24
+	},
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -1005,8 +999,7 @@
 /area/crew_quarters/heads/captain)
 "cL" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 4;
-	icon_state = "pipe11-1"
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3{
 	dir = 4
@@ -1474,7 +1467,9 @@
 /turf/open/floor/monotile,
 /area/hallway/nsv/deck1/hallway)
 "dM" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/north{
+	pixel_y = 24
+	},
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -1665,7 +1660,9 @@
 /turf/open/floor/monotile,
 /area/hallway/nsv/deck1/hallway)
 "eh" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/north{
+	pixel_y = 24
+	},
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -1775,7 +1772,9 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/north{
+	pixel_y = 24
+	},
 /turf/open/floor/monotile,
 /area/nsv/briefingroom)
 "ex" = (
@@ -2682,7 +2681,9 @@
 /turf/open/floor/plasteel/grid/steel,
 /area/nsv/briefingroom)
 "gm" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/north{
+	pixel_y = 24
+	},
 /obj/structure/safe,
 /obj/item/bikehorn/golden,
 /obj/item/book/random,
@@ -2894,7 +2895,9 @@
 	pixel_y = -24
 	},
 /obj/machinery/recharge_station,
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/south{
+	pixel_y = -24
+	},
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -3140,7 +3143,9 @@
 	name = "Executive officer's Office"
 	})
 "ha" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/north{
+	pixel_y = 24
+	},
 /obj/machinery/photocopier,
 /obj/structure/cable{
 	icon_state = "0-4"
@@ -3659,7 +3664,7 @@
 	dir = 4
 	},
 /obj/machinery/advanced_airlock_controller{
-	pixel_y = -26
+	pixel_y = 24
 	},
 /turf/open/floor/plasteel/grid/steel,
 /area/nsv/hanger/deck3{
@@ -3957,7 +3962,9 @@
 /turf/open/floor/monotile/dark,
 /area/hallway/nsv/deck1/hallway)
 "iV" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/north{
+	pixel_y = 24
+	},
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -5704,7 +5711,9 @@
 /turf/open/floor/monotile,
 /area/storage/eva)
 "mj" = (
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/east{
+	pixel_x = 24
+	},
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -6464,8 +6473,7 @@
 	dir = 1
 	},
 /obj/machinery/advanced_airlock_controller{
-	pixel_x = -26;
-	pixel_y = 2
+	pixel_y = 24
 	},
 /turf/open/floor/monotile,
 /area/hallway/nsv/deck1/hallway)
@@ -6476,6 +6484,13 @@
 /obj/item/aiModule/supplied/protectStation,
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai_upload)
+"sh" = (
+/obj/structure/rack,
+/obj/item/storage/toolbox/emergency,
+/turf/open/floor/monotile,
+/area/nsv/hanger/deck3{
+	name = "Air traffic control pod"
+	})
 "vi" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -6519,7 +6534,9 @@
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/aisat)
 "yG" = (
-/obj/machinery/power/apc/auto_name/east,
+/obj/machinery/power/apc/auto_name/east{
+	pixel_x = 24
+	},
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -6565,6 +6582,15 @@
 	},
 /turf/open/floor/circuit,
 /area/ai_monitored/turret_protected/ai_upload)
+"BR" = (
+/obj/structure/extinguisher_cabinet{
+	pixel_y = 26
+	},
+/obj/machinery/suit_storage_unit/pilot,
+/turf/open/floor/monotile,
+/area/nsv/hanger/deck3{
+	name = "Air traffic control pod"
+	})
 "CA" = (
 /obj/machinery/camera/motion{
 	dir = 1
@@ -6714,7 +6740,9 @@
 /obj/effect/turf_decal/tile/neutral{
 	dir = 1
 	},
-/obj/machinery/power/apc/auto_name/south,
+/obj/machinery/power/apc/auto_name/south{
+	pixel_y = -24
+	},
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -6855,6 +6883,12 @@
 	},
 /turf/open/floor/monotile/dark,
 /area/teleporter)
+"ZE" = (
+/obj/structure/closet/secure_closet/atc,
+/turf/open/floor/monotile,
+/area/nsv/hanger/deck3{
+	name = "Air traffic control pod"
+	})
 
 (1,1,1) = {"
 aa
@@ -36252,9 +36286,9 @@ an
 ac
 af
 aC
-aC
-aC
-ar
+BR
+hl
+sh
 lu
 li
 hq
@@ -43453,7 +43487,7 @@ ax
 ij
 hn
 hB
-hC
+ZE
 hF
 hH
 hn
@@ -44481,7 +44515,7 @@ ax
 ij
 hn
 hB
-hC
+ZE
 lj
 hH
 hn

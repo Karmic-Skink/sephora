@@ -231,7 +231,9 @@
 /turf/open/floor/monotile/dark,
 /area/hammurabi)
 "aD" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/north{
+	pixel_y = 24
+	},
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -3239,7 +3241,9 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/obj/machinery/power/apc/auto_name/west,
+/obj/machinery/power/apc/auto_name/west{
+	pixel_x = -24
+	},
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -3689,7 +3693,9 @@
 /turf/open/floor/plating,
 /area/hammurabi)
 "Av" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/north{
+	pixel_y = 24
+	},
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -4010,7 +4016,9 @@
 	pixel_y = -3
 	},
 /obj/effect/turf_decal/stripes/line,
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/north{
+	pixel_y = 24
+	},
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -4437,6 +4445,11 @@
 	},
 /turf/open/floor/mineral/plastitanium/red,
 /area/hammurabi)
+"Jw" = (
+/obj/structure/cable/yellow,
+/obj/machinery/atmospherics/components/binary/stormdrive_reactor/syndicate,
+/turf/open/floor/engine,
+/area/hammurabi)
 "JC" = (
 /obj/machinery/computer/ship/viewscreen,
 /turf/open/floor/mineral/plastitanium,
@@ -4730,7 +4743,9 @@
 /turf/open/floor/monotile/dark,
 /area/hammurabi)
 "Ng" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/north{
+	pixel_y = 24
+	},
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
@@ -5378,7 +5393,9 @@
 /turf/open/floor/plasteel/tech/grid,
 /area/hammurabi/hangar)
 "Wf" = (
-/obj/machinery/power/apc/auto_name/north,
+/obj/machinery/power/apc/auto_name/north{
+	pixel_y = 24
+	},
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
@@ -28177,7 +28194,7 @@ Xe
 xr
 pb
 bB
-ag
+Jw
 eb
 WU
 aX
