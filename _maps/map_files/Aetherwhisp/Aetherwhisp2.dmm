@@ -7423,6 +7423,13 @@
 	},
 /turf/template_noop,
 /area/maintenance/department/science/xenobiology)
+"fKu" = (
+/obj/item/twohanded/required/kirbyplants/random,
+/turf/open/floor/carpet/ship/blue{
+	color = "#9999DD";
+	name = "nanoweave carpet (bluer)"
+	},
+/area/bridge/meeting_room)
 "fKP" = (
 /obj/machinery/vending/sustenance,
 /turf/open/floor/plating,
@@ -12672,19 +12679,6 @@
 	},
 /turf/open/floor/carpet/ship/purple_carpet,
 /area/science/xenobiology)
-"kmx" = (
-/obj/item/twohanded/required/kirbyplants/random,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{
-	dir = 8
-	},
-/obj/machinery/camera/autoname{
-	dir = 8
-	},
-/turf/open/floor/carpet/ship/blue{
-	color = "#9999DD";
-	name = "nanoweave carpet (bluer)"
-	},
-/area/bridge/meeting_room)
 "knE" = (
 /obj/machinery/door/firedoor/border_only/directional/south,
 /obj/machinery/door/firedoor/border_only/directional/north,
@@ -16763,6 +16757,18 @@
 	},
 /turf/open/floor/carpet/ship/purple_carpet,
 /area/science/xenobiology)
+"nMS" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer1{
+	dir = 8
+	},
+/obj/machinery/camera/autoname{
+	dir = 8
+	},
+/turf/open/floor/carpet/ship/blue{
+	color = "#9999DD";
+	name = "nanoweave carpet (bluer)"
+	},
+/area/bridge/meeting_room)
 "nNc" = (
 /obj/structure/table,
 /obj/item/instrument/accordion,
@@ -22083,13 +22089,6 @@
 /obj/structure/table/glass,
 /turf/open/floor/carpet/ship,
 /area/ai_monitored/turret_protected/ai_upload_foyer)
-"rXq" = (
-/obj/structure/closet/secure_closet/bridge,
-/turf/open/floor/carpet/ship/blue{
-	color = "#9999DD";
-	name = "nanoweave carpet (bluer)"
-	},
-/area/bridge/meeting_room)
 "rXZ" = (
 /obj/structure/closet/emcloset,
 /obj/item/storage/toolbox/emergency,
@@ -24886,6 +24885,13 @@
 	name = "nanoweave carpet (puce)"
 	},
 /area/nsv/weapons/fore)
+"ujU" = (
+/obj/structure/closet/secure_closet/bridge,
+/turf/open/floor/carpet/ship/blue{
+	color = "#9999DD";
+	name = "nanoweave carpet (bluer)"
+	},
+/area/bridge)
 "ukZ" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable{
@@ -69461,8 +69467,8 @@ rRR
 ciy
 bOv
 gBC
-kmx
-rXq
+nMS
+fKu
 jaE
 tlt
 mZf
@@ -73580,9 +73586,9 @@ bVG
 uXQ
 vWs
 fCk
+ujU
 oEO
-oEO
-oEO
+ujU
 oae
 eqJ
 qbg
