@@ -34,10 +34,10 @@
 
 //Preset HUB
 
-/obj/machinery/telecomms/hub/preset //NSV13 - added munition
+/obj/machinery/telecomms/hub/preset //NSV13 - added munition & atc
 	id = "Hub"
 	network = "tcommsat"
 	autolinkers = list("hub", "relay", "s_relay", "m_relay", "r_relay", "h_relay", "science", "medical",
-	"supply", "service", "common", "command", "engineering", "security", "munitions",
+	"supply", "service", "common", "command", "engineering", "security", "munitions", "atc",
 	"receiverA", "receiverB", "broadcasterA", "broadcasterB", "autorelay", "messaging")
 

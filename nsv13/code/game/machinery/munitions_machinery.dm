@@ -7,6 +7,11 @@
 	freq_listening = list(FREQ_MUNITIONS)
 	autolinkers = list("munitions")
 
+/obj/machinery/telecomms/server/presets/atc
+	id = "Air Traffic Control Server"
+	freq_listening = list(FREQ_ATC)
+	autolinkers = list("atc")
+
 //////SUIT STORAGE//////
 
 /obj/machinery/suit_storage_unit/pilot
