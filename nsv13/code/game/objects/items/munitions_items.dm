@@ -21,28 +21,24 @@
 	icon = 'nsv13/icons/obj/custom_radio.dmi'
 	icon_state = "mun_cypherkey"
 	channels = list(RADIO_CHANNEL_ATC = 1, RADIO_CHANNEL_MUNITIONS = 1, RADIO_CHANNEL_COMMAND = 1)
-	independent = TRUE
 
 /obj/item/encryptionkey/pilot
 	name = "fighter pilot radio encryption key"
 	icon = 'nsv13/icons/obj/custom_radio.dmi'
 	icon_state = "mun_cypherkey"
 	channels = list(RADIO_CHANNEL_ATC = 1, RADIO_CHANNEL_MUNITIONS = 1)
-	independent = TRUE
 
 /obj/item/encryptionkey/heads/master_at_arms
 	name = "master at arms radio encryption key"
 	icon = 'nsv13/icons/obj/custom_radio.dmi'
 	icon_state = "mun_cypherkey"
 	channels = list(RADIO_CHANNEL_MUNITIONS = 1, RADIO_CHANNEL_SUPPLY = 1, RADIO_CHANNEL_COMMAND = 1, RADIO_CHANNEL_ATC = 1)
-	independent = TRUE
 
 /obj/item/encryptionkey/munitions_tech
 	name = "munitions department encryption key"
 	icon = 'nsv13/icons/obj/custom_radio.dmi'
 	icon_state = "mun_cypherkey"
 	channels = list(RADIO_CHANNEL_MUNITIONS = 1, RADIO_CHANNEL_SUPPLY = 1)
-	independent = TRUE
 
 ///////RADIO HEADSETS//////
 
