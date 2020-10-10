@@ -79,6 +79,8 @@ Repair
 	var/master_caution = FALSE //The big funny warning light on the dash.
 	var/list/components = list() //What does this fighter start off with? Use this to set what engine tiers and whatever it gets.
 	var/maintenance_mode = FALSE //Munitions level IDs can change this.
+	var/obj/item/radio/integrated_fighter/radio //Handling ATC connection
+	var/radio_key = /obj/item/encryptionkey/integrated_fighter //ATC channel
 
 /obj/structure/overmap/fighter/verb/show_control_panel()
 	set name = "Show control panel"
@@ -435,6 +437,7 @@ Repair
 	req_one_access = ACCESS_SYNDICATE
 	faction = "syndicate"
 	start_emagged = TRUE
+	radio_key = /obj/item/encryptionkey/syndicate
 /obj/structure/overmap/fighter/utility/syndicate //PVP MODE
 	name = "Syndicate Utility Vessel"
 	desc = "A boarding craft for rapid troop deployment."
@@ -442,6 +445,7 @@ Repair
 	req_one_access = ACCESS_SYNDICATE
 	faction = "syndicate"
 	start_emagged = TRUE
+	radio_key = /obj/item/encryptionkey/syndicate
 
 /obj/structure/overmap/fighter/Initialize(mapload, list/build_components=components)
 	. = ..()
@@ -467,6 +471,13 @@ Repair
 	set_fuel(rand(500, 1000))
 	if(start_emagged)
 		obj_flags ^= EMAGGED
+	radio = new(src)
+	radio.keyslot = new radio_key
+	radio.recalculateChannels()
+	if(faction == "syndicate")
+		radio.set_frequency(FREQ_SYNDICATE)
+	else
+		radio.set_frequency(FREQ_ATC)
 
 /obj/structure/overmap/fighter/attackby(obj/item/W, mob/user, params)
 	for(var/slot in loadout.equippable_slots)
@@ -1117,6 +1128,18 @@ If you need your hardpoint to be loaded with things by clicking the fighter
 	OM.cabin_air.adjust_moles(/datum/gas/oxygen, -refill_amount)
 	OM.cabin_air.adjust_moles(/datum/gas/nitrogen, -refill_amount)
 
+//Radio
+
+/obj/item/radio/integrated_fighter
+	name = "integrated fighter radio"
+	canhear_range = 1
+	broadcasting = FALSE
+	listening = FALSE
+	subspace_transmission = FALSE
+
+/obj/item/radio/fighter/emp_act(severity)
+	return
+
 //Construction only components
 
 /obj/item/fighter_component/avionics
@@ -1605,6 +1628,11 @@ Utility modules can be either one of these types, just ensure you set its slot t
 	if(engines_active())
 		use_fuel()
 		loadout.process()
+		radio.broadcasting = TRUE
+		radio.listening = TRUE
+	else
+		radio.broadcasting = FALSE
+		radio.listening = FALSE
 
 	var/obj/item/fighter_component/canopy/C = loadout.get_slot(HARDPOINT_SLOT_CANOPY)
 	if(!C || (C.obj_integrity <= 0)) //Leak air if the canopy is breached.

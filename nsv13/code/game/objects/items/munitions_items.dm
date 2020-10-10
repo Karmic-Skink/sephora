@@ -26,7 +26,7 @@
 	name = "fighter pilot radio encryption key"
 	icon = 'nsv13/icons/obj/custom_radio.dmi'
 	icon_state = "mun_cypherkey"
-	channels = list(RADIO_CHANNEL_ATC = 1, RADIO_CHANNEL_MUNITIONS = 1)
+	channels = list(RADIO_CHANNEL_MUNITIONS = 1)
 
 /obj/item/encryptionkey/heads/master_at_arms
 	name = "master at arms radio encryption key"
@@ -39,6 +39,12 @@
 	icon = 'nsv13/icons/obj/custom_radio.dmi'
 	icon_state = "mun_cypherkey"
 	channels = list(RADIO_CHANNEL_MUNITIONS = 1, RADIO_CHANNEL_SUPPLY = 1)
+
+/obj/item/encryptionkey/integrated_fighter
+	name = "integrated fighter radio encryption key"
+	icon = 'nsv13/icons/obj/custom_radio.dmi'
+	icon_state = "mun_cypherkey"
+	channels = list(RADIO_CHANNEL_ATC = 1)
 
 ///////RADIO HEADSETS//////
 
@@ -59,7 +65,7 @@
 
 /obj/item/radio/headset/munitions/pilot
 	name = "pilot radio headset"
-	desc = "A headset capable of accessing the Nanotrasen blue channel via a special DRADIS satellite uplink, allowing fighter pilots to communicate from anywhere inside of Nanotrasen's airspace. Use :q to access the air traffic control frequency. Use :w to access the department frequency while on the ship."
+	desc = "Use :w to access the department frequency while on the ship."
 	icon_state = "mun_headset"
 	keyslot = new /obj/item/encryptionkey/pilot
 
