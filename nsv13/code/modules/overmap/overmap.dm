@@ -101,6 +101,7 @@
 	var/obj/machinery/computer/ship/helm //Relay beeping noises when we act
 	var/obj/machinery/computer/ship/tactical
 	var/obj/machinery/computer/ship/dradis/dradis //So that pilots can check the radar easily
+	var/obj/machinery/telecomms/relay/preset/overmap/relay //The radio connection to other ships
 
 	// Ship weapons
 	var/list/weapon_types[MAX_POSSIBLE_FIREMODE]
@@ -289,6 +290,7 @@ Proc to spool up a new Z-level for a player ship and assign it a treadmill.
 
 	if(role == MAIN_OVERMAP)
 		name = "[station_name()]"
+		relay = new(src)
 	current_system = SSstar_system.find_system(src)
 	addtimer(CALLBACK(src, .proc/force_parallax_update), 20 SECONDS)
 	addtimer(CALLBACK(src, .proc/check_armour), 20 SECONDS)

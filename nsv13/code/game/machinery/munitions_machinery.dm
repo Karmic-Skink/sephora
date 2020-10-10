@@ -12,6 +12,11 @@
 	freq_listening = list(FREQ_ATC)
 	autolinkers = list("atc")
 
+/obj/machinery/telecomms/relay/preset/overmap
+	id = "Overmap Relay"
+	autolinkers = list("relay")
+	use_power = NO_POWER_USE
+
 //////SUIT STORAGE//////
 
 /obj/machinery/suit_storage_unit/pilot
