@@ -80,3 +80,16 @@
 	desc = "Use :w to access the department frequency. Use :u to access the supply frequency."
 	icon_state = "mun_headset"
 	keyslot = new /obj/item/encryptionkey/munitions_tech
+
+///////BOX////////
+
+/obj/item/storage/box/spare_munitions_keys
+	name = "Spare Munitions Radio Keys"
+
+/obj/item/storage/box/spare_munitions_keys/PopulateContents()
+	new /obj/item/radio/headset/munitions/pilot(src)
+	new /obj/item/radio/headset/munitions/munitions_tech(src)
+	new /obj/item/encryptionkey/atc(src)
+	new /obj/item/encryptionkey/pilot(src)
+	new /obj/item/encryptionkey/pilot(src)
+	new /obj/item/encryptionkey/munitions_tech(src)

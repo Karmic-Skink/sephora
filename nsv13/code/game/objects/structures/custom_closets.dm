@@ -18,6 +18,7 @@
 	new /obj/item/clothing/head/ship/maa_hat(src)
 	new /obj/item/pet_carrier(src)
 	new /obj/item/clothing/neck/petcollar(src)
+	new /obj/item/storage/box/spare_munitions_keys(src)
 
 /obj/structure/closet/secure_closet/munitions_technician
 	name = "munitions technician's locker"
@@ -118,3 +119,6 @@
 	icon = 'nsv13/icons/obj/custom_closets.dmi'
 	icon_state = "definitelynotpuce"
 	anchored = FALSE
+
+/obj/machinery/suit_storage_unit/master_at_arms
+	suit_type = /obj/item/clothing/suit/space/hardsuit/master_at_arms

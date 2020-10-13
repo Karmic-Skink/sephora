@@ -487,6 +487,42 @@
 	icon_state = "maa_hat"
 	item_state = "maa_hat"
 
+/obj/item/clothing/head/helmet/space/hardsuit/master_at_arms
+	name = "bomb hood"
+	desc = "Use in case of bomb."
+	icon = 'nsv13/icons/obj/clothing/hats.dmi'
+	alternate_worn_icon = 'nsv13/icons/mob/head.dmi'
+	icon_state = "hardsuit1-peacekeeper_space"
+	item_state = "peacekeeper_space"
+	item_color = "peacekeeper_space"
+	clothing_flags = THICKMATERIAL | SNUG_FIT
+	armor = list("melee" = 20, "bullet" = 20, "laser" = 20,"energy" = 10, "bomb" = 100, "bio" = 0, "rad" = 0, "fire" = 80, "acid" = 50)
+	flags_inv = HIDEFACE|HIDEMASK|HIDEEARS|HIDEEYES|HIDEHAIR|HIDEFACIALHAIR
+	cold_protection = HEAD
+	min_cold_protection_temperature = HELMET_MIN_TEMP_PROTECT
+	heat_protection = HEAD
+	max_heat_protection_temperature = HELMET_MAX_TEMP_PROTECT
+	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH | PEPPERPROOF
+
+/obj/item/clothing/suit/space/hardsuit/master_at_arms
+	name = "bomb suit"
+	desc = "A suit designed for safety when handling explosives."
+	icon = 'nsv13/icons/obj/clothing/suits.dmi'
+	alternate_worn_icon = 'nsv13/icons/mob/suit.dmi'
+	icon_state = "syndicate-space"
+	item_state = "syndicate-space"
+	item_color = "syndicate-space"
+	clothing_flags = THICKMATERIAL
+	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	slowdown = 2
+	armor = list("melee" = 20, "bullet" = 20, "laser" = 20,"energy" = 10, "bomb" = 100, "bio" = 0, "rad" = 0, "fire" = 80, "acid" = 50)
+	flags_inv = HIDEJUMPSUIT
+	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	max_heat_protection_temperature = ARMOR_MAX_TEMP_PROTECT
+	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	min_cold_protection_temperature = ARMOR_MIN_TEMP_PROTECT
+	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/master_at_arms
+
 /obj/item/clothing/under/ship/syndicate_tech
 	name = "Syndicate technician jumpsuit"
 	desc = "A jumpsuit worn by Syndicate technicians, it's been armour plated to protect the wearer in combat scenarios."
