@@ -872,8 +872,15 @@ GLOBAL_LIST_EMPTY(ai_goals)
 	next_boarding_attempt = world.time + 5 MINUTES //We very rarely try to board.
 	if(SSphysics_processing.next_boarding_time <= world.time)
 		SSphysics_processing.next_boarding_time = world.time + 30 MINUTES
-		ship.spawn_boarders()
-		return TRUE
+		if(faction == "syndicate")
+			ship.spawn_syndicate_boarders()
+			return TRUE
+		else if(faction == "pirate")
+			ship.spawn_pirate_boarders()
+			return TRUE
+		else
+			message_admins("<span class='warning'>Error: [src] of [src.faction] does not have a valid boarding faction.</span>")
+			return FALSE
 	return FALSE
 
 /obj/structure/overmap/proc/add_enemy(atom/target)

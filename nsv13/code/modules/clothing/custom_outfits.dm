@@ -127,3 +127,21 @@
 	r_pocket = /obj/item/lighter
 	back = /obj/item/storage/backpack/satchel
 	id = /obj/item/card/id
+
+
+//Space Pirate
+
+/datum/outfit/spacepirate/boarder
+	name = "Space Pirate Raider"
+	name = "Syndicate Soldier - Drop Trooper"
+	suit = /obj/item/clothing/suit/space/pirate
+	head = /obj/item/clothing/head/helmet/space/pirate/bandana
+	back = null
+	belt = null
+	gloves = null
+	mask = /obj/item/clothing/mask/gas
+	ears = null
+	id = null
+	l_pocket = /obj/item/tank/internals/emergency_oxygen/double
+	r_pocket = null
+	backpack_contents = list()

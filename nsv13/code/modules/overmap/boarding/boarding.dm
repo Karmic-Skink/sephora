@@ -55,7 +55,7 @@ GLOBAL_LIST_INIT(drop_trooper_teams, list("Noble", "Helljumper","Red", "Black", 
 		var/mob/living/victim = pick(operatives)
 		start_piloting(victim, "all_positions")
 
-/obj/structure/overmap/proc/spawn_boarders(amount)
+/obj/structure/overmap/proc/spawn_syndicate_boarders(amount)
 	if(!linked_areas.len)
 		return FALSE
 	if(!amount)
@@ -90,6 +90,46 @@ GLOBAL_LIST_INIT(drop_trooper_teams, list("Noble", "Helljumper","Red", "Black", 
 		log_game("[key_name(H)] became a syndicate drop trooper.")
 		message_admins("[ADMIN_LOOKUPFLW(H)] became a syndicate drop trooper.")
 		to_chat(H, "<span class='danger'>You are a syndicate drop trooper! Cripple [station_name()] to the best of your ability, by any means you see fit. You have been given some objectives to guide you in the pursuit of this goal.")
+		operatives += H
+	new /obj/structure/overmap/fighter/utility/prebuilt/carrier/syndicate/boarding(target, operatives, team_name)
+	relay('nsv13/sound/effects/ship/boarding_pod.ogg', "<span class='userdanger'>You can hear several tethers attaching to the ship.</span>")
+	return TRUE
+
+/obj/structure/overmap/proc/spawn_pirate_boarders(amount)
+	if(!linked_areas.len)
+		return FALSE
+	if(!amount)
+		amount = rand(2,4)
+	var/list/zs = list()
+	for(var/datum/space_level/SL in occupying_levels)
+		zs += SL.z_value
+	var/turf/target = get_turf(pick(docking_points))
+	if(!target)
+		message_admins("Failed to spawn boarders for [name], does it have an interior?")
+		return FALSE //Cut off here to avoid polling people for a spawn that will never work.
+	var/list/candidates = pollCandidatesForMob("Do you want to play as a Space Pirate raider?", ROLE_OPERATIVE, null, ROLE_OPERATIVE, 10 SECONDS, src)
+	if(!LAZYLEN(candidates))
+		return FALSE
+	var/list/operatives = list()
+	var/team_name = pick_n_take(GLOB.drop_trooper_teams)
+	for(var/I = 0, I < amount, I++)
+		if(!LAZYLEN(candidates))
+			break
+		var/mob/dead/observer/C = pick_n_take(candidates)
+		var/mob/living/carbon/human/H = new(target)
+		H.equipOutfit(/datum/outfit/spacepirate/boarder)
+		H.key = C.key
+		if(team_name) //If there is an available "team name", give them a callsign instead of a placeholder name
+			var/callsign = I
+			if(callsign <= 0)
+				callsign = "Lead"
+			else
+				callsign = num2text(callsign)
+			H.fully_replace_character_name(H.real_name, "[team_name]-[callsign]")
+			H.mind.add_antag_datum(/datum/antagonist/traitor/boarder)
+		log_game("[key_name(H)] became a Space Pirate raider.")
+		message_admins("[ADMIN_LOOKUPFLW(H)] became a Space Pirate raider.")
+		to_chat(H, "<span class='danger'>You are a Space Pirate raider! ")
 		operatives += H
 	new /obj/structure/overmap/fighter/utility/prebuilt/carrier/syndicate/boarding(target, operatives, team_name)
 	relay('nsv13/sound/effects/ship/boarding_pod.ogg', "<span class='userdanger'>You can hear several tethers attaching to the ship.</span>")
