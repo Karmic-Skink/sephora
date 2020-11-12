@@ -29,13 +29,14 @@ GLOBAL_LIST_INIT(drop_trooper_teams, list("Noble", "Helljumper","Red", "Black", 
 
 //God I love abusing OOP. This is disgusting.
 
-/obj/structure/overmap/fighter/utility/prebuilt/carrier/syndicate/boarding
+/obj/structure/overmap/fighter/utility/boarding
 
 //MASSIVE TODO: Rewrite all of this shit.
 
-/obj/structure/overmap/fighter/utility/prebuilt/carrier/syndicate/boarding/Initialize(mapload, operatives, teamName)
+/obj/structure/overmap/fighter/utility/boarding/Initialize(mapload, operatives, teamName, factionSelection)
 	. = ..()
 	name = (teamName) ? "[teamName] squad boarding craft" : name
+	faction = factionSelection
 	//flight_state = 6
 	toggle_canopy()
 	var/found_pilot = FALSE
@@ -55,7 +56,7 @@ GLOBAL_LIST_INIT(drop_trooper_teams, list("Noble", "Helljumper","Red", "Black", 
 		var/mob/living/victim = pick(operatives)
 		start_piloting(victim, "all_positions")
 
-/obj/structure/overmap/proc/spawn_boarders(amount)
+/obj/structure/overmap/proc/spawn_boarders(amount, faction_selection)
 	if(!linked_areas.len)
 		return FALSE
 	if(!amount)
@@ -98,6 +99,6 @@ GLOBAL_LIST_INIT(drop_trooper_teams, list("Noble", "Helljumper","Red", "Black", 
 		message_admins("[ADMIN_LOOKUPFLW(H)] became a syndicate drop trooper.")
 		to_chat(H, "<span class='danger'>You are a syndicate drop trooper! Cripple [station_name()] to the best of your ability, by any means you see fit. You have been given some objectives to guide you in the pursuit of this goal.")
 		operatives += H
-	new /obj/structure/overmap/fighter/utility/prebuilt/carrier/syndicate/boarding(target, operatives, team_name)
+	new /obj/structure/overmap/fighter/utility/boarding(target, operatives, team_name, faction_selection)
 	relay('nsv13/sound/effects/ship/boarding_pod.ogg', "<span class='userdanger'>You can hear several tethers attaching to the ship.</span>")
 	return TRUE
