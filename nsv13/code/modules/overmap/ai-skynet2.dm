@@ -468,7 +468,7 @@ GLOBAL_LIST_EMPTY(ai_goals)
 
 /datum/fleet/pirate/scout
 	name = "Space pirate scout fleet"
-	audio_cues = list("https://www.youtube.com/watch?v=WMSoo4B2hFU", "https://www.youtube.com/watch?v=dsLHf9X8P8w") //first link is dead
+	audio_cues = list("https://www.youtube.com/watch?v=LjhF3yIeDSc", "https://www.youtube.com/watch?v=dsLHf9X8P8w")
 	taunts = list("Yar har! Fresh meat", "Unfurl the mainsails! We've got company", "Die landlubbers!")
 	size = FLEET_DIFFICULTY_MEDIUM
 	fleet_trait = FLEET_TRAIT_DEFENSE
@@ -476,14 +476,14 @@ GLOBAL_LIST_EMPTY(ai_goals)
 /datum/fleet/pirate/raiding
 	name = "Space pirate raiding fleet"
 	destroyer_types = list(/obj/structure/overmap/spacepirate/ai, /obj/structure/overmap/spacepirate/ai/boarding)
-	audio_cues = list("https://www.youtube.com/watch?v=WMSoo4B2hFU", "https://www.youtube.com/watch?v=dsLHf9X8P8w") //first link is dead
+	audio_cues = list("https://www.youtube.com/watch?v=LjhF3yIeDSc", "https://www.youtube.com/watch?v=dsLHf9X8P8w")
 	taunts = list("Yar har! Fresh meat", "Unfurl the mainsails! We've got company", "Die landlubbers!")
 	size = FLEET_DIFFICULTY_MEDIUM
 
 /datum/fleet/pirate/tortuga
 	name = "Space pirate holding fleet"
 	supply_types = list(/obj/structure/overmap/spacepirate/ai/dreadnought)
-	audio_cues = list("https://www.youtube.com/watch?v=WMSoo4B2hFU", "https://www.youtube.com/watch?v=dsLHf9X8P8w") //first link is dead
+	audio_cues = list("https://www.youtube.com/watch?v=LjhF3yIeDSc", "https://www.youtube.com/watch?v=dsLHf9X8P8w")
 	taunts = list("Yar har! Fresh meat", "Unfurl the mainsails! We've got company", "Die landlubbers!")
 	size = FLEET_DIFFICULTY_VERY_HARD
 	fleet_trait = FLEET_TRAIT_DEFENSE
