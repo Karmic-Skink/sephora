@@ -30,6 +30,7 @@ GLOBAL_LIST_INIT(drop_trooper_teams, list("Noble", "Helljumper","Red", "Black", 
 //God I love abusing OOP. This is disgusting.
 
 /obj/structure/overmap/fighter/utility/boarding
+	req_one_access = ACCESS_SYNDICATE
 
 //MASSIVE TODO: Rewrite all of this shit.
 
