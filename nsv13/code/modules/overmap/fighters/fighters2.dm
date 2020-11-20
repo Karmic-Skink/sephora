@@ -1714,3 +1714,10 @@ Utility modules can be either one of these types, just ensure you set its slot t
 /obj/structure/overmap/fighter/proc/toggle_canopy()
 	canopy_open = !canopy_open
 	playsound(src, 'nsv13/sound/effects/fighters/canopy.ogg', 100, 1)
+
+/obj/structure/overmap/fighter/Destroy()
+	if(!istype(src, /obj/structure/overmap/fighter/escapepod))
+		var/obj/structure/overmap/fighter/escapepod/EP = new /obj/structure/overmap/fighter/escapepod(src)
+		for(var/mob/M in src.contents)
+			M.forceMove(EP)
+	.=..()
