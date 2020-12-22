@@ -115,7 +115,7 @@
 	. = ..()
 	icon_state = "launcher"
 	linkup()
-	addtimer(CALLBACK(src, .proc/linkup), 15 SECONDS)//Just in case we're not done initializing
+	addtimer(CALLBACK(src, .proc/linkup), 45 SECONDS)//Just in case we're not done initializing
 
 /obj/structure/overmap/fighter/can_brake()
 	if(mag_lock)
@@ -264,9 +264,7 @@
 		if(last_overmap)
 			OM = last_overmap
 		else
-			for(var/obj/structure/overmap/O in GLOB.overmap_objects)
-				if(O.role == MAIN_OVERMAP)
-					OM = O
+			OM = get_overmap()
 		if(!OM)
 			return FALSE
 		var/saved_layer = layer
@@ -291,17 +289,16 @@
 	last_overmap = get_overmap()
 
 /obj/structure/overmap/fighter/proc/docking_act(obj/structure/overmap/OM)
-	var/obj/item/fighter_component/docking_computer/DC = loadout.get_slot(HARDPOINT_SLOT_DOCKING)
-	if(mass < OM.mass && OM.docking_points.len && DC?.docking_mode) //If theyre smaller than us,and we have docking points, and they want to dock
+	if(mass < OM.mass) //If theyre smaller than us,and we have docking points, and they want to dock
 		return transfer_from_overmap(OM)
 	else
 		return FALSE
 
 /obj/structure/overmap/fighter/proc/transfer_from_overmap(obj/structure/overmap/OM)
 	var/obj/item/fighter_component/docking_computer/DC = loadout.get_slot(HARDPOINT_SLOT_DOCKING)
-	if(!DC || DC.docking_cooldown)
+	if(!DC || DC.docking_cooldown ||!DC.docking_mode|| !OM.occupying_levels?.len)
 		return FALSE
-	if(OM.docking_points.len)
+	if(OM.docking_points?.len)
 		enemies = list() //Reset RWR warning.
 		last_overmap = OM
 		DC.docking_cooldown = TRUE
@@ -319,4 +316,6 @@
 			to_chat(pilot, "<span class='notice'>Docking complete. <b>Gun safeties have been engaged automatically.</b></span>")
 		SEND_SIGNAL(src, COMSIG_FTL_STATE_CHANGE)
 		return TRUE
+	else
+		to_chat(pilot, "<span class='notice'>Warning: Target ship has no docking points. </span>")
 	return FALSE

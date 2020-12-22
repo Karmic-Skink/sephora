@@ -13,7 +13,7 @@
 
 #define RBMK_MAX_CRITICALITY 3 //No more criticality than N for now.
 
-#define RBMK_POWER_FLAVOURISER 1000 //To turn those KWs into something usable
+#define RBMK_POWER_FLAVOURISER 8000 //To turn those KWs into something usable
 
 //Math. Lame.
 #define KPA_TO_PSI(A) (A/6.895)
@@ -89,6 +89,13 @@ The reactor CHEWS through moderator. It does not do this slowly. Be very careful
 			SEND_SOUND(L, sound(looping_ambience, repeat = 1, wait = 0, volume = 100, channel = CHANNEL_BUZZ))
 			L.client.last_ambience = looping_ambience
 	return TRUE
+
+/obj/item/book/manual/wiki/rbmk
+	name = "Haynes nuclear reactor owner's manual"
+	icon_state ="bookEngineering2"
+	author = "CogWerk Engineering Reactor Design Department"
+	title = "Haynes nuclear reactor owner's manual"
+	page_link = "Guide_to_the_Nuclear_Reactor"
 
 /obj/machinery/atmospherics/components/trinary/nuclear_reactor
 	name = "Advanced Gas-Cooled Nuclear Reactor"
@@ -315,7 +322,6 @@ The reactor CHEWS through moderator. It does not do this slowly. Be very careful
 	//Then, hit as much of that goal with our cooling per tick as we possibly can.
 	difference = CLAMP(difference, 0, control_rod_effectiveness) //And we can't instantly zap the K to what we want, so let's zap as much of it as we can manage....
 	if(difference > fuel_power && desired_k > K)
-		message_admins("Not enough fuel to get [difference]. We have fuel [fuel_power]")
 		difference = fuel_power //Again, to stop you being able to run off of 1 fuel rod.
 	if(K != desired_k)
 		if(desired_k > K)
@@ -452,6 +458,7 @@ The reactor CHEWS through moderator. It does not do this slowly. Be very careful
 	T.assume_air(coolant_output)
 	explosion(get_turf(src), 0, 5, 10, 20, TRUE, TRUE)
 	empulse(get_turf(src), 25, 15)
+	fail_meltdown_objective()
 
 //Failure condition 2: Blowout. Achieved by reactor going over-pressured. This is a round-ender because it requires more fuckery to achieve.
 /obj/machinery/atmospherics/components/trinary/nuclear_reactor/proc/blowout()
@@ -466,6 +473,15 @@ The reactor CHEWS through moderator. It does not do this slowly. Be very careful
 			var/obj/effect/landmark/nuclear_waste_spawner/WS = X
 			if(shares_overmap(src, WS)) //Begin the SLUDGING
 				WS.fire()
+
+/obj/machinery/atmospherics/components/trinary/nuclear_reactor/proc/fail_meltdown_objective()
+	for(var/client/C in GLOB.clients)
+		if(C)
+			if(CONFIG_GET(flag/allow_crew_objectives))
+				var/mob/M = C.mob
+				if(M?.mind?.current && LAZYLEN(M.mind.crew_objectives) && (M.job == "Station Engineer" || M.job == "Chief Engineer" || M.job == "Atmospheric Technician"))
+					for(var/datum/objective/crew/meltdown/MO in M.mind.crew_objectives)
+						MO.meltdown = TRUE
 
 /obj/machinery/atmospherics/components/trinary/nuclear_reactor/update_icon()
 	icon_state = "reactor_off"
@@ -517,7 +533,7 @@ The reactor CHEWS through moderator. It does not do this slowly. Be very careful
 	var/depletion = 0 //Each fuel rod will deplete in around 30 minutes.
 	var/fuel_power = 0.10
 
-/obj/item/fuel_rod/proc/deplete(amount=0.035)
+/obj/item/fuel_rod/proc/deplete(amount=0.015)
 	depletion += amount
 	if(depletion >= 100)
 		fuel_power = 0.20
@@ -538,6 +554,9 @@ The reactor CHEWS through moderator. It does not do this slowly. Be very careful
 /obj/machinery/computer/reactor
 	name = "Reactor control console"
 	desc = "Scream"
+	light_color = "#55BA55"
+	light_power = 1
+	light_range = 3
 	icon_state = "oldcomp"
 	icon_screen = "library"
 	icon_keyboard = null

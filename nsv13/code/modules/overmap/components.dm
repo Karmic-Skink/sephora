@@ -34,6 +34,8 @@ GLOBAL_LIST_INIT(computer_beeps, list('nsv13/sound/effects/computer/beep.ogg','n
 /obj/machinery/computer/ship/proc/has_overmap()
 	var/obj/structure/overmap/OM = get_overmap()
 	linked = OM
+	if(OM)
+		set_position(OM)
 	return linked
 
 /obj/machinery/computer/ship/proc/set_position(obj/structure/overmap/OM)
@@ -131,6 +133,8 @@ GLOBAL_LIST_INIT(computer_beeps, list('nsv13/sound/effects/computer/beep.ogg','n
 		return
 	ui_interact(user)
 	playsound(src, 'nsv13/sound/effects/computer/startup.ogg', 75, 1)
+	if(linked.gunner && !linked.gunner.client)
+		linked.stop_piloting(linked.gunner)
 	if(!linked.gunner && isliving(user))
 		return linked.start_piloting(user, position)
 
@@ -262,6 +266,7 @@ GLOBAL_LIST_INIT(computer_beeps, list('nsv13/sound/effects/computer/beep.ogg','n
 	desc = "A large CRT monitor which shows an exterior view of the ship."
 	icon = 'nsv13/icons/obj/computers.dmi'
 	icon_state = "viewscreen"
+	idle_power_usage = 15
 	mouse_over_pointer = MOUSE_HAND_POINTER
 	pixel_y = 26
 	density = FALSE
@@ -388,7 +393,7 @@ GLOBAL_LIST_INIT(computer_beeps, list('nsv13/sound/effects/computer/beep.ogg','n
 			qdel(current_beam)
 			current_beam = null
 		radio.talk_into(src, "Salvage armatures retracted. Aborting salvage operations.", radio_channel)
-		salvage_target.explode() //Ship loses stability. It's literally just us that's holding it together.
+//		salvage_target.explode() //Ship loses stability. It's literally just us that's holding it together.
 		UnregisterSignal(linked, COMSIG_MOVABLE_MOVED, .proc/update_salvage_target)
 		salvage_target = null
 
