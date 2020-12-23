@@ -24,10 +24,9 @@
 	id = /obj/item/card/id/prisoner
 
 /datum/outfit/syndicate/odst
-	name = "Syndicate Soldier - Drop Trooper"
+	name = "Syndicate Boarder - Null Kit"
 	suit = /obj/item/clothing/suit/space/syndicate/odst
 	head = /obj/item/clothing/head/helmet/space/syndicate/odst
-	back = /obj/item/storage/backpack/duffelbag/syndie/c20rbundle
 	belt = /obj/item/storage/belt/utility/syndicate
 	gloves = /obj/item/clothing/gloves/combat
 	mask = /obj/item/clothing/mask/gas/syndicate
@@ -35,8 +34,22 @@
 	id = /obj/item/card/id/syndicate
 	l_pocket = /obj/item/tank/internals/emergency_oxygen/double
 	r_pocket = /obj/item/gun/ballistic/automatic/pistol/APS
-	backpack_contents = list(/obj/item/storage/box/syndie=1,/obj/item/kitchen/knife/combat/survival=1, /obj/item/ammo_box/magazine/smgm45=1, /obj/item/ammo_box/magazine/smgm45=1)
 	tc = 0
+
+/datum/outfit/syndicate/odst/smg
+	name = "Syndicate Boarder - SMG Kit"
+	back = /obj/item/storage/backpack/duffelbag/syndie/c20rbundle
+	backpack_contents = list(/obj/item/storage/box/syndie=1,/obj/item/kitchen/knife/combat/survival=1, /obj/item/ammo_box/magazine/smgm45=1)
+
+/datum/outfit/syndicate/odst/shotgun
+	name = "Syndicate Boarder - Shotgun Kit"
+	back = /obj/item/storage/backpack/duffelbag/syndie/bulldogbundle
+	backpack_contents = list(/obj/item/storage/box/syndie=1,/obj/item/kitchen/knife/combat/survival=1, /obj/item/grenade/flashbang=1)
+
+/datum/outfit/syndicate/odst/medic
+	name = "Syndicate Boarder - Medic Kit"
+	back = /obj/item/storage/backpack/duffelbag/syndie/med/medicalbundle
+	backpack_contents = list(/obj/item/storage/box/syndie=1,/obj/item/kitchen/knife/combat/survival=1, /obj/item/ammo_box/magazine/pistolm9mm=1)
 
 /obj/item/storage/box/hug/clown_uniform
 	name = "Clown's formal attire"
@@ -127,3 +140,26 @@
 	r_pocket = /obj/item/lighter
 	back = /obj/item/storage/backpack/satchel
 	id = /obj/item/card/id
+
+//ERT+ - Direct Spawn Only
+
+/datum/outfit/ert/engineer/plus
+	name = "ERT Engineer+"
+
+	id = /obj/item/card/id/ert/Engineer
+	suit = /obj/item/clothing/suit/space/hardsuit/ert/engi
+	glasses =  /obj/item/clothing/glasses/meson/engine
+	back = /obj/item/storage/backpack/ert/engineer
+	belt = /obj/item/storage/belt/utility/full
+	mask = /obj/item/clothing/mask/gas
+	suit_store = /obj/item/tank/internals/oxygen
+	internals_slot = SLOT_S_STORE
+	l_pocket = /obj/item/modular_computer/tablet/preset/advanced
+	r_pocket = /obj/item/geiger_counter
+	backpack_contents = list(/obj/item/storage/box/engineer=1,\
+		/obj/item/melee/baton/loaded=1,\
+		/obj/item/storage/firstaid/medical=1,\
+		/obj/item/analyzer=1,\
+		/obj/item/construction/rcd/loaded=1,\
+		/obj/item/rcd_ammo/large=1,\
+		/obj/item/inducer=1)

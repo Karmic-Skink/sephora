@@ -86,20 +86,32 @@ GLOBAL_LIST_INIT(drop_trooper_teams, list("Noble", "Helljumper","Red", "Black", 
 			break
 		var/mob/dead/observer/C = pick_n_take(candidates)
 		var/mob/living/carbon/human/H = new(target)
-		H.equipOutfit(/datum/outfit/syndicate/odst)
+		//H.equipOutfit(/datum/outfit/syndicate/odst)
 		H.key = C.key
 		if(team_name) //If there is an available "team name", give them a callsign instead of a placeholder name
 			var/callsign = I
 			if(callsign <= 0)
-				callsign = "Lead"
+				if(faction_selection == "syndicate")
+					callsign = "Lead"
+					H.equipOutfit(/datum/outfit/syndicate/odst/smg)
 			else
-				callsign = num2text(callsign)
+				//callsign = num2text(callsign)
+				var/list/syndi_kits = list(/datum/outfit/syndicate/odst/smg, /datum/outfit/syndicate/odst/shotgun, /datum/outfit/syndicate/odst/medic)
+				var/list/pirate_kits = list()
+				var/kit = null
+				if(faction_selection == "syndicate")
+					kit = pick(syndi_kits)
+					callsign = num2text(callsign)
+				else if(faction_selection == "pirate")
+					kit = pick(pirate_kits)
+				H.equipOutfit(kit)
 			H.fully_replace_character_name(H.real_name, "[team_name]-[callsign]")
 			H.mind.add_antag_datum(/datum/antagonist/traitor/boarder)
 		log_game("[key_name(H)] became a syndicate drop trooper.")
 		message_admins("[ADMIN_LOOKUPFLW(H)] became a syndicate drop trooper.")
 		to_chat(H, "<span class='danger'>You are a syndicate drop trooper! Cripple [station_name()] to the best of your ability, by any means you see fit. You have been given some objectives to guide you in the pursuit of this goal.")
 		operatives += H
-	new /obj/structure/overmap/fighter/utility/boarding(target, operatives, team_name, faction_selection)
+	var/obj/structure/overmap/fighter/utility/boarding/B = new /obj/structure/overmap/fighter/utility/boarding(target, operatives, team_name, faction_selection)
+	B.foo()
 	relay('nsv13/sound/effects/ship/boarding_pod.ogg', "<span class='userdanger'>You can hear several tethers attaching to the ship.</span>")
 	return TRUE
