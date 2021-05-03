@@ -4,17 +4,32 @@ import { Box, Button, Section, ProgressBar, Slider, Chart, Flex, LabeledList } f
 import { Window } from '../layouts';
 import { toFixed } from 'common/math';
 
-export const PDSRManipulator = (props, context) => {
+export const PDSRMainframe = (props, context) => {
   const { act, data } = useBackend(context);
   const { records } = data;
   const r_reaction_polarityData = records.r_reaction_polarity.map((value, i) => [i, value]);
   const r_reaction_containmentData = records.r_reaction_containment.map((value, i) => [i, value]);
+  if (data.silicon) {
+    return (
+      <Window
+        resizable
+        theme="ntos"
+        width={400}
+        height={400}>
+        <Window.Content>
+          <Section title="Nanotrasen P.A.W.Sible Deniability Filter - ENABLED">
+            <img src={data.chosenKitty} style={{ maxWidth: '400px', width: '100%', maxHeight: '400px', height: '100%' }} />
+          </Section>
+        </Window.Content>
+      </Window>
+    );
+  }
   return (
     <Window
       resizable
       theme="ntos"
-      width={800}
-      height={400}>
+      width={700}
+      height={450}>
       <Window.Content scrollable>
         <Section>
           <Section title="Reactor Containment Statistics">
@@ -37,7 +52,7 @@ export const PDSRManipulator = (props, context) => {
                     fillColor="rgba(255, 0, 0, 0)" />
                 </Section>
               </Flex.Item>
-              <Flex.Item width="300px">
+              <Flex.Item width="280px">
                 <Section>
                   <LabeledList>
                     <LabeledList.Item label="Reaction Polarity">
@@ -50,18 +65,28 @@ export const PDSRManipulator = (props, context) => {
                     <LabeledList.Item label="Injection Polarity">
                       <Button
                         fluid
-                        icon={data.r_polarity_injection ? "minus-circle" : "plus-circle"}
-                        color={data.r_polarity_injection ? "black" : "white"}
-                        content={data.r_polarity_injection ? "Negative" : "Positive"}
+                        icon={data.r_polarity_injection ? "plus-circle" : "minus-circle"}
+                        color={data.r_polarity_injection ? "white" : "black"}
+                        content={data.r_polarity_injection ? "Positive" : "Negative"}
                         onClick={() => act('polarity')}
                       />
                     </LabeledList.Item>
-                    <LabeledList.Item label="Reaction Contaiment">
+                    <LabeledList.Item label="Reaction Containment">
                       <ProgressBar
                         value={data.r_containment}
                         minValue={0}
                         maxValue={100}
                         colour="red" />
+                    </LabeledList.Item>
+                    <LabeledList.Item label="Status">
+                      <Button
+                        fluid
+                        icon={"react"}
+                        color={data.r_state ? "average" : "bad"}
+                        content={data.r_state ? "Active" : "Idle - Ignite?"}
+                        enabled={data.r_state <= 1}
+                        onClick={() => act('ignition')}
+                      />
                     </LabeledList.Item>
                   </LabeledList>
                 </Section>
@@ -95,7 +120,7 @@ export const PDSRManipulator = (props, context) => {
             <ProgressBar
               value={data.r_reaction_rate}
               minValue={0}
-              maxValue={50}
+              maxValue={25}
               color="primary" />
             Screen Capacity:
             <ProgressBar

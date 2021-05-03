@@ -1,6 +1,8 @@
 //FOR NT EYES ONLY
 //Mk1 Prototype Defence Screen Reactor
 
+#define CATS list("https://www.sciencemag.org/sites/default/files/styles/article_main_large/public/cat_1280p_0.jpg?itok=MFUV0a-t", "https://cdn.britannica.com/91/181391-050-1DA18304/cat-toes-paw-number-paws-tiger-tabby.jpg", "https://ychef.files.bbci.co.uk/976x549/p07ryyyj.jpg")
+
 #define REACTOR_STATE_IDLE 1
 #define REACTOR_STATE_INITIALIZING 2
 #define REACTOR_STATE_RUNNING 3
@@ -18,10 +20,12 @@
 	anchored = TRUE
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | FREEZE_PROOF
 	light_color = LIGHT_COLOR_BLOOD_MAGIC //Dark Red
-	dir = 8 //gotta pick a direction
+	dir = 4
 	var/state = REACTOR_STATE_IDLE
 	var/current_uptime = 0 //How long the PDSR has been running
 	var/next_slowprocess = 0 //We don't need to fire more than once a second
+	var/next_alarm_sfx = 0 //Time until next alarm SFX firing
+	var/next_alarm_message = 0 //Time until next alarm message firing
 
 	//Reactor Vars
 	var/id = null
@@ -38,6 +42,7 @@
 	var/reaction_injection_rate = 0 //Rate at which we are injecting nucleium in moles
 	var/reaction_min_rate = 0 //Minimum rate at which nucleium can be injected in moles
 	var/reaction_energy_output = 0 //How much energy we are producing for the !shields
+	var/obj/structure/cable/C = null
 
 	//!Shield Vars
 	var/list/shield = list("integrity" = 0, "max_integrity" = 0, "stability" = 0)
@@ -65,6 +70,12 @@
 	if(!ours)
 		addtimer(CALLBACK(src, .proc/try_find_overmap), 20 SECONDS)
 
+	records["r_power_input"] = list()
+	records["r_min_power_input"] = list()
+	records["r_max_power_input"] = list()
+	records["r_reaction_polarity"] = list()
+	records["r_reaction_containment"] = list()
+
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/try_find_overmap()
 	var/obj/structure/overmap/ours = get_overmap()
 	ours?.shields = src
@@ -74,16 +85,10 @@
 
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/try_use_power(amount)
 	var/turf/T = get_turf(src)
-	var/obj/structure/cable/C = T.get_cable_node()
-	if(C)
-		if(!C.powernet)
-			return FALSE
-		var/power_in_net = C.powernet.avail-C.powernet.load
-
-		if(power_in_net && power_in_net > amount)
-			C.powernet.load += amount
-			return TRUE
-		return FALSE
+	C = T.get_cable_node()
+	if(C?.surplus() > amount)
+		C.powernet.load += amount
+		return TRUE
 	return FALSE
 
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/process()
@@ -103,19 +108,41 @@
 	if(state <= REACTOR_STATE_EMISSION)
 		handle_relays()
 
-	if(state == REACTOR_STATE_INITIALIZING || state == REACTOR_STATE_RUNNING)
-		current_uptime ++ //Keep a log of how long we've been running
-		handle_containment()
-
 	if(state == REACTOR_STATE_INITIALIZING)
+		if(power_input < min_power_input)
+			say("Error: Unable to initialise reaction, insufficient power available.")
+			state = REACTOR_STATE_IDLE
+			return
+
+		current_uptime ++
+		reaction_containment += 5
 		if(reaction_containment >= 100)
+			reaction_containment = 100
+			if(reaction_injection_rate < 5)
+				say("Error: Unable to initialise reaction, insufficient nucleium injection.")
+				reaction_containment = 0
+				current_uptime = 0
+				state = REACTOR_STATE_IDLE
+				return
+
+			if(nuc_in < reaction_min_rate)
+				say("Error: Unable to initialise reaction, insufficient nucleium available.")
+				reaction_containment = 0
+				current_uptime = 0
+				state = REACTOR_STATE_IDLE
+				return
+
+			var/errors = rand(20, 200)
+			say("Initiating Reaction - Injecting Nucleium.")
+			say("Reaction Initialized - [errors] runtimes supressed.")
+			reaction_temperature = 100 //Flash start to 100
 			state = REACTOR_STATE_RUNNING
 
 	if(state == REACTOR_STATE_RUNNING)
 		if(nuc_in >= reaction_min_rate) //If we are running in nominal conditions...
 			nucleium_input.adjust_moles(/datum/gas/nucleium, -reaction_injection_rate)
 			//Handle reaction rate adjustments here
-			var/target_reaction_rate = (0.5 + (1e-03 * (reaction_injection_rate ** 2))) + (current_uptime / 1000)
+			var/target_reaction_rate = ((0.5 + (1e-03 * (reaction_injection_rate ** 2))) + (current_uptime / 1000)) * 16
 			var/delta_reaction_rate = target_reaction_rate - reaction_rate
 			reaction_rate += delta_reaction_rate / 2 //Function goes here
 			reaction_temperature += reaction_rate //Function goes
@@ -143,10 +170,9 @@
 				handle_polarity() //??
 
 			else //...and has some nucleium but not sufficient nucleium for a stable reaction
-				var/bingo = nuc_in
-				nucleium_input.adjust_moles(/datum/gas/nucleium, -reaction_injection_rate) //Use whatever is in there
+				nucleium_input.adjust_moles(/datum/gas/nucleium, -nuc_in) //Use whatever is in there
 				//Handle reaction rate adjustments here WITH PENALTIES
-				var/target_reaction_rate = (0.5 + (1e-03 * (reaction_injection_rate ** 2))) + (current_uptime / 500)
+				var/target_reaction_rate = (0.5 + (1e-03 * (reaction_injection_rate ** 2))) + (current_uptime / 500) *  5
 				var/delta_reaction_rate = target_reaction_rate - reaction_rate
 				reaction_rate += delta_reaction_rate / 2 //Function goes here
 				reaction_temperature += reaction_rate * 1.33 //Heat Penalty
@@ -156,25 +182,41 @@
 		if(reaction_rate > 5) //TEMP USE FUNCTIONS
 			reaction_energy_output = reaction_rate //FUNCTIONS
 
+/*
 		if(coolant_input.total_moles() >= reaction_min_coolant_moles) //Check for there being some amount of coolant
 			//process some amount of heat transfer here
-			var/input_coolant_energy = coolant_input.return_temperature() * coolant_input.heat_capacity()
+			var/input_coolant_energy = (coolant_input.return_temperature() - 273.15) * coolant_input.heat_capacity()
 			var/output_coolant_temp = input_coolant_energy + (reaction_temperature / 10) / coolant_input.heat_capacity() //A function of reaction temperature required
-			var/delta_coolant = output_coolant_temp - coolant_input.return_temperature()
+			var/delta_coolant = output_coolant_temp - (coolant_input.return_temperature() - 273.15)
 			reaction_temperature -= delta_coolant
 			coolant_output.merge(coolant_input) //Pass coolant from input to output
-			coolant_output.set_temperature(output_coolant_temp)
+			coolant_output.set_temperature(output_coolant_temp + 273.15)
 			coolant_input.clear() //Clean garbage
+*/
+
+		if(coolant_input.total_moles() >= reaction_min_coolant_moles)
+			var/delta_coolant = (coolant_input.return_temperature() - 273.15) / 30
+			reaction_temperature += delta_coolant
+			coolant_output.merge(coolant_input)
+			coolant_output.set_temperature(reaction_temperature + 273.15)
+			coolant_input.clear()
+
+			if(reaction_temperature <= 0)
+				reaction_temperature = 0
+				//extra stuff here
+
+
 
 		handle_screens()
-		handle_emission()
 		handle_temperature()
+		handle_containment()
+		current_uptime ++
+
 
 	if(state == REACTOR_STATE_SHUTTING_DOWN)
 		reaction_rate = 0
 		reaction_temperature -= reaction_temperature / 4
 		handle_temperature()
-		handle_emission()
 		if(reaction_temperature <= 10)
 			state = REACTOR_STATE_IDLE
 			current_uptime = 0
@@ -184,7 +226,7 @@
 	handle_records()
 	update_icon()
 
-/obj/machinery/atmospherics/components/trinary/defence_screen_reactor/attackby(obj/item/I, mob/living)
+/obj/machinery/atmospherics/components/trinary/defence_screen_reactor/attackby(obj/item/I, mob/living/carbon/user, params)
 	if(I.tool_behaviour == TOOL_MULTITOOL)
 		if(!multitool_check_buffer(user, I))
 			return
@@ -226,56 +268,70 @@
 			var/overloading_containment = reaction_containment
 			if(overloading_containment < 25)
 				overloading_containment = 25
-			var/overloading_function = ((8 * NUM_E **(-8 * overloading_containment)) / ((1 + NUM_E ** (-8 * overloading_containment)) ** 2)) * 2
+			var/overloading_function = ((382 * NUM_E **(0.0764 * overloading_containment)) / ((50 + NUM_E ** (0.0764 * overloading_containment)) ** 2)) * 14
+			//var/overloading_function = ((8 * NUM_E **(-8 * overloading_containment)) / ((1 + NUM_E ** (-8 * overloading_containment)) ** 2)) * 2
 			reaction_containment += overloading_function * (power_input / max_power_input)
 			current_uptime ++ //Overloading has a cost
 
 		else if(power_input >= min_power_input && power_input <= max_power_input) //Nominal Containment - Maintain Containment
-			var/containment_function = (8 * NUM_E **(-8 * reaction_containment)) / ((1 + NUM_E ** (-8 * reaction_containment)) ** 2)
+			var/containment_function = ((382 * NUM_E **(0.0764 * reaction_containment)) / ((50 + NUM_E ** (0.0764 * reaction_containment)) ** 2)) * 10
 			reaction_containment += containment_function * (power_input / max_power_input)
 
 		else if(power_input < min_power_input && power_input >= 0.75 * min_power_input) //Insufficient Power for Containment - Slow Loss
-			var/loss_function = ((8 * NUM_E **(-8 * reaction_containment)) / ((1 + NUM_E ** (-8 * reaction_containment)) ** 2)) / 2
+			var/loss_function = ((382 * NUM_E **(0.0764 * reaction_containment)) / ((50 + NUM_E ** (0.0764 * reaction_containment)) ** 2)) * 4
 			reaction_containment += loss_function * (power_input / max_power_input)
+
+		else //Insufficient Power for Containment - Rapid Contaiment Failure
+			reaction_containment -= 3
 
 	else //Insufficient Power for Containment - Rapid Contaiment Failure
 		reaction_containment -= 3 //Check this
 
+	if(reaction_containment > 100)
+		reaction_containment = 100
+
+	if(reaction_containment < 0)
+		reaction_containment = 0
+		handle_emission()
+
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/handle_power_reqs() //How much power is required
-	min_power_input = max(0, (-1e+6 + (reaction_temperature * connected_relays))) //RESOLVE THIS LATER
+	//min_power_input = max(0, (-1e+6 + (reaction_temperature * connected_relays))) //RESOLVE THIS LATER
+	min_power_input = max(0, (reaction_temperature * reaction_rate))
 	max_power_input = 10e+6 + (2e+6 * connected_relays)
 
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/handle_alarm()
 	if(reaction_containment < 33 && state == REACTOR_STATE_RUNNING)
-		to_chat("DANGER: Reaction Containment Critical. Emission Imminent.")
-		playsound(src, 'nsv13/sound/effects/ship/pdsr_warning.ogg', 100, 1) //Do this properly
+		if(next_alarm_sfx < world.time)
+			next_alarm_sfx = world.time + 3 SECONDS
+			playsound(src, 'nsv13/sound/effects/ship/pdsr_warning.ogg', 100, 0, 10, 10)
+		if(next_alarm_message < world.time)
+			next_alarm_message = world.time + 15 SECONDS
+			say("DANGER: Reaction Containment Critical. Emission Imminent.")
 
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/handle_polarity(var/injecting = FALSE)
 	if(reaction_polarity_timer < world.time) //Handle the trend
-		reaction_polarity_timer = world.time + rand(5 SECONDS, 20 SECONDS)
-		reaction_polarity_trend = (rand(-10, 10)) / 100 //To give us a range
+		reaction_polarity_timer = world.time + rand(20 SECONDS, 40 SECONDS)
+		//reaction_polarity_trend = pick(-0.02, -0.025, 0.02, 0.025) //We either trend up or down
 
-	var/delta_polarity = reaction_polarity_trend - reaction_polarity
+	reaction_polarity += reaction_polarity_trend
+
 	if(injecting)
-		reaction_polarity += (delta_polarity / 2) + (0.02 * reaction_polarity_injection)
-
-	else
-		reaction_polarity += delta_polarity / 2
+		if(reaction_polarity_injection)
+			reaction_polarity += 0.027
+		else
+			reaction_polarity -= 0.027
 
 	if(reaction_polarity > 1)
 		reaction_polarity = 1
 
-	else if(reaction_polarity < -1)
+	if(reaction_polarity < -1)
 		reaction_polarity = -1
 
-	var/polarity_function = reaction_polarity * (0.5 * reaction_polarity)
+	var/polarity_function = abs(0.5 * (reaction_polarity ** 2)) //RECHECK THIS WHEN NOT DEAD
 	reaction_containment -= polarity_function
 	reaction_temperature += polarity_function * max(1, (current_uptime / 1000))
 
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/handle_emission()
-	if(reaction_containment <= 0)
-		reaction_containment = 0
-
 	//more goes here
 
 
@@ -292,7 +348,6 @@
 		air_update_turf()
 
 	reaction_containment -= (reaction_temperature / 50) + (current_uptime / 1000)
-
 
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/update_icon()
 	switch(state)
@@ -340,7 +395,7 @@
 
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/handle_screens()
 	if(!active)
-		shield["stability"] ++ //Realign the screen manifold
+		shield["stability"] += 10 //Realign the screen manifold - 10 seconds
 		if(shield["stability"] >= 100)
 			shield["stability"] = 100
 			active = TRUE //Renable !shields
@@ -362,7 +417,7 @@
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/handle_relays() //Checking to see how many relays we have
 	connected_relays = 0
 	for(var/obj/machinery/defense_screen_relay/DSR in GLOB.machines)
-		if(powered())
+		if(DSR.powered())
 			connected_relays ++
 
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/depower_shield()
@@ -460,7 +515,14 @@
 		if("polarity")
 			reactor.reaction_polarity_injection = !reactor.reaction_polarity_injection
 
-
+		if("ignition")
+			if(reactor.state == REACTOR_STATE_IDLE)
+				if(reactor.power_input >= reactor.min_power_input)
+					reactor.say("Initiating Reaction - Charging Containment Field")
+					reactor.state = REACTOR_STATE_INITIALIZING
+				else
+					reactor.say("Error: Unable to initialise reaction, insufficient power available.")
+					return
 
 /obj/machinery/computer/ship/defence_screen_mainframe_reactor/ui_data(mob/user)
 	var/list/data = list()
@@ -472,7 +534,13 @@
 	data["r_polarity_injection"] = reactor.reaction_polarity_injection
 	data["r_energy_output"] = reactor.reaction_energy_output
 	data["r_power_input"] = reactor.power_input
+	data["r_state"] = reactor.state
 	data["records"] = reactor.records
+
+	data["silicon"] = issilicon(user)
+	var/list/cats = CATS
+	data["chosenKitty"] = cats[rand(1, cats.len)]
+
 	return data
 
 /obj/item/circuitboard/computer/defence_screen_mainframe_reactor
@@ -555,18 +623,16 @@
 	if(!reactor)
 		return
 	var/adjust = text2num(params["adjust"])
-	if(action == "regen")
-		if(adjust && isnum(adjust))
+	switch(action)
+		if("regen")
 			reactor.screen_regen = adjust
 			reactor.screen_hardening = 100 - reactor.screen_regen
 
-	if(action == "hardening")
-		if(adjust && isnum(adjust))
+		if("hardening")
 			reactor.screen_hardening = adjust
 			reactor.screen_regen = 100 - reactor.screen_hardening
 
-	if(action == "power_allocation")
-		if(adjust && isnum(adjust))
+		if("power_allocation")
 			reactor.power_input = adjust
 			if(reactor.power_input > (reactor.max_power_input * 1.25))
 				reactor.power_input = reactor.max_power_input * 1.25
@@ -589,11 +655,15 @@
 	data["s_stability"] = reactor.shield["stability"]
 	data["records"] = reactor.records
 	data["available_power"] = 0
-	var/turf/T = get_turf(src)
-	var/obj/structure/cable/C = T.get_cable_node()
-	if(C)
-		if(C.powernet)
-			data["available_power"] = C.powernet.avail-C.powernet.load
+	var/turf/T = get_turf(reactor)
+	reactor.C = T.get_cable_node()
+	if(reactor.C)
+		if(reactor.C.powernet)
+			data["available_power"] = reactor.C.powernet.avail-reactor.C.powernet.load
+
+	data["silicon"] = issilicon(user)
+	var/list/cats = CATS
+	data["chosenKitty"] = cats[rand(1, cats.len)]
 
 	return data
 
@@ -620,3 +690,4 @@
 #undef REACTOR_STATE_RUNNING
 #undef REACTOR_STATE_SHUTTING_DOWN
 #undef REACTOR_STATE_EMISSION
+#undef CATS

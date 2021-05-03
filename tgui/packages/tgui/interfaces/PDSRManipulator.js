@@ -10,12 +10,27 @@ export const PDSRManipulator = (props, context) => {
   const r_power_inputData = records.r_power_input.map((value, i) => [i, value]);
   const r_min_power_inputData = records.r_min_power_input.map((value, i) => [i, value]);
   const r_max_power_inputData = records.r_max_power_input.map((value, i) => [i, value]);
+  if (data.silicon) {
+    return (
+      <Window
+        resizable
+        theme="ntos"
+        width={400}
+        height={400}>
+        <Window.Content>
+          <Section title="Nanotrasen P.A.W.Sible Deniability Filter - ENABLED">
+            <img src={data.chosenKitty} style={{ maxWidth: '400px', width: '100%', maxHeight: '400px', height: '100%' }} />
+          </Section>
+        </Window.Content>
+      </Window>
+    );
+  }
   return (
     <Window
       resizable
       theme="ntos"
-      width={800}
-      height={400}>
+      width={700}
+      height={450}>
       <Window.Content scrollable>
         <Section>
           <Section title="Power Statistics">
@@ -45,7 +60,7 @@ export const PDSRManipulator = (props, context) => {
                     fillColor="rgba(242, 113, 28, 0)" />
                 </Section>
               </Flex.Item>
-              <Flex.Item width="300px">
+              <Flex.Item width="280px">
                 <Section>
                   <LabeledList>
                     <LabeledList.Item label="Available Power">
@@ -61,7 +76,7 @@ export const PDSRManipulator = (props, context) => {
                         minValue={0}
                         maxValue={data.r_max_power_input * 1.25}
                         step={1}
-                        stepPixelSize={1}
+                        stepPixelSize={5}
                         color="white"
                         onDrag={(e, value) => act('power_allocation', {
                           adjust: value,
@@ -81,12 +96,12 @@ export const PDSRManipulator = (props, context) => {
                         maxValue={data.r_max_power_input}
                         color="orange" />
                     </LabeledList.Item>
-                    <LabeledList.Item label="Status:">
+                    <LabeledList.Item label="Status">
                       <Button
                         fluid
                         icon="shield-alt"
-                        color={data.s_active ? "red" : "green"}
-                        content={data.s_active ? "Offline" : "Online"} />
+                        color={data.s_active ? "green" : "red"}
+                        content={data.s_active ? "Online" : "Offline"} />
                     </LabeledList.Item>
                   </LabeledList>
                 </Section>
@@ -95,25 +110,25 @@ export const PDSRManipulator = (props, context) => {
           </Section>
           <Section title="Screen Manipulation">
             Screen Strength: {data.s_hardening}
+            <br />
             Screen Integrity:
             <ProgressBar
-              value={data.s_integrity}
+              value={((data.s_integrity / data.s_max_integrity) * 100)}
               range={{
                 good: [],
                 average: [0.15, 0.50],
                 bad: [-Infinity, 0.15],
               }} />
-            {data.s_integrity / 100 + ' %'}
             Screen Stability:
             <ProgressBar
               value={data.s_stability}
+              minValue={0}
+              maxValue={100}
               range={{
                 good: [],
                 average: [0.33, 0.65],
                 bad: [-Infinity, 0.33],
-              }}>
-              {data.s_stability / 100 + ' %'}
-            </ProgressBar>
+              }} />
             Screen Hardening:
             <Slider
               value={data.s_hardening}
@@ -123,7 +138,7 @@ export const PDSRManipulator = (props, context) => {
               step={1}
               stepPixelSize={1}
               onDrag={(e, value) => act('hardening', {
-                input: value,
+                adjust: value,
               })} />
             Screen Regeneration:
             <Slider
@@ -133,7 +148,7 @@ export const PDSRManipulator = (props, context) => {
               step={1}
               stepPixelSize={1}
               onDrag={(e, value) => act('regen', {
-                input: value,
+                adjust: value,
               })} />
           </Section>
         </Section>
