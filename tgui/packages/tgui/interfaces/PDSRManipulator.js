@@ -68,7 +68,9 @@ export const PDSRManipulator = (props, context) => {
                         value={data.available_power}
                         minValue={0}
                         maxValue={data.r_max_power_input * 1.25}
-                        color="yellow" />
+                        color="yellow">
+                        {data.available_power / 1e+6 + ' MW'}
+                      </ProgressBar>
                     </LabeledList.Item>
                     <LabeledList.Item label="Input Power">
                       <Slider
@@ -76,27 +78,33 @@ export const PDSRManipulator = (props, context) => {
                         minValue={0}
                         maxValue={data.r_max_power_input * 1.25}
                         step={1}
-                        stepPixelSize={5}
+                        stepPixelSize={0.000004}
                         color="white"
                         onDrag={(e, value) => act('power_allocation', {
                           adjust: value,
-                        })} />
+                        })}>
+                        {data.r_power_input / 1e+6 + ' MW'}
+                      </Slider>
                     </LabeledList.Item>
                     <LabeledList.Item label="Maximum Safe Power">
                       <ProgressBar
                         value={data.r_max_power_input}
                         minValue={0}
                         maxValue={data.r_max_power_input}
-                        color="teal" />
+                        color="teal">
+                        {data.r_max_power_input / 1e+6 + ' MW'}
+                      </ProgressBar>
                     </LabeledList.Item>
                     <LabeledList.Item label="Minimum Safe Power">
                       <ProgressBar
                         value={data.r_min_power_input}
                         minValue={0}
                         maxValue={data.r_max_power_input}
-                        color="orange" />
+                        color="orange">
+                        {data.r_min_power_input / 1e+6 + ' MW'}
+                      </ProgressBar>
                     </LabeledList.Item>
-                    <LabeledList.Item label="Status">
+                    <LabeledList.Item label="Screen Status">
                       <Button
                         fluid
                         icon="shield-alt"
@@ -113,7 +121,7 @@ export const PDSRManipulator = (props, context) => {
             <br />
             Screen Integrity:
             <ProgressBar
-              value={((data.s_integrity / data.s_max_integrity) * 100)}
+              value={((data.s_integrity / data.s_max_integrity) * 100) * 0.01}
               range={{
                 good: [],
                 average: [0.15, 0.50],
@@ -136,20 +144,24 @@ export const PDSRManipulator = (props, context) => {
               minValue={0}
               maxValue={100}
               step={1}
-              stepPixelSize={1}
+              stepPixelSize={6.4}
               onDrag={(e, value) => act('hardening', {
                 adjust: value,
-              })} />
+              })}>
+              {data.s_hardening + ' %'}
+            </Slider>
             Screen Regeneration:
             <Slider
               value={data.s_regen}
               minValue={0}
               maxValue={100}
               step={1}
-              stepPixelSize={1}
+              stepPixelSize={6.4}
               onDrag={(e, value) => act('regen', {
                 adjust: value,
-              })} />
+              })} >
+              {data.s_regen + ' %'}
+            </Slider>
           </Section>
         </Section>
       </Window.Content>

@@ -21,7 +21,9 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | FREEZE_PROOF
 	light_color = LIGHT_COLOR_BLOOD_MAGIC //Dark Red
 	dir = 4
+	flipped = TRUE
 	var/state = REACTOR_STATE_IDLE
+	var/obj/structure/overmap/OM = null //Our Linked Overmap
 	var/current_uptime = 0 //How long the PDSR has been running
 	var/next_slowprocess = 0 //We don't need to fire more than once a second
 	var/next_alarm_sfx = 0 //Time until next alarm SFX firing
@@ -43,6 +45,8 @@
 	var/reaction_min_rate = 0 //Minimum rate at which nucleium can be injected in moles
 	var/reaction_energy_output = 0 //How much energy we are producing for the !shields
 	var/obj/structure/cable/C = null
+	var/last_coolant_time = 0 //Last time we called to flush coolant
+	var/flushing_coolant = 0 //Are we currently flushing coolant
 
 	//!Shield Vars
 	var/list/shield = list("integrity" = 0, "max_integrity" = 0, "stability" = 0)
@@ -65,9 +69,9 @@
 
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/Initialize()
 	.=..()
-	var/obj/structure/overmap/ours = get_overmap()
-	ours?.shields = src
-	if(!ours)
+	OM = get_overmap()
+	OM?.shields = src
+	if(!OM)
 		addtimer(CALLBACK(src, .proc/try_find_overmap), 20 SECONDS)
 
 	records["r_power_input"] = list()
@@ -77,9 +81,9 @@
 	records["r_reaction_containment"] = list()
 
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/try_find_overmap()
-	var/obj/structure/overmap/ours = get_overmap()
-	ours?.shields = src
-	if(!ours)
+	OM = get_overmap()
+	OM?.shields = src
+	if(!OM)
 		message_admins("WARNING: PDSR in [get_area(src)] does not have a linked overmap!")
 		log_game("WARNING: PDSR in [get_area(src)] does not have a linked overmap!")
 
@@ -145,7 +149,7 @@
 			var/target_reaction_rate = ((0.5 + (1e-03 * (reaction_injection_rate ** 2))) + (current_uptime / 1000)) * 16
 			var/delta_reaction_rate = target_reaction_rate - reaction_rate
 			reaction_rate += delta_reaction_rate / 2 //Function goes here
-			reaction_temperature += reaction_rate //Function goes
+			reaction_temperature += reaction_rate * 0.55 //Function goes
 			handle_polarity(TRUE)
 
 		else if(nuc_in < reaction_min_rate) //If we are running without sufficient nucleium...
@@ -154,20 +158,8 @@
 				var/target_reaction_rate = 0
 				var/delta_reaction_rate = target_reaction_rate - reaction_rate
 				reaction_rate += delta_reaction_rate / 2 //Function goes here
-				reaction_temperature += reaction_rate * 1.5
+				reaction_temperature += reaction_rate * 0.75
 				handle_polarity()
-
-			else if(nuc_in <1 && reaction_rate <5) //...and is safe to shutdown
-				if(reaction_rate <= 1 && min_power_input == 0)
-					state = REACTOR_STATE_SHUTTING_DOWN
-
-				else
-					var/target_reaction_rate = 0
-					var/delta_reaction_rate = target_reaction_rate - reaction_rate
-					reaction_rate += delta_reaction_rate / 2 //Function goes here
-					reaction_temperature += reaction_rate * 0.8 //Lower the heat gain
-
-				handle_polarity() //??
 
 			else //...and has some nucleium but not sufficient nucleium for a stable reaction
 				nucleium_input.adjust_moles(/datum/gas/nucleium, -nuc_in) //Use whatever is in there
@@ -175,24 +167,12 @@
 				var/target_reaction_rate = (0.5 + (1e-03 * (reaction_injection_rate ** 2))) + (current_uptime / 500) *  5
 				var/delta_reaction_rate = target_reaction_rate - reaction_rate
 				reaction_rate += delta_reaction_rate / 2 //Function goes here
-				reaction_temperature += reaction_rate * 1.33 //Heat Penalty
+				reaction_temperature += reaction_rate * 0.65 //Heat Penalty
 				//Handle polarity here
 				handle_polarity(TRUE)
 
 		if(reaction_rate > 5) //TEMP USE FUNCTIONS
-			reaction_energy_output = reaction_rate //FUNCTIONS
-
-/*
-		if(coolant_input.total_moles() >= reaction_min_coolant_moles) //Check for there being some amount of coolant
-			//process some amount of heat transfer here
-			var/input_coolant_energy = (coolant_input.return_temperature() - 273.15) * coolant_input.heat_capacity()
-			var/output_coolant_temp = input_coolant_energy + (reaction_temperature / 10) / coolant_input.heat_capacity() //A function of reaction temperature required
-			var/delta_coolant = output_coolant_temp - (coolant_input.return_temperature() - 273.15)
-			reaction_temperature -= delta_coolant
-			coolant_output.merge(coolant_input) //Pass coolant from input to output
-			coolant_output.set_temperature(output_coolant_temp + 273.15)
-			coolant_input.clear() //Clean garbage
-*/
+			reaction_energy_output = reaction_rate * (2 - (current_uptime / 10000)) //FUNCTIONS
 
 		if(coolant_input.total_moles() >= reaction_min_coolant_moles)
 			var/delta_coolant = (coolant_input.return_temperature() - 273.15) / 30
@@ -201,15 +181,43 @@
 			coolant_output.set_temperature(reaction_temperature + 273.15)
 			coolant_input.clear()
 
+			if(flushing_coolant)
+				if(world.time <= (last_coolant_time + 20 SECONDS))
+					src.atmos_spawn_air("water_vapor=5;TEMP=[reaction_temperature]")
+					reaction_temperature -= 12 //200C total
+					current_uptime += 5 //This is costly, you really don't want to attempt to manage your temperature this way
+
+				else if(world.time >= (last_coolant_time + 60 SECONDS))
+					flushing_coolant = FALSE //Reset our cooldown here
+
 			if(reaction_temperature <= 0)
 				reaction_temperature = 0
+				if(min_power_input <= 0)
+					say("Reaction Terminated - Dumping screen caches and cycling containment generators.")
+					state = REACTOR_STATE_SHUTTING_DOWN
+				else
+					say("Error: Reaction Prematurely Terminated - Inspect all systems for damage.")
+					state = REACTOR_STATE_IDLE
+					for(var/I = 0, I < 3, I++) //Overload Three Relays
+						var/list/overload_candidate = list()
+						for(var/obj/machinery/defence_screen_relay/DSR in GLOB.machines)
+							if(DSR.powered() && DSR.overloaded == FALSE)
+								overload_candidate += DSR
+								if(overload_candidate.len > 0)
+									var/obj/machinery/defence_screen_relay/DSRC = pick(overload_candidate)
+									DSRC.overload()
+
+					depower_shield()
+					OM.take_quadrant_hit(200, "forward_port")
+					OM.take_quadrant_hit(200, "forward_starboard")
+					OM.take_quadrant_hit(200, "aft_port")
+					OM.take_quadrant_hit(200, "aft_starboard")
 				//extra stuff here
-
-
 
 		handle_screens()
 		handle_temperature()
 		handle_containment()
+		handle_atmos_check()
 		current_uptime ++
 
 
@@ -295,9 +303,10 @@
 		handle_emission()
 
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/handle_power_reqs() //How much power is required
-	//min_power_input = max(0, (-1e+6 + (reaction_temperature * connected_relays))) //RESOLVE THIS LATER
-	min_power_input = max(0, (reaction_temperature * reaction_rate))
+	min_power_input = max(0, (-1e+6 + (reaction_temperature * (reaction_rate ** 2)) * 225))
 	max_power_input = 10e+6 + (2e+6 * connected_relays)
+	if(min_power_input > max_power_input)
+		min_power_input = max_power_input
 
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/handle_alarm()
 	if(reaction_containment < 33 && state == REACTOR_STATE_RUNNING)
@@ -311,7 +320,7 @@
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/handle_polarity(var/injecting = FALSE)
 	if(reaction_polarity_timer < world.time) //Handle the trend
 		reaction_polarity_timer = world.time + rand(20 SECONDS, 40 SECONDS)
-		//reaction_polarity_trend = pick(-0.02, -0.025, 0.02, 0.025) //We either trend up or down
+		reaction_polarity_trend = pick(-0.02, -0.025, 0.02, 0.025) //We either trend up or down
 
 	reaction_polarity += reaction_polarity_trend
 
@@ -329,7 +338,7 @@
 
 	var/polarity_function = abs(0.5 * (reaction_polarity ** 2)) //RECHECK THIS WHEN NOT DEAD
 	reaction_containment -= polarity_function
-	reaction_temperature += polarity_function * max(1, (current_uptime / 1000))
+	reaction_temperature += polarity_function * max(1, (current_uptime / 2000))
 
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/handle_emission()
 	//more goes here
@@ -348,6 +357,11 @@
 		air_update_turf()
 
 	reaction_containment -= (reaction_temperature / 50) + (current_uptime / 1000)
+
+/obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/handle_atmos_check()
+	for(var/obj/machinery/defence_screen_relay/DSR in GLOB.machines)
+		if(DSR.powered() && DSR.overloaded == FALSE)
+			DSR.atmos_check()
 
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/update_icon()
 	switch(state)
@@ -390,6 +404,13 @@
 			var/obj/structure/overmap/OM = get_overmap()
 			OM?.relay(sound, null, loop=FALSE, channel = CHANNEL_SHIP_FX)
 			current_uptime += 5
+			var/list/overload_candidate = list()
+			for(var/obj/machinery/defence_screen_relay/DSR in GLOB.machines)
+				if(DSR.powered() && DSR.overloaded == FALSE)
+					overload_candidate += DSR
+					if(overload_candidate.len > 0)
+						var/obj/machinery/defence_screen_relay/DSRC = pick(overload_candidate)
+						DSRC.overload()
 
 		return TRUE
 
@@ -401,24 +422,23 @@
 			active = TRUE //Renable !shields
 
 	else if(active)
-		var/screen_energy = reaction_energy_output
 		shield["stability"] += power_input / ((max_power_input * 1.5) - max(min_power_input, 0))
 		if(shield["stability"] > 100)
 			shield["stability"] = 100
-		var/hardening_allocation = max(((screen_hardening / 100) * screen_energy), 0)
-		screen_energy -= hardening_allocation
+		var/hardening_allocation = max(((screen_hardening / 100) * reaction_energy_output), 0)
 		shield["max_integrity"] = hardening_allocation * (connected_relays * 100) //Each relay is worth 100 shield points
-		var/regen_allocation = max(((screen_regen / 100) * screen_energy), 0)
-		screen_energy -= regen_allocation
+		var/regen_allocation = max(((screen_regen / 100) * reaction_energy_output), 0)
 		shield["integrity"] += regen_allocation
 		if(shield["integrity"] > shield["max_integrity"])
 			shield["integrity"] = shield["max_integrity"]
 
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/handle_relays() //Checking to see how many relays we have
 	connected_relays = 0
-	for(var/obj/machinery/defense_screen_relay/DSR in GLOB.machines)
-		if(DSR.powered())
+	for(var/obj/machinery/defence_screen_relay/DSR in GLOB.machines)
+		if(DSR.powered() && DSR.overloaded == FALSE)
 			connected_relays ++
+			if(power_input > (max_power_input * 1.25))
+				power_input = max_power_input * 1.20
 
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/depower_shield()
 	shield["integrity"] = 0
@@ -514,6 +534,7 @@
 	switch(action)
 		if("polarity")
 			reactor.reaction_polarity_injection = !reactor.reaction_polarity_injection
+			return
 
 		if("ignition")
 			if(reactor.state == REACTOR_STATE_IDLE)
@@ -523,6 +544,17 @@
 				else
 					reactor.say("Error: Unable to initialise reaction, insufficient power available.")
 					return
+
+		if("cooling")
+			if(reactor.state == REACTOR_STATE_RUNNING)
+				if(world.time > (reactor.last_coolant_time + 60 SECONDS))
+					reactor.say("Initiating Coolant Flush")
+					reactor.flushing_coolant = TRUE
+					reactor.last_coolant_time = world.time
+					return
+
+				else
+					reactor.say("Unable to comply - cycling coolant")
 
 /obj/machinery/computer/ship/defence_screen_mainframe_reactor/ui_data(mob/user)
 	var/list/data = list()
@@ -535,6 +567,7 @@
 	data["r_energy_output"] = reactor.reaction_energy_output
 	data["r_power_input"] = reactor.power_input
 	data["r_state"] = reactor.state
+	data["r_coolant"] = reactor.flushing_coolant
 	data["records"] = reactor.records
 
 	data["silicon"] = issilicon(user)
@@ -549,7 +582,7 @@
 
 //////SCREEN MANIPULATOR//////
 
-/obj/machinery/computer/ship/defense_screen_mainframe_shield //For controlling the !shield
+/obj/machinery/computer/ship/defence_screen_mainframe_shield //For controlling the !shield
 	name = "mk I Prototype Defence Screen Manipulator"
 	desc = "The screen manipulator for the PDSR"
 	icon_screen = "security" //temp
@@ -557,7 +590,7 @@
 	var/id = null
 	var/obj/machinery/atmospherics/components/trinary/defence_screen_reactor/reactor //Connected reactor
 
-/obj/machinery/computer/ship/defense_screen_mainframe_shield/attackby(obj/item/I, mob/user, params)
+/obj/machinery/computer/ship/defence_screen_mainframe_shield/attackby(obj/item/I, mob/user, params)
 	if(I.tool_behaviour == TOOL_MULTITOOL)
 		if(!multitool_check_buffer(user, I))
 			return
@@ -567,7 +600,7 @@
 		playsound(src, 'sound/items/flashlight_on.ogg', 100, TRUE)
 		to_chat(user, "<span class='notice'>Buffer transfered</span>")
 
-/obj/machinery/computer/ship/defense_screen_mainframe_shield/attack_hand(mob/user)
+/obj/machinery/computer/ship/defence_screen_mainframe_shield/attack_hand(mob/user)
 	if(!allowed(user))
 		var/sound = pick('nsv13/sound/effects/computer/error.ogg','nsv13/sound/effects/computer/error2.ogg','nsv13/sound/effects/computer/error3.ogg')
 		playsound(src, sound, 100, 1)
@@ -581,7 +614,7 @@
 
 	ui_interact(user)
 
-/obj/machinery/computer/ship/defense_screen_mainframe_shield/attack_ai(mob/user)
+/obj/machinery/computer/ship/defence_screen_mainframe_shield/attack_ai(mob/user)
 	. = ..()
 	if(!reactor)
 		var/sound = pick('nsv13/sound/effects/computer/error.ogg','nsv13/sound/effects/computer/error2.ogg','nsv13/sound/effects/computer/error3.ogg')
@@ -590,7 +623,7 @@
 		return
 	ui_interact(user)
 
-/obj/machinery/computer/ship/defense_screen_mainframe_shield/attack_robot(mob/user)
+/obj/machinery/computer/ship/defence_screen_mainframe_shield/attack_robot(mob/user)
 	. = ..()
 	if(!reactor)
 		var/sound = pick('nsv13/sound/effects/computer/error.ogg','nsv13/sound/effects/computer/error2.ogg','nsv13/sound/effects/computer/error3.ogg')
@@ -599,25 +632,25 @@
 		return
 	ui_interact(user)
 
-/obj/machinery/computer/ship/defense_screen_mainframe_shield/attack_ghost(mob/user)
+/obj/machinery/computer/ship/defence_screen_mainframe_shield/attack_ghost(mob/user)
 	if(!reactor)
 		to_chat(user, "<span class='warning'>Unable to detect linked reactor</span>")
 		return
 	. = ..()
 
-/obj/machinery/computer/ship/defense_screen_mainframe_shield/LateInitialize()
+/obj/machinery/computer/ship/defence_screen_mainframe_shield/LateInitialize()
 	if(id) //If mappers set an ID)
 		for(var/obj/machinery/atmospherics/components/trinary/defence_screen_reactor/dsr in GLOB.machines)
 			if(dsr.id == id)
 				reactor = dsr
 
-/obj/machinery/computer/ship/defense_screen_mainframe_shield/ui_interact(mob/user, datum/tgui/ui)
+/obj/machinery/computer/ship/defence_screen_mainframe_shield/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "PDSRManipulator")
 		ui.open()
 
-/obj/machinery/computer/ship/defense_screen_mainframe_shield/ui_act(action, params, datum/tgui/ui)
+/obj/machinery/computer/ship/defence_screen_mainframe_shield/ui_act(action, params, datum/tgui/ui)
 	if(..())
 		return
 	if(!reactor)
@@ -640,9 +673,7 @@
 			if(reactor.power_input < 0)
 				reactor.power_input = 0
 
-
-
-/obj/machinery/computer/ship/defense_screen_mainframe_shield/ui_data(mob/user)
+/obj/machinery/computer/ship/defence_screen_mainframe_shield/ui_data(mob/user)
 	var/list/data = list()
 	data["r_power_input"] = reactor.power_input
 	data["r_min_power_input"] = reactor.min_power_input
@@ -667,23 +698,57 @@
 
 	return data
 
-/obj/item/circuitboard/computer/defense_screen_mainframe_shield
+/obj/item/circuitboard/computer/defence_screen_mainframe_shield
 	name = "mk I Prototype Defence Screen Manipulator (Computer Board)"
-	build_path = /obj/machinery/computer/ship/defense_screen_mainframe_shield
+	build_path = /obj/machinery/computer/ship/defence_screen_mainframe_shield
 
-
-
-
-
-
-/obj/machinery/defense_screen_relay
+/obj/machinery/defence_screen_relay
 	name = "mk I Prototype Defence Screen Relay"
 	desc = "A relay for distributing"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "mop"
 	anchored = TRUE
 	density = TRUE
+	var/overloaded = FALSE
 
+/obj/machinery/defence_screen_relay/proc/overload()
+	if(!overloaded)
+		overloaded = TRUE
+		do_sparks(4, FALSE, src)
+		update_icon()
+		src.atmos_spawn_air("o2=10;plasma=10;TEMP=500") //For the flashburn
+
+/obj/machinery/defence_screen_relay/update_icon()
+	if(overloaded)
+		icon_state = "smmop"
+		return
+	if(!overloaded)
+		icon_state = "mop"
+		return
+
+/obj/machinery/defence_screen_relay/proc/atmos_check() //Atmos cooled relays
+	var/turf/open/L = get_turf(src)
+	if(!istype(L) || !(L.air))
+		return
+	var/datum/gas_mixture/E = L.return_air()
+	if(E.total_moles() < 20 || E.return_pressure() < 80)
+		if(prob(5))
+			overload()
+
+/obj/machinery/defence_screen_relay/attackby(obj/item/I, mob/living/carbon/user, params)
+	if(istype(I, /obj/item/stack/cable_coil) && overloaded)
+		var/obj/item/stack/cable_coil/C = I
+		if(C.get_amount() < 5)
+			to_chat(user, "<span class='notice'>You need at least five cable pieces to repair the [src]!</span>")
+			return
+		else
+			to_chat(user, "<span class='notice'>You start rewiring the [src]...</span>")
+			if(!do_after(user, 5 SECONDS, target=src))
+				return
+			C.use(5)
+			to_chat(user, "<span class='notice'>You rewire the [src].</span>")
+			overloaded = FALSE
+			update_icon()
 
 #undef REACTOR_STATE_IDLE
 #undef REACTOR_STATE_INITIALIZING

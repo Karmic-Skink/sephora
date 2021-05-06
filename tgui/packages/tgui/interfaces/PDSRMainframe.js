@@ -47,7 +47,7 @@ export const PDSRMainframe = (props, context) => {
                     fillPostionedParent
                     data={r_reaction_containmentData}
                     rangeX={[0, r_reaction_containmentData.length - 1]}
-                    rangeY={[0, 100]}
+                    rangeY={[-1, 1]}
                     strokeColor="rgba(255, 0, 0, 1)"
                     fillColor="rgba(255, 0, 0, 0)" />
                 </Section>
@@ -60,7 +60,13 @@ export const PDSRMainframe = (props, context) => {
                         value={data.r_polarity}
                         minValue={-1}
                         maxValue={1}
-                        colour="blue" />
+                        ranges={{
+                          blue: [-0.25, 0.25],
+                          average: [-0.50, 0.50],
+                          bad: [-Infinity, Infinity],
+                        }}>
+                        {data.r_polarity}
+                      </ProgressBar>
                     </LabeledList.Item>
                     <LabeledList.Item label="Injection Polarity">
                       <Button
@@ -79,14 +85,23 @@ export const PDSRMainframe = (props, context) => {
                         colour="red" />
                     </LabeledList.Item>
                     <LabeledList.Item label="Status">
-                      <Button
-                        fluid
-                        icon={"react"}
-                        color={data.r_state ? "average" : "bad"}
-                        content={data.r_state ? "Active" : "Idle - Ignite?"}
-                        enabled={data.r_state <= 1}
-                        onClick={() => act('ignition')}
-                      />
+                      <Section>
+                        <Button
+                          fluid
+                          icon="react"
+                          color={data.r_state ? "average" : "bad"}
+                          content={data.r_state ? "Active" : "Idle - Ignite?"}
+                          enabled={data.r_state <= 1}
+                          onClick={() => act('ignition')}
+                        />
+                        <Button
+                          fluid
+                          icon="snowflake"
+                          color={data.r_cooling && "blue"}
+                          content={data.r_cooling ? "Flush Coolant" : "Coolant Cycling"}
+                          onClick={() => act('cooling')}
+                        />
+                      </Section>
                     </LabeledList.Item>
                   </LabeledList>
                 </Section>
@@ -100,10 +115,12 @@ export const PDSRMainframe = (props, context) => {
               minValue={0}
               maxValue={25}
               step={1}
-              stepPixelSize={1}
+              stepPixelSize={27}
               onDrag={(e, value) => act('injection_allocation', {
                 adjust: value,
-              })} />
+              })}>
+              {data.r_injection_rate + ' mol/s'}
+            </Slider>
           </Section>
           <Section title="Reaction Statistics">
             Temperature:
@@ -121,16 +138,20 @@ export const PDSRMainframe = (props, context) => {
               value={data.r_reaction_rate}
               minValue={0}
               maxValue={25}
-              color="primary" />
+              color="teal" >
+              {data.r_reaction_rate + ' mol/s'}
+            </ProgressBar>
             Screen Capacity:
             <ProgressBar
               value={data.r_energy_output}
               minValue={0}
               maxValue={100}
-              color="yellow" />
+              color="yellow" >
+              {data.r_energy_output + ' GJ'}
+            </ProgressBar>
           </Section>
         </Section>
       </Window.Content>
-    </Window>
+    </Window >
   );
 };

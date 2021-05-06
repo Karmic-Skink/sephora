@@ -46134,7 +46134,7 @@
 /turf/open/floor/monotile/steel,
 /area/engine/engineering/reactor_core)
 "lXe" = (
-/obj/machinery/defense_screen_relay,
+/obj/machinery/defence_screen_relay,
 /turf/open/floor/monotile/steel,
 /area/engine/engineering/hangar)
 "lZz" = (
@@ -48417,7 +48417,7 @@
 /turf/open/floor/engine/airless,
 /area/space/nearstation)
 "pYU" = (
-/obj/machinery/computer/ship/defense_screen_mainframe_shield{
+/obj/machinery/computer/ship/defence_screen_mainframe_shield{
 	id = "AAA"
 	},
 /turf/open/floor/monotile/steel,
@@ -49081,7 +49081,7 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/cyan/visible,
+/obj/machinery/atmospherics/components/binary/pump,
 /turf/open/floor/monotile/dark,
 /area/engine/engineering/hangar)
 "rix" = (
@@ -49553,7 +49553,9 @@
 /obj/effect/turf_decal/stripes/white/line{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/orange/visible,
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 1
+	},
 /turf/open/floor/monotile/dark,
 /area/engine/engineering/hangar)
 "rSa" = (
