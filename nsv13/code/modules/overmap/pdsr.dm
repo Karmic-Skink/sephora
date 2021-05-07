@@ -47,6 +47,7 @@
 	var/obj/structure/cable/C = null
 	var/last_coolant_time = 0 //Last time we called to flush coolant
 	var/flushing_coolant = 0 //Are we currently flushing coolant
+	var/emission_tracker = 0 //Used to track emission timers
 
 	//!Shield Vars
 	var/list/shield = list("integrity" = 0, "max_integrity" = 0, "stability" = 0)
@@ -153,13 +154,12 @@
 			handle_polarity(TRUE)
 
 		else if(nuc_in < reaction_min_rate) //If we are running without sufficient nucleium...
-			if(nuc_in <= 1 && reaction_rate > 5) //...and have an active mix but no nucleium
-
+			if(nuc_in <= 0) //...and none at all
 				var/target_reaction_rate = 0
 				var/delta_reaction_rate = target_reaction_rate - reaction_rate
 				reaction_rate += delta_reaction_rate / 2 //Function goes here
 				reaction_temperature += reaction_rate * 0.75
-				handle_polarity()
+				handle_polarity(FALSE)
 
 			else //...and has some nucleium but not sufficient nucleium for a stable reaction
 				nucleium_input.adjust_moles(/datum/gas/nucleium, -nuc_in) //Use whatever is in there
@@ -173,6 +173,10 @@
 
 		if(reaction_rate > 5) //TEMP USE FUNCTIONS
 			reaction_energy_output = reaction_rate * (2 - (current_uptime / 10000)) //FUNCTIONS
+			radiation_pulse(src, reaction_energy_output)
+
+		else
+			reaction_energy_output = 0
 
 		if(coolant_input.total_moles() >= reaction_min_coolant_moles)
 			var/delta_coolant = (coolant_input.return_temperature() - 273.15) / 30
@@ -208,11 +212,10 @@
 									DSRC.overload()
 
 					depower_shield()
-					OM.take_quadrant_hit(200, "forward_port")
-					OM.take_quadrant_hit(200, "forward_starboard")
-					OM.take_quadrant_hit(200, "aft_port")
-					OM.take_quadrant_hit(200, "aft_starboard")
-				//extra stuff here
+					OM.take_quadrant_hit(rand(100, 200), "forward_port")
+					OM.take_quadrant_hit(rand(100, 200), "forward_starboard")
+					OM.take_quadrant_hit(rand(100, 200), "aft_port")
+					OM.take_quadrant_hit(rand(100, 200), "aft_starboard")
 
 		handle_screens()
 		handle_temperature()
@@ -226,9 +229,14 @@
 		reaction_temperature -= reaction_temperature / 4
 		handle_temperature()
 		if(reaction_temperature <= 10)
-			state = REACTOR_STATE_IDLE
-			current_uptime = 0
-			depower_shield()
+			handle_shutdown()
+
+	if(state == REACTOR_STATE_EMISSION)
+		if(world.time >= (emission_tracker + 10 SECONDS))
+			handle_emission_release()
+		else
+			handle_emission_buildup()
+
 
 	handle_alarm()
 	handle_records()
@@ -265,7 +273,7 @@
 			r_reaction_polarity.Cut(1,2)
 		var/list/r_reaction_containment = records["r_reaction_containment"]
 		r_reaction_containment += reaction_containment
-		if(r_reaction_containment.len > records_interval)
+		if(r_reaction_containment.len > records_length)
 			r_reaction_containment.Cut(1,2)
 
 //////Reactor Procs//////
@@ -300,7 +308,10 @@
 
 	if(reaction_containment < 0)
 		reaction_containment = 0
-		handle_emission()
+		emission_tracker = world.time
+		say("Error: Catatstropic Containment Failure - Initializing Emergency Termination Protocols")
+		playsound(src, 'sound/magic/lightning_chargeup.ogg', 100, 0, 15, 10, 10) //Replace me later?
+		state = REACTOR_STATE_EMISSION //Whoops
 
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/handle_power_reqs() //How much power is required
 	min_power_input = max(0, (-1e+6 + (reaction_temperature * (reaction_rate ** 2)) * 225))
@@ -316,6 +327,11 @@
 		if(next_alarm_message < world.time)
 			next_alarm_message = world.time + 15 SECONDS
 			say("DANGER: Reaction Containment Critical. Emission Imminent.")
+
+	if(state == REACTOR_STATE_EMISSION)
+		if(next_alarm_sfx < world.time)
+			next_alarm_sfx = world.time + 3 SECONDS
+			playsound(src, 'nsv13/sound/effects/ship/pdsr_warning.ogg', 100, 0, 10, 10)
 
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/handle_polarity(var/injecting = FALSE)
 	if(reaction_polarity_timer < world.time) //Handle the trend
@@ -340,9 +356,41 @@
 	reaction_containment -= polarity_function
 	reaction_temperature += polarity_function * max(1, (current_uptime / 2000))
 
-/obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/handle_emission()
+/obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/handle_emission_buildup()
+	if(prob(50)) //Seizure warning
+		radiation_pulse(src, reaction_energy_output * 2)
+		for(var/mob/living/M in orange(12, src))
+			if(in_view_range(M, src))
+				to_chat(M, "<span class='warning'>A stream of particles erupts from the [src]!</span>")
+				M.flash_act(1, 0, 1)
+				playsound(src, 'sound/magic/repulse.ogg', 100, 0, 5, 5)
 	//more goes here
 
+/obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/handle_emission_release()
+	for(var/obj/machinery/defence_screen_relay/DSR in GLOB.machines)
+		if(DSR.powered() && DSR.overloaded == FALSE)
+			DSR.overload()
+
+	var/emission_energy = reaction_energy_output * (1 + (current_uptime / 1000))
+	radiation_pulse(src, emission_energy ** 2, 10, 1, 1)
+
+	for(var/mob/living/M in OM.mobs_in_ship)
+		if(M.client)
+			M.flash_act((emission_energy / 10), 0 , 1)
+			M.Knockdown(emission_energy / 10)
+			M.adjust_disgust(rand(20, 50))
+			to_chat(M, "<span class='warning'>A wash of radiation passes through you!</span>")
+
+	depower_shield()
+	OM.take_quadrant_hit((emission_energy ** 2) / 2, "forward_port")
+	OM.take_quadrant_hit((emission_energy ** 2) / 2, "forward_starboard")
+	OM.take_quadrant_hit((emission_energy ** 2) / 2, "aft_port")
+	OM.take_quadrant_hit((emission_energy ** 2) / 2, "aft_starboard")
+
+	handle_shutdown() //And reset
+
+	say("Emergency Termination Protocols Enabled - Reaction Halted.")
+	say("Inspect all systems for damage.")
 
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/handle_temperature()
 	var/turf/open/L = get_turf(src)
@@ -362,6 +410,18 @@
 	for(var/obj/machinery/defence_screen_relay/DSR in GLOB.machines)
 		if(DSR.powered() && DSR.overloaded == FALSE)
 			DSR.atmos_check()
+
+/obj/machinery/atmospherics/components/trinary/defence_screen_reactor/proc/handle_shutdown()
+	state = REACTOR_STATE_IDLE
+	current_uptime = 0
+	reaction_temperature = 0
+	reaction_containment = 0
+	reaction_polarity = 0
+	reaction_rate = 0
+	flushing_coolant = 0
+	reaction_energy_output = 0
+	emission_tracker = 0
+	depower_shield()
 
 /obj/machinery/atmospherics/components/trinary/defence_screen_reactor/update_icon()
 	switch(state)
@@ -391,10 +451,10 @@
 		shield["integrity"] -= damage //Deduct from !shield
 		var/current_hit = world.time
 		if(current_hit <= last_hit + 10) //1 Second
-			shield["stability"] -= rand((damage / 20), (damage / 10)) //Rapid hits will reduce stability greatly
+			shield["stability"] -= rand((damage / 200), (damage / 100)) //Rapid hits will reduce stability greatly
 
 		else
-			shield["stability"] -= rand((damage / 100), (damage / 50)) //Reduce !shield stability
+			shield["stability"] -= rand((damage / 1000), (damage / 500)) //Reduce !shield stability
 
 		last_hit = current_hit //Set our last hit
 		if(shield["stability"] <= 0)
@@ -426,7 +486,7 @@
 		if(shield["stability"] > 100)
 			shield["stability"] = 100
 		var/hardening_allocation = max(((screen_hardening / 100) * reaction_energy_output), 0)
-		shield["max_integrity"] = hardening_allocation * (connected_relays * 100) //Each relay is worth 100 shield points
+		shield["max_integrity"] = hardening_allocation * (connected_relays * 10) //Each relay is worth 10 base
 		var/regen_allocation = max(((screen_regen / 100) * reaction_energy_output), 0)
 		shield["integrity"] += regen_allocation
 		if(shield["integrity"] > shield["max_integrity"])
@@ -554,7 +614,17 @@
 					return
 
 				else
-					reactor.say("Unable to comply - cycling coolant")
+					reactor.say("Error: Unable to comply - cycling coolant")
+					return
+
+		if("shutdown")
+			if(reactor.state == REACTOR_STATE_RUNNING && reactor.reaction_temperature < 100)
+				reactor.say("Initializing Reactor Shutdown")
+				reactor.state = REACTOR_STATE_SHUTTING_DOWN
+				return
+			else
+				reactor.say("Error: Unable to comply - Reactor parameters outside safe shutdown limits")
+				return
 
 /obj/machinery/computer/ship/defence_screen_mainframe_reactor/ui_data(mob/user)
 	var/list/data = list()

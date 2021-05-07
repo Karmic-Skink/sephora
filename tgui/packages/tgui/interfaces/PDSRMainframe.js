@@ -29,7 +29,7 @@ export const PDSRMainframe = (props, context) => {
       resizable
       theme="ntos"
       width={700}
-      height={450}>
+      height={500}>
       <Window.Content scrollable>
         <Section>
           <Section title="Reactor Containment Statistics">
@@ -44,12 +44,12 @@ export const PDSRMainframe = (props, context) => {
                     strokeColor="rgba(33, 133, 208, 1)"
                     fillColor="rgba(33, 133, 208, 0)" />
                   <Chart.Line
-                    fillPostionedParent
+                    fillPositionedParent
                     data={r_reaction_containmentData}
                     rangeX={[0, r_reaction_containmentData.length - 1]}
-                    rangeY={[-1, 1]}
+                    rangeY={[0, 100]}
                     strokeColor="rgba(255, 0, 0, 1)"
-                    fillColor="rgba(255, 0, 0, 0)" />
+                    fillColor="rgba(33, 133, 208, 0)" />
                 </Section>
               </Flex.Item>
               <Flex.Item width="280px">
@@ -82,23 +82,33 @@ export const PDSRMainframe = (props, context) => {
                         value={data.r_containment}
                         minValue={0}
                         maxValue={100}
-                        colour="red" />
+                        ranges={{
+                          red: [-Infinity, Infinity],
+                        }} />
                     </LabeledList.Item>
-                    <LabeledList.Item label="Status">
+                    <LabeledList.Item label="Reactor Controls">
                       <Section>
                         <Button
                           fluid
-                          icon="react"
-                          color={data.r_state ? "average" : "bad"}
-                          content={data.r_state ? "Active" : "Idle - Ignite?"}
+                          icon="fire"
+                          color="orange"
+                          content="Initialize"
                           enabled={data.r_state <= 1}
                           onClick={() => act('ignition')}
                         />
                         <Button
                           fluid
+                          icon="ban"
+                          color="red"
+                          content="Terminate"
+                          enabled={data.r_state <= 1}
+                          onClick={() => act('shutdown')}
+                        />
+                        <Button
+                          fluid
                           icon="snowflake"
                           color={data.r_cooling && "blue"}
-                          content={data.r_cooling ? "Flush Coolant" : "Coolant Cycling"}
+                          content={"Cycle Coolant"}
                           onClick={() => act('cooling')}
                         />
                       </Section>
@@ -145,7 +155,7 @@ export const PDSRMainframe = (props, context) => {
             <ProgressBar
               value={data.r_energy_output}
               minValue={0}
-              maxValue={100}
+              maxValue={50}
               color="yellow" >
               {data.r_energy_output + ' GJ'}
             </ProgressBar>
