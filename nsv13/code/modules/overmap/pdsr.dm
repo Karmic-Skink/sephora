@@ -775,8 +775,10 @@
 /obj/machinery/defence_screen_relay
 	name = "mk I Prototype Defence Screen Relay"
 	desc = "A relay for distributing energy to the defence screens"
-	icon = 'icons/obj/janitor.dmi'
-	icon_state = "mop"
+	icon = 'nsv13/icons/obj/shield_components.dmi'
+	icon_state = "injector"
+	active_power_usage = 1000
+	idle_power_usage = 1000
 	anchored = TRUE
 	density = TRUE
 	circuit = /obj/item/circuitboard/machine/defence_screen_relay
@@ -790,19 +792,25 @@
 		/obj/item/stock_parts/capacitor = 20,
 		/obj/item/stock_parts/micro_laser = 12)
 
+/obj/machinery/defnece_screen_relay/process()
+	. = ..()
+	update_icon()
+
 /obj/machinery/defence_screen_relay/proc/overload()
 	if(!overloaded)
 		overloaded = TRUE
 		do_sparks(4, FALSE, src)
-		update_icon()
 		src.atmos_spawn_air("o2=10;plasma=10;TEMP=500") //For the flashburn
 
 /obj/machinery/defence_screen_relay/update_icon()
 	if(overloaded)
-		icon_state = "smmop"
+		icon_state = "injector-damaged"
 		return
-	if(!overloaded)
-		icon_state = "mop"
+	if(!overloaded && powered())
+		icon_state = "injector-on"
+		return
+	if(!overloaded && !powered())
+		icon_state = "injector"
 		return
 
 /obj/machinery/defence_screen_relay/proc/atmos_check() //Atmos cooled relays
@@ -827,7 +835,6 @@
 			C.use(5)
 			to_chat(user, "<span class='notice'>You rewire the [src].</span>")
 			overloaded = FALSE
-			update_icon()
 
 #undef REACTOR_STATE_IDLE
 #undef REACTOR_STATE_INITIALIZING
