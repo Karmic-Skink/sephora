@@ -8707,9 +8707,7 @@
 /area/medical/medbay/central)
 "azg" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer1,
-/obj/machinery/atmospherics/pipe/simple/purple/visible{
-	dir = 9
-	},
+/obj/machinery/atmospherics/pipe/manifold/purple/visible,
 /turf/open/floor/monotile/steel,
 /area/engine/engineering/hangar)
 "azi" = (
@@ -40405,6 +40403,13 @@
 /obj/machinery/meter,
 /turf/open/floor/plasteel/ridged/steel,
 /area/engine/engineering/reactor_core)
+"cFI" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/atmospherics/pipe/simple/green/visible{
+	dir = 5
+	},
+/turf/open/floor/plating,
+/area/engine/engineering/reactor_core)
 "cIa" = (
 /obj/structure/bookcase/random/religion,
 /turf/open/floor/wood,
@@ -40830,6 +40835,15 @@
 	},
 /turf/closed/wall/r_wall/ship,
 /area/engine/atmospherics_engine)
+"dxd" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/purple/visible{
+	dir = 10
+	},
+/turf/open/floor/monotile/dark,
+/area/engine/engineering/hangar)
 "dyj" = (
 /obj/structure/bookcase/manuals/medical,
 /obj/machinery/camera/autoname{
@@ -42152,6 +42166,10 @@
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
 /area/engine/engineering/reactor_core)
+"fDp" = (
+/obj/machinery/atmospherics/pipe/simple/green/visible,
+/turf/closed/wall/r_wall/ship,
+/area/engine/engineering/reactor_core)
 "fEj" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer3,
 /turf/closed/wall/r_wall/ship,
@@ -42394,6 +42412,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/green/visible,
 /turf/open/floor/plating,
 /area/engine/engineering/reactor_core)
 "gfj" = (
@@ -42480,8 +42499,8 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/green/visible{
-	dir = 6
+/obj/machinery/atmospherics/pipe/manifold/green/visible{
+	dir = 1
 	},
 /turf/open/floor/plasteel/ridged/steel,
 /area/engine/engineering/reactor_core)
@@ -44543,6 +44562,11 @@
 	},
 /turf/open/floor/monotile/dark,
 /area/engine/break_room)
+"jBZ" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/atmospherics/pipe/simple/green/visible,
+/turf/open/floor/plating,
+/area/engine/engineering/reactor_core)
 "jCX" = (
 /obj/structure/closet/toolcloset,
 /obj/item/clothing/head/hardhat/orange,
@@ -46739,6 +46763,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/components/binary/pump/rbmk_output{
+	dir = 1
 	},
 /turf/open/floor/monotile/steel,
 /area/engine/engineering/hangar)
@@ -103854,12 +103881,12 @@ aQq
 acq
 anM
 apX
-aQq
+dxd
 mPU
-azk
-aMu
+fDp
+jBZ
 gdZ
-aMu
+cFI
 aMu
 wxD
 aMu
