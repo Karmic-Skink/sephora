@@ -285,7 +285,6 @@
 			if(overloading_containment < 25)
 				overloading_containment = 25
 			var/overloading_function = ((382 * NUM_E **(0.0764 * overloading_containment)) / ((50 + NUM_E ** (0.0764 * overloading_containment)) ** 2)) * 14
-			//var/overloading_function = ((8 * NUM_E **(-8 * overloading_containment)) / ((1 + NUM_E ** (-8 * overloading_containment)) ** 2)) * 2
 			reaction_containment += overloading_function * (power_input / max_power_input)
 			current_uptime ++ //Overloading has a cost
 
@@ -451,10 +450,10 @@
 		shield["integrity"] -= damage //Deduct from !shield
 		var/current_hit = world.time
 		if(current_hit <= last_hit + 10) //1 Second
-			shield["stability"] -= rand((damage / 200), (damage / 100)) //Rapid hits will reduce stability greatly
+			shield["stability"] -= rand((damage / 10), (damage / 5)) //Rapid hits will reduce stability greatly
 
 		else
-			shield["stability"] -= rand((damage / 1000), (damage / 500)) //Reduce !shield stability
+			shield["stability"] -= rand((damage / 50), (damage / 25)) //Reduce !shield stability
 
 		last_hit = current_hit //Set our last hit
 		if(shield["stability"] <= 0)
@@ -657,6 +656,7 @@
 	desc = "The screen manipulator for the PDSR"
 	icon_screen = "security" //temp
 	req_access = list(ACCESS_ENGINE)
+	circuit = /obj/item/circuitboard/computer/defence_screen_mainframe_shield
 	var/id = null
 	var/obj/machinery/atmospherics/components/trinary/defence_screen_reactor/reactor //Connected reactor
 
@@ -774,12 +774,21 @@
 
 /obj/machinery/defence_screen_relay
 	name = "mk I Prototype Defence Screen Relay"
-	desc = "A relay for distributing"
+	desc = "A relay for distributing energy to the defence screens"
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "mop"
 	anchored = TRUE
 	density = TRUE
+	circuit = /obj/item/circuitboard/machine/defence_screen_relay
 	var/overloaded = FALSE
+
+/obj/item/circuitboard/machine/defence_screen_relay
+	name = "mk I Prototype Defence Screen Relay (Machine Board)"
+	build_path = /obj/machinery/armour_plating_nanorepair_pump
+	req_components = list(
+		/obj/item/stock_parts/scanning_module = 2,
+		/obj/item/stock_parts/capacitor = 20,
+		/obj/item/stock_parts/micro_laser = 12)
 
 /obj/machinery/defence_screen_relay/proc/overload()
 	if(!overloaded)
