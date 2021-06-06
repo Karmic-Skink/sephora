@@ -80,7 +80,8 @@
 		/obj/item/stack/sheet/mineral/copper = 10,
 		/obj/item/stack/sheet/iron = 30,
 		/obj/item/stack/cable_coil = 5)
-	build_path = /obj/machinery/ship_weapon/fiftycal
+	//HARDPOINT TEST
+	//build_path = /obj/machinery/ship_weapon/fiftycal
 
 /obj/item/circuitboard/machine/fiftycal/super
 	name = "super .50 cal turret (circuitboard)"
@@ -90,7 +91,8 @@
 		/obj/item/stack/sheet/mineral/diamond = 5,
 		/obj/item/stack/sheet/iron = 20,
 		/obj/item/stack/cable_coil = 5)
-	build_path = /obj/machinery/ship_weapon/fiftycal/super
+	//HARDPOINT TEST
+	//build_path = /obj/machinery/ship_weapon/fiftycal/super
 
 //PDC and flak boards, currently not used
 #define PATH_PDC /obj/machinery/ship_weapon/pdc_mount
@@ -154,7 +156,8 @@
 	req_components = list(
 		/obj/item/stack/sheet/mineral/titanium = 10,
 		/obj/item/stack/cable_coil = 5)
-	build_path = /obj/machinery/deck_turret
+	//HARDPOINT TEST
+	//build_path = /obj/machinery/deck_turret
 
 /obj/item/circuitboard/machine/deck_gun/powder
 	name = "Deck gun powder gate (circuitboard)"
@@ -162,7 +165,8 @@
 		/obj/item/stack/sheet/iron = 20,
 		/obj/item/stack/sheet/mineral/copper = 20,
 		/obj/item/stack/cable_coil = 5)
-	build_path = /obj/machinery/deck_turret/powder_gate
+	//HARDPOINT TEST
+	//build_path = /obj/machinery/deck_turret/powder_gate
 
 /obj/item/circuitboard/machine/deck_gun/payload
 	name = "Deck gun payload gate (circuitboard)"
@@ -173,7 +177,8 @@
 		/obj/item/ship_weapon/parts/railgun_rail = 1,
 		/obj/item/ship_weapon/parts/loading_tray=1,
 		/obj/item/stack/cable_coil = 10)
-	build_path = /obj/machinery/deck_turret/payload_gate
+	//HARDPOINT TEST
+	//build_path = /obj/machinery/deck_turret/payload_gate
 
 //Upgrades
 /obj/item/circuitboard/machine/deck_gun/autoelevator
@@ -183,7 +188,8 @@
 		/obj/item/stack/sheet/mineral/copper = 20,
 		/obj/item/stack/sheet/mineral/diamond = 5,
 		/obj/item/stack/cable_coil = 10)
-	build_path = /obj/machinery/deck_turret/autoelevator
+	//HARDPOINT TEST
+	//build_path = /obj/machinery/deck_turret/autoelevator
 
 /obj/item/circuitboard/machine/deck_gun/autorepair
 	name = "Deck gun auto-repair module (circuitboard)"
@@ -193,7 +199,8 @@
 		/obj/item/stack/sheet/mineral/diamond = 2,
 		/obj/item/stack/sheet/mineral/uranium = 10,
 		/obj/item/stack/cable_coil = 10)
-	build_path = /obj/machinery/deck_turret/autorepair
+	//HARDPOINT TEST
+	//build_path = /obj/machinery/deck_turret/autorepair
 
 //Missile factory
 /obj/item/circuitboard/machine/missile_builder
@@ -219,7 +226,8 @@
 //Missile system
 /obj/item/circuitboard/machine/vls
 	name = "M14 VLS Tube (Circuitboard)"
-	build_path = /obj/machinery/ship_weapon/vls
+	//HARDPOINT TEST
+	//build_path = /obj/machinery/ship_weapon/vls
 	req_components = list(
 		/obj/item/stack/sheet/mineral/titanium = 20,
 		/obj/item/stack/sheet/mineral/copper = 20,

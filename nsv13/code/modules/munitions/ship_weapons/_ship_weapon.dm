@@ -110,9 +110,13 @@
  * Try to unlink from a munitions computer, so it can re-link to other things
  */
 /obj/machinery/ship_weapon/Destroy()
-	. = ..()
+//	. = ..()
 	if(linked_computer)
 		linked_computer.SW = null
+
+	message_admins("A")
+	var/obj/machinery/ship_weapon_wreckage/SWW = new /obj/machinery/ship_weapon_wreckage(src)
+	SWW.update(src)
 
 /**
  * Tries to link the ship to an overmap by finding the overmap linked it the area we are in.
@@ -523,6 +527,42 @@
 	flick("[initial(icon_state)]_unloading",src)
 	sleep(fire_animation_length)
 	icon_state = initial(icon_state)
+
+//TEMP HARDPOINT JANK GOES HERE
+
+/obj/machinery/ship_weapon/deconstruct
+
+/obj/machinery/ship_weapon_wreckage
+	name = "A destroyed ship weapon"
+	desc = "And now the true test... hold fast, or expire?"
+	icon = 'nsv13/icons/obj/munitions/deck_gun.dmi'
+	icon_state = "battery_destroyed"
+	density = TRUE
+	anchored = TRUE
+	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF | FREEZE_PROOF
+	var/formerly = null //Which ship weapon this used to be
+	var/repair_status = 0 //For holding how repaired it is
+
+/obj/machinery/ship_weapon_wreckage/proc/update(var/obj/machinery/W)
+	name = "A destroyed [W.name]"
+	desc = "The wrecked carcass of a [W.name]"
+	formerly = W
+
+/obj/machinery/ship_weapon_wreckage/welder_act(mob/living/user, obj/item/I)
+	. = ..()
+	while(repair_status < 100)
+		if(!do_after(user, 5, target = src))
+			return
+		repair_status += rand(1,2)
+		if(repair_status >= 100)
+			repair_status = 100
+			new formerly(src)
+			qdel(src)
+
+/obj/machinery/ship_weapon_wreckage/process()
+	. = ..()
+	if(prob(5))
+		do_sparks(3, FALSE, src)
 
 #undef MSTATE_CLOSED
 #undef MSTATE_UNSCREWED
