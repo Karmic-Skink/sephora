@@ -7,17 +7,7 @@
 /turf/open/floor/plating,
 /area/space)
 "ah" = (
-/obj/structure/table/optable,
-/obj/machinery/defibrillator_mount/loaded{
-	pixel_x = 26
-	},
-/turf/open/floor/plating,
-/area/space)
-"as" = (
-/obj/machinery/conveyor{
-	dir = 5;
-	id = "mining_internal"
-	},
+/obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
 /area/space)
 "at" = (
@@ -27,49 +17,17 @@
 /turf/open/floor/plating,
 /area/space)
 "aL" = (
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced/spawner,
-/obj/item/reagent_containers/glass/bottle/synaptizine{
-	pixel_x = 8;
-	pixel_y = 10
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
 	},
-/obj/item/reagent_containers/glass/bottle{
-	list_reagents = list(/datum/reagent/medicine/haloperidol=30);
-	name = "haloperidol bottle";
-	pixel_x = -4;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/glass/bottle{
-	list_reagents = list(/datum/reagent/medicine/psicodine=30);
-	name = "psicodine bottle";
-	pixel_x = 8;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/bottle{
-	list_reagents = list(/datum/reagent/medicine/leporazine=30);
-	name = "leporazine bottle";
-	pixel_x = -4;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/bottle{
-	list_reagents = list(/datum/reagent/medicine/inacusiate=30);
-	name = "inacusiate bottle";
-	pixel_x = -4
-	},
-/obj/item/reagent_containers/glass/bottle{
-	list_reagents = list(/datum/reagent/medicine/oculine=30);
-	name = "oculine bottle";
-	pixel_x = 8
-	},
-/turf/open/floor/durasteel/padded,
+/turf/open/floor/plating,
 /area/space)
 "bz" = (
 /obj/machinery/telecomms/broadcaster/preset_right,
 /turf/open/floor/circuit/green/telecomms/mainframe,
 /area/space)
 "bT" = (
-/obj/structure/table/glass,
-/obj/item/book/manual/wiki/chemistry,
+/obj/effect/turf_decal/stripes/corner,
 /turf/open/floor/plating,
 /area/space)
 "bZ" = (
@@ -114,26 +72,12 @@
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/space)
 "gq" = (
-/obj/structure/table/reinforced,
-/obj/item/reagent_containers/food/drinks/bottle/synthflesh{
-	pixel_x = -5;
-	pixel_y = 10
+/obj/structure/fighter_launcher{
+	dir = 4;
+	pixel_x = 15;
+	pixel_y = 6
 	},
-/obj/item/reagent_containers/food/drinks/bottle/synthflesh{
-	pixel_x = 7;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/glass/bottle{
-	list_reagents = list(/datum/reagent/medicine/cryoxadone=30);
-	name = "cryoxadone bottle";
-	pixel_x = 8
-	},
-/obj/item/reagent_containers/glass/bottle/diphenhydramine{
-	list_reagents = list(/datum/reagent/medicine/rezadone = 30);
-	name = "rezadone bottle";
-	pixel_x = -4
-	},
-/turf/open/floor/durasteel/eris_techfloor_alt,
+/turf/open/floor/plating,
 /area/space)
 "gx" = (
 /obj/effect/turf_decal/ship/delivery/yellow,
@@ -143,17 +87,21 @@
 /obj/machinery/door/airlock/turbolift/ship,
 /turf/open/space/basic,
 /area/space)
+"gJ" = (
+/obj/structure/table,
+/turf/open/floor/plating,
+/area/space)
 "gK" = (
-/obj/machinery/atmospherics/pipe/heat_exchanging/manifold{
+/obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
-/turf/open/floor/plasteel/dark/telecomms,
+/turf/open/floor/plating,
 /area/space)
 "gZ" = (
-/obj/machinery/atmospherics/pipe/manifold{
+/obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/turf/open/floor/plasteel/dark/telecomms,
+/turf/open/floor/plating,
 /area/space)
 "hw" = (
 /obj/machinery/telecomms/processor/preset_two,
@@ -164,16 +112,11 @@
 /turf/open/floor/circuit/green/telecomms/mainframe,
 /area/space)
 "ib" = (
-/obj/machinery/atmospherics/pipe/heat_exchanging/junction{
-	dir = 8
+/obj/structure/fighter_launcher{
+	dir = 8;
+	pixel_x = 12;
+	pixel_y = 6
 	},
-/turf/open/floor/plasteel/dark/telecomms,
-/area/space)
-"iw" = (
-/obj/machinery/conveyor{
-	id = "mining_internal"
-	},
-/obj/structure/plasticflaps,
 /turf/open/floor/plating,
 /area/space)
 "iL" = (
@@ -186,8 +129,13 @@
 /obj/effect/mapping_helpers/canister,
 /turf/open/floor/plating,
 /area/space)
+"iM" = (
+/obj/structure/reagent_dispensers/fueltank,
+/turf/open/floor/plating,
+/area/space)
 "jl" = (
-/obj/machinery/chem_heater,
+/obj/structure/overmap/small_craft/combat,
+/obj/effect/turf_decal/stripes/closeup,
 /turf/open/floor/plating,
 /area/space)
 "ky" = (
@@ -215,79 +163,32 @@
 /turf/open/floor/plating,
 /area/space)
 "lW" = (
-/obj/structure/rack,
-/obj/item/reagent_containers/glass/bottle/silver{
-	pixel_x = -5;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/glass/bottle/silver{
-	pixel_x = -5;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/glass/bottle/sodium{
-	pixel_x = 7;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/glass/bottle/sodium{
-	pixel_x = 7;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/glass/bottle/toxin{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/bottle/toxin{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/bottle/sugar{
-	pixel_x = 7;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/bottle/sugar{
-	pixel_x = 7;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/bottle/sulfur{
-	pixel_x = -5
-	},
-/obj/item/reagent_containers/glass/bottle/sulfur{
-	pixel_x = -5
-	},
-/obj/item/reagent_containers/glass/bottle/sacid{
-	pixel_x = 7
-	},
-/obj/item/reagent_containers/glass/bottle/sacid{
-	pixel_x = 7
-	},
-/turf/open/floor/durasteel/eris_techfloor_alt,
+/obj/effect/turf_decal/stripes/closeup,
+/turf/open/floor/plating,
 /area/space)
 "me" = (
 /obj/machinery/computer/bank_machine,
 /turf/open/floor/plating,
 /area/space)
 "mw" = (
-/obj/machinery/announcement_system,
-/turf/open/floor/circuit/telecomms/mainframe,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 6
+	},
+/turf/open/floor/plating,
 /area/space)
 "mF" = (
 /obj/machinery/telecomms/server/presets/security,
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/space)
 "mJ" = (
-/obj/structure/window/reinforced/spawner,
-/obj/structure/reagent_dispensers/fueltank,
-/turf/open/floor/durasteel/eris_techfloor_alt,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 5
+	},
+/turf/open/floor/plating,
 /area/space)
 "mT" = (
 /obj/structure/filingcabinet/documents{
 	name = "filing cabinet"
-	},
-/turf/open/floor/plating,
-/area/space)
-"nV" = (
-/obj/structure/closet/secure_closet/miner{
-	anchored = 1
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -304,74 +205,37 @@
 /turf/open/floor/plating,
 /area/space)
 "po" = (
-/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
-	dir = 5
+/obj/structure/overmap/small_craft/combat,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
 	},
-/obj/structure/lattice/catwalk/over/ship,
-/turf/open/floor/plasteel/dark/telecomms,
+/turf/open/floor/plating,
 /area/space)
 "pW" = (
 /obj/machinery/telecomms/message_server/preset,
 /turf/open/floor/circuit/green/telecomms/mainframe,
 /area/space)
 "pZ" = (
-/obj/structure/bed/roller{
-	color = "#94deff"
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
 	},
+/turf/open/floor/plating,
+/area/space)
+"qU" = (
+/obj/machinery/vendor/mining,
 /turf/open/floor/plating,
 /area/space)
 "rj" = (
-/obj/structure/table,
-/obj/item/book/manual/wiki/sop/medical,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/space)
 "rn" = (
-/obj/structure/rack,
-/obj/item/reagent_containers/glass/bottle/aluminium{
-	pixel_x = -5;
-	pixel_y = 10
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
 	},
-/obj/item/reagent_containers/glass/bottle/aluminium{
-	pixel_x = -5;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/glass/bottle/bromine{
-	pixel_x = 7;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/glass/bottle/bromine{
-	pixel_x = 7;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/glass/bottle/carbon{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/bottle/carbon{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/bottle/chlorine{
-	pixel_x = 7;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/bottle/chlorine{
-	pixel_x = 7;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/bottle/copper{
-	pixel_x = -5
-	},
-/obj/item/reagent_containers/glass/bottle/copper{
-	pixel_x = -5
-	},
-/obj/item/reagent_containers/glass/bottle/ethanol{
-	pixel_x = 7
-	},
-/obj/item/reagent_containers/glass/bottle/ethanol{
-	pixel_x = 7
-	},
-/turf/open/floor/durasteel/eris_techfloor_alt,
+/turf/open/floor/plating,
 /area/space)
 "rp" = (
 /obj/machinery/ntnet_relay,
@@ -381,14 +245,8 @@
 /obj/structure/toilet,
 /turf/open/floor/plating,
 /area/space)
-"rE" = (
-/obj/structure/stairs{
-	dir = 4
-	},
-/turf/open/space/basic,
-/area/space)
 "rZ" = (
-/obj/machinery/computer/crew,
+/obj/structure/fighter_launcher,
 /turf/open/floor/plating,
 /area/space)
 "sv" = (
@@ -407,19 +265,8 @@
 /turf/open/floor/plating,
 /area/space)
 "uA" = (
-/obj/structure/table/reinforced,
-/obj/item/storage/firstaid/o2{
-	pixel_x = 4;
-	pixel_y = 8
-	},
-/obj/item/storage/firstaid/medical{
-	pixel_y = 4
-	},
-/obj/item/storage/firstaid/regular{
-	pixel_x = -4
-	},
-/obj/structure/window/reinforced/spawner/east,
-/obj/structure/window/reinforced/spawner/west,
+/obj/structure/overmap/small_craft/transport/sabre,
+/obj/structure/fighter_launcher,
 /turf/open/floor/plating,
 /area/space)
 "uH" = (
@@ -444,52 +291,12 @@
 /turf/open/floor/plating,
 /area/space)
 "vE" = (
-/obj/structure/rack,
-/obj/item/reagent_containers/glass/bottle/nitrogen{
-	pixel_x = -5;
-	pixel_y = 10
+/obj/effect/turf_decal/trimline/yellow/line{
+	alpha = 220;
+	color = "#D2D53D";
+	dir = 9
 	},
-/obj/item/reagent_containers/glass/bottle/nitrogen{
-	pixel_x = -5;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/glass/bottle/oxygen{
-	pixel_x = 7;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/glass/bottle/oxygen{
-	pixel_x = 7;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/glass/bottle/phosphorus{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/bottle/phosphorus{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/bottle/potassium{
-	pixel_x = 7;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/bottle/potassium{
-	pixel_x = 7;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/bottle/radium{
-	pixel_x = -5
-	},
-/obj/item/reagent_containers/glass/bottle/radium{
-	pixel_x = -5
-	},
-/obj/item/reagent_containers/glass/bottle/silicon{
-	pixel_x = 7
-	},
-/obj/item/reagent_containers/glass/bottle/silicon{
-	pixel_x = 7
-	},
-/turf/open/floor/durasteel/padded,
+/turf/open/floor/plating,
 /area/space)
 "vO" = (
 /obj/structure/rack,
@@ -513,26 +320,10 @@
 /turf/open/floor/plating,
 /area/space)
 "wM" = (
-/obj/machinery/portable_atmospherics/canister/nitrogen{
-	anchored = 1
-	},
-/obj/machinery/atmospherics/components/unary/portables_connector{
+/obj/effect/turf_decal/trimline/yellow/line{
+	alpha = 220;
+	color = "#D2D53D";
 	dir = 1
-	},
-/obj/effect/mapping_helpers/canister,
-/turf/open/floor/plasteel/dark/telecomms,
-/area/space)
-"xC" = (
-/obj/effect/turf_decal/delivery,
-/obj/structure/closet/crate{
-	opened = 1
-	},
-/turf/open/floor/plating,
-/area/space)
-"xD" = (
-/obj/machinery/mineral/unloading_machine{
-	input_dir = 2;
-	output_dir = 1
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -546,27 +337,26 @@
 /turf/open/floor/circuit/green/telecomms/mainframe,
 /area/space)
 "xY" = (
-/obj/machinery/vending/wardrobe/medi_wardrobe,
+/obj/effect/turf_decal/trimline/yellow/line{
+	alpha = 220;
+	color = "#D2D53D";
+	dir = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "yn" = (
 /turf/closed/wall/ship,
 /area/space)
 "yz" = (
-/obj/structure/table,
-/obj/item/storage/backpack/duffelbag/med/surgery,
-/obj/machinery/light{
-	dir = 1
+/obj/effect/turf_decal/trimline/yellow/line{
+	alpha = 220;
+	color = "#D2D53D";
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/space)
-"zr" = (
-/obj/structure/tank_dispenser/oxygen,
-/turf/open/floor/plating,
-/area/space)
 "zI" = (
-/obj/machinery/atmospherics/pipe/heat_exchanging/simple,
-/turf/open/floor/plasteel/dark/telecomms,
+/turf/open/floor/glass/reinforced,
 /area/space)
 "zJ" = (
 /obj/machinery/door/poddoor/shutters/ship,
@@ -577,18 +367,11 @@
 /turf/open/floor/plating,
 /area/space)
 "Au" = (
-/obj/structure/table/reinforced,
-/obj/item/storage/firstaid/fire{
-	pixel_x = 4;
-	pixel_y = 8
+/obj/effect/turf_decal/trimline/yellow/line{
+	alpha = 220;
+	color = "#D2D53D";
+	dir = 4
 	},
-/obj/item/storage/firstaid/toxin{
-	pixel_y = 4
-	},
-/obj/item/storage/firstaid/radbgone{
-	pixel_x = -4
-	},
-/obj/structure/window/reinforced/spawner/east,
 /turf/open/floor/plating,
 /area/space)
 "AH" = (
@@ -611,7 +394,11 @@
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/space)
 "BG" = (
-/obj/structure/closet/secure_closet/medical3,
+/obj/effect/turf_decal/trimline/yellow/line{
+	alpha = 220;
+	color = "#D2D53D";
+	dir = 10
+	},
 /turf/open/floor/plating,
 /area/space)
 "CK" = (
@@ -619,15 +406,9 @@
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/space)
 "DC" = (
-/obj/machinery/computer/ship/navigation/public,
-/obj/machinery/computer/ship/viewscreen,
-/turf/open/floor/plating,
-/area/space)
-"DI" = (
-/obj/machinery/mineral/processing_unit_console{
-	density = 0;
-	link_id = "99";
-	pixel_y = 24
+/obj/effect/turf_decal/trimline/yellow/line{
+	alpha = 220;
+	color = "#D2D53D"
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -636,13 +417,10 @@
 /turf/open/floor/plating,
 /area/space)
 "Es" = (
-/obj/structure/table,
-/obj/item/storage/firstaid/regular{
-	pixel_x = 4;
-	pixel_y = 4
-	},
-/obj/item/storage/firstaid/regular{
-	pixel_x = -4
+/obj/effect/turf_decal/trimline/yellow/line{
+	alpha = 220;
+	color = "#D2D53D";
+	dir = 6
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -654,8 +432,10 @@
 /turf/open/openspace,
 /area/space)
 "Fy" = (
-/obj/machinery/atmospherics/components/unary/thermomachine/freezer/on,
-/turf/open/floor/plasteel/dark/telecomms,
+/obj/structure/fighter_launcher{
+	dir = 1
+	},
+/turf/open/floor/plating,
 /area/space)
 "FD" = (
 /obj/structure/sink{
@@ -668,49 +448,9 @@
 /turf/open/floor/carpet/black,
 /area/space)
 "FS" = (
-/obj/structure/table/reinforced,
-/obj/structure/window/reinforced/spawner,
-/obj/item/reagent_containers/glass/bottle{
-	list_reagents = list(/datum/reagent/medicine/system_cleaner=30);
-	name = "system cleaner bottle";
-	pixel_x = 8;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/glass/bottle{
-	list_reagents = list(/datum/reagent/medicine/liquid_solder=30);
-	name = "liquid solder bottle";
-	pixel_x = -4;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/glass/bottle{
-	list_reagents = list(/datum/reagent/medicine/radioactive_disinfectant=30);
-	name = "radioactive disinfectant bottle";
-	pixel_x = 8;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/bottle{
-	list_reagents = list(/datum/reagent/medicine/spaceacillin=30);
-	name = "spaceacillin bottle";
-	pixel_x = -4;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/bottle{
-	list_reagents = list(/datum/reagent/medicine/corazone=30);
-	name = "corazone bottle";
-	pixel_x = 8
-	},
-/obj/item/reagent_containers/glass/bottle/diphenhydramine{
-	pixel_x = -4
-	},
-/turf/open/floor/durasteel/padded,
-/area/space)
-"Gx" = (
 /obj/machinery/conveyor{
-	dir = 4;
+	dir = 5;
 	id = "mining_internal"
-	},
-/obj/machinery/light{
-	dir = 1
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -722,9 +462,13 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/space)
 "Ht" = (
-/obj/machinery/light,
-/obj/structure/table,
-/obj/item/storage/backpack/duffelbag/med/surgery,
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "mining_internal"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/space)
 "HD" = (
@@ -749,7 +493,13 @@
 /turf/open/floor/plating,
 /area/space)
 "Jl" = (
-/obj/machinery/chem_master,
+/obj/machinery/mineral/processing_unit{
+	allow_point_redemption = 1;
+	dir = 1;
+	input_dir = 8;
+	link_id = "99";
+	output_dir = 4
+	},
 /turf/open/floor/plating,
 /area/space)
 "Jm" = (
@@ -757,7 +507,10 @@
 /turf/open/floor/plating,
 /area/space)
 "Jo" = (
-/obj/structure/table,
+/obj/machinery/conveyor{
+	dir = 6;
+	id = "mining_internal"
+	},
 /turf/open/floor/plating,
 /area/space)
 "KH" = (
@@ -772,19 +525,8 @@
 /turf/open/floor/carpet/black,
 /area/space)
 "Lb" = (
-/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
-	dir = 6
-	},
-/obj/structure/lattice/catwalk/over/ship,
-/turf/open/floor/plasteel/dark/telecomms,
-/area/space)
-"LW" = (
-/obj/machinery/mineral/processing_unit{
-	allow_point_redemption = 1;
-	dir = 1;
-	input_dir = 8;
-	link_id = "99";
-	output_dir = 4
+/obj/structure/closet/secure_closet/miner{
+	anchored = 1
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -796,21 +538,12 @@
 /turf/open/floor/plating,
 /area/space)
 "Mj" = (
-/obj/structure/closet/crate/freezer/blood,
-/obj/item/reagent_containers/blood/random,
-/obj/item/reagent_containers/blood/random,
-/obj/item/reagent_containers/blood/random,
-/obj/item/reagent_containers/blood/random,
-/obj/item/reagent_containers/blood/random,
+/obj/machinery/suit_storage_unit/mining/eva,
 /turf/open/floor/plating,
 /area/space)
 "Mz" = (
 /obj/machinery/telecomms/processor/preset_one,
 /turf/open/floor/circuit/green/telecomms/mainframe,
-/area/space)
-"MN" = (
-/obj/machinery/vendor/mining,
-/turf/open/floor/plating,
 /area/space)
 "Na" = (
 /obj/structure/rack,
@@ -830,7 +563,11 @@
 /turf/open/space/basic,
 /area/space)
 "Nl" = (
-/turf/open/floor/plasteel/dark/telecomms,
+/obj/structure/overmap/small_craft/transport/sabre,
+/obj/structure/fighter_launcher{
+	dir = 1
+	},
+/turf/open/floor/plating,
 /area/space)
 "ND" = (
 /obj/machinery/telecomms/hub/preset,
@@ -849,11 +586,8 @@
 /turf/open/floor/circuit/green/telecomms/mainframe,
 /area/space)
 "OR" = (
-/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/over/ship,
-/turf/open/floor/plasteel/dark/telecomms,
+/obj/structure/ore_box,
+/turf/open/floor/plating,
 /area/space)
 "OX" = (
 /obj/machinery/computer/ship/dradis/minor/cargo,
@@ -883,18 +617,17 @@
 /turf/open/floor/circuit/green/telecomms/mainframe,
 /area/space)
 "Qt" = (
-/obj/structure/table/reinforced,
-/obj/item/storage/firstaid/brute{
-	pixel_y = 4
+/obj/machinery/mineral/unloading_machine{
+	input_dir = 2;
+	output_dir = 1
 	},
-/obj/item/storage/firstaid/advanced{
-	pixel_x = -4
-	},
-/obj/structure/window/reinforced/spawner/west,
 /turf/open/floor/plating,
 /area/space)
 "QH" = (
-/obj/structure/table/glass,
+/obj/machinery/conveyor{
+	id = "mining_internal"
+	},
+/obj/structure/plasticflaps,
 /turf/open/floor/plating,
 /area/space)
 "Ro" = (
@@ -921,62 +654,22 @@
 /turf/open/space/basic,
 /area/space)
 "SI" = (
-/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
-	dir = 10
+/obj/machinery/mineral/processing_unit_console{
+	density = 0;
+	link_id = "99";
+	pixel_y = 24
 	},
-/obj/structure/lattice/catwalk/over/ship,
-/turf/open/floor/plasteel/dark/telecomms,
+/turf/open/floor/plating,
 /area/space)
 "SZ" = (
-/obj/structure/rack,
-/obj/item/reagent_containers/glass/bottle/fluorine{
-	pixel_x = -5;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/glass/bottle/fluorine{
-	pixel_x = -5;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/glass/bottle/hydrogen{
-	pixel_x = 7;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/glass/bottle/hydrogen{
-	pixel_x = 7;
-	pixel_y = 10
-	},
-/obj/item/reagent_containers/glass/bottle/iodine{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/bottle/iodine{
-	pixel_x = -5;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/bottle/iron{
-	pixel_x = 7;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/bottle/iron{
-	pixel_x = 7;
-	pixel_y = 5
-	},
-/obj/item/reagent_containers/glass/bottle/lithium{
-	pixel_x = -5
-	},
-/obj/item/reagent_containers/glass/bottle/lithium{
-	pixel_x = -5
-	},
-/obj/item/reagent_containers/glass/bottle/mercury{
-	pixel_x = 7
-	},
-/obj/item/reagent_containers/glass/bottle/mercury{
-	pixel_x = 7
-	},
-/turf/open/floor/durasteel/padded,
+/obj/effect/turf_decal/bot,
+/turf/open/floor/plating,
 /area/space)
 "Tk" = (
-/obj/machinery/computer/med_data,
+/obj/machinery/conveyor_switch/oneway{
+	id = "mining_internal";
+	name = "mining conveyor"
+	},
 /turf/open/floor/plating,
 /area/space)
 "Tn" = (
@@ -1003,16 +696,19 @@
 /turf/open/floor/plating,
 /area/space)
 "UZ" = (
-/turf/open/floor/engine/airless,
+/obj/effect/turf_decal/delivery,
+/obj/structure/closet/crate{
+	opened = 1
+	},
+/turf/open/floor/plating,
 /area/space)
 "Vn" = (
-/obj/machinery/atmospherics/pipe/heat_exchanging/simple,
-/obj/structure/lattice/catwalk/over/ship,
-/turf/open/floor/plasteel/dark/telecomms,
+/obj/structure/tank_dispenser/oxygen,
+/turf/open/floor/plating,
 /area/space)
 "VH" = (
-/obj/machinery/computer/operating{
-	dir = 8
+/obj/machinery/computer/ship/navigation/public{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -1029,46 +725,29 @@
 	},
 /turf/open/floor/plating,
 /area/space)
-"WI" = (
-/obj/effect/turf_decal/bot,
-/turf/open/floor/plating,
-/area/space)
 "WL" = (
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer/on,
 /turf/open/floor/plating,
 /area/space)
-"WQ" = (
-/obj/machinery/conveyor{
-	dir = 6;
-	id = "mining_internal"
-	},
-/turf/open/floor/plating,
-/area/space)
 "WV" = (
-/obj/machinery/porta_turret/ai,
-/turf/open/floor/plating,
-/area/space)
-"Xe" = (
-/obj/machinery/suit_storage_unit/mining/eva,
+/obj/structure/fighter_launcher{
+	dir = 1
+	},
+/obj/effect/turf_decal/delivery,
+/obj/structure/overmap/small_craft/transport/sabre/mining{
+	random_name = 0
+	},
 /turf/open/floor/plating,
 /area/space)
 "Xo" = (
-/obj/machinery/atmospherics/pipe/heat_exchanging/simple{
-	dir = 9
-	},
-/obj/structure/lattice/catwalk/over/ship,
-/turf/open/floor/plasteel/dark/telecomms,
-/area/space)
-"Yi" = (
-/obj/machinery/conveyor_switch/oneway{
-	id = "mining_internal";
-	name = "mining conveyor"
-	},
+/obj/structure/reagent_dispensers/fueltank/cryogenic_fuel,
 /turf/open/floor/plating,
 /area/space)
 "Zj" = (
-/obj/machinery/disposal/bin,
-/turf/open/floor/plating,
+/obj/structure/stairs{
+	dir = 4
+	},
+/turf/open/space/basic,
 /area/space)
 "ZG" = (
 /obj/machinery/telecomms/server/presets/common,
@@ -27154,19 +26833,19 @@ VL
 VL
 VL
 VL
+ac
+ac
+ac
 VL
+ac
+ac
+ac
+ac
+ac
 VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+ac
+ac
+ac
 VL
 VL
 VL
@@ -27411,19 +27090,19 @@ VL
 VL
 VL
 VL
+ac
 VL
 VL
 VL
+ac
+ac
+ac
+ac
+ac
 VL
 VL
 VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+ac
 VL
 VL
 VL
@@ -27667,21 +27346,21 @@ VL
 VL
 VL
 VL
+ac
+ac
 VL
+cb
+cb
+ac
+ac
+ac
+ac
+ac
+cb
+cb
 VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+ac
+ac
 VL
 VL
 VL
@@ -27924,21 +27603,21 @@ VL
 VL
 VL
 VL
+ac
 VL
 VL
+cb
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+cb
 VL
 VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+ac
 VL
 VL
 VL
@@ -28181,21 +27860,21 @@ VL
 VL
 VL
 VL
-VL
+ac
 VL
 ac
 cb
 ac
-ac
-ac
-ac
-ac
-ac
+vE
+yz
+yz
+yz
+BG
 ac
 cb
 ac
 VL
-VL
+ac
 VL
 VL
 VL
@@ -28436,25 +28115,25 @@ VL
 VL
 VL
 VL
-VL
-VL
-VL
-VL
+yn
+yn
+yn
+yn
 ac
 cb
 ac
-ac
-ac
-ac
-ac
-ac
+wM
+zI
+zI
+zI
+DC
 ac
 cb
 ac
-VL
-VL
-VL
-VL
+yn
+yn
+yn
+yn
 VL
 VL
 VL
@@ -28696,19 +28375,19 @@ VL
 VL
 VL
 VL
-VL
+yn
 ac
 cb
 ac
-ac
-ac
-ac
-ac
-ac
+wM
+zI
+zI
+zI
+DC
 ac
 cb
 ac
-VL
+yn
 VL
 VL
 VL
@@ -28953,19 +28632,19 @@ VL
 VL
 VL
 VL
-VL
+yn
 ac
 cb
 ac
-ac
-ac
-ac
-ac
-ac
+wM
+zI
+zI
+zI
+DC
 ac
 cb
 ac
-VL
+yn
 VL
 VL
 VL
@@ -29210,19 +28889,19 @@ VL
 VL
 VL
 VL
-VL
+yn
 ac
 cb
 ac
-ac
-ac
-ac
-ac
-ac
+xY
+Au
+Au
+Au
+Es
 ac
 cb
 ac
-VL
+yn
 VL
 VL
 VL
@@ -29464,10 +29143,10 @@ VL
 VL
 VL
 VL
+yn
 VL
-VL
-VL
-VL
+yn
+yn
 ac
 cb
 ac
@@ -29479,10 +29158,10 @@ ac
 ac
 cb
 ac
+yn
+yn
 VL
-VL
-VL
-VL
+yn
 VL
 VL
 VL
@@ -29717,33 +29396,33 @@ VL
 VL
 VL
 VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+yn
+ac
+yn
+ac
+yn
 VL
 ac
+yn
+ac
+cb
 cb
 ac
 ac
 ac
 ac
 ac
-ac
-ac
+cb
 cb
 ac
+yn
+ac
 VL
+yn
 VL
+yn
 VL
-VL
-VL
-VL
-VL
-VL
+yn
 VL
 VL
 VL
@@ -29974,33 +29653,33 @@ VL
 VL
 VL
 VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-ac
-cb
+yn
 ac
 ac
 ac
-ac
-ac
+yn
+Ni
+Ni
+yn
 ac
 ac
 cb
 ac
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+ac
+ac
+ac
+ac
+cb
+ac
+ac
+yn
+Ni
+Ni
+yn
+ac
+ac
+ac
+yn
 VL
 VL
 VL
@@ -30236,7 +29915,8 @@ ac
 ac
 ac
 yn
-VL
+yn
+yn
 yn
 yn
 ac
@@ -30246,13 +29926,12 @@ ac
 ac
 ac
 ac
-ac
-ac
 cb
 ac
 yn
 yn
-VL
+yn
+yn
 yn
 ac
 ac
@@ -30494,13 +30173,6 @@ db
 db
 yn
 yn
-yn
-ac
-ac
-cb
-ac
-ac
-ac
 ac
 ac
 ac
@@ -30508,7 +30180,14 @@ ac
 cb
 ac
 ac
-yn
+ac
+ac
+ac
+cb
+ac
+ac
+ac
+ac
 yn
 yn
 db
@@ -30753,6 +30432,7 @@ VN
 yn
 ac
 ac
+rZ
 ac
 cb
 ac
@@ -30760,12 +30440,11 @@ ac
 ac
 ac
 ac
-ac
-ac
 cb
 ac
 ac
 ac
+Fy
 yn
 RL
 ac
@@ -31011,15 +30690,15 @@ yn
 ac
 ac
 ac
-cb
-ac
-ac
-ac
-ac
-ac
-ac
 ac
 cb
+ac
+ac
+ac
+ac
+ac
+cb
+ac
 ac
 ac
 ac
@@ -31268,15 +30947,15 @@ yn
 ac
 ac
 ac
-cb
-ac
-ac
-ac
-ac
-ac
-ac
 ac
 cb
+ac
+ac
+ac
+ac
+ac
+cb
+ac
 ac
 ac
 ac
@@ -31511,9 +31190,9 @@ VL
 VL
 VL
 VL
-VL
-VL
-VL
+yn
+yn
+yn
 yn
 VL
 yn
@@ -31522,7 +31201,8 @@ xF
 xF
 yn
 yn
-yn
+ac
+ac
 ac
 ac
 cb
@@ -31531,12 +31211,11 @@ ac
 ac
 ac
 ac
-ac
-ac
 cb
 ac
 ac
-yn
+ac
+ac
 yn
 yn
 xF
@@ -31545,8 +31224,8 @@ xF
 yn
 VL
 yn
-VL
-VL
+yn
+yn
 VL
 VL
 VL
@@ -31768,17 +31447,18 @@ VL
 VL
 VL
 VL
-VL
-VL
-VL
 yn
+VL
+VL
+VL
 VL
 yn
 ac
 ac
 ac
 yn
-VL
+yn
+yn
 yn
 yn
 ac
@@ -31788,22 +31468,21 @@ ac
 ac
 ac
 ac
-ac
-ac
 cb
 ac
 yn
 yn
-VL
+yn
+yn
 yn
 ac
 ac
 ac
 yn
-VL
+ac
+ac
+ac
 yn
-VL
-VL
 VL
 VL
 VL
@@ -32025,19 +31704,20 @@ VL
 VL
 VL
 VL
-VL
-VL
-VL
 yn
 VL
 VL
 VL
 VL
-VL
-VL
-VL
-VL
-VL
+yn
+ac
+ac
+ac
+ac
+Fv
+Fv
+yn
+ac
 ac
 cb
 ac
@@ -32045,22 +31725,21 @@ ac
 ac
 ac
 ac
-ac
-ac
 cb
 ac
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-yn
-VL
-VL
+ac
+Ob
+ac
+ac
+Ob
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+Ob
 VL
 VL
 VL
@@ -32282,42 +31961,42 @@ VL
 VL
 VL
 VL
-VL
-VL
-VL
 yn
 VL
 VL
 VL
 VL
 VL
-VL
-VL
-VL
-VL
-ac
-cb
 ac
 ac
 ac
 ac
-ac
-ac
-ac
-cb
-ac
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+Fv
+Fv
 yn
-VL
-VL
+ac
+cb
+cb
+ac
+ac
+ac
+ac
+ac
+cb
+cb
+ac
+yn
+ac
+ac
+yn
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+yn
 VL
 VL
 VL
@@ -32539,19 +32218,19 @@ VL
 VL
 VL
 VL
-VL
-VL
-VL
 yn
 VL
 VL
 VL
 VL
-VL
-VL
-VL
-VL
-VL
+yn
+ac
+ac
+ac
+ac
+Fv
+Fv
+yn
 ac
 cb
 ac
@@ -32563,18 +32242,18 @@ ac
 ac
 cb
 ac
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-yn
-VL
-VL
+Ob
+ac
+ac
+Ob
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+Ob
 VL
 VL
 VL
@@ -32796,19 +32475,19 @@ VL
 VL
 VL
 VL
-VL
-VL
-VL
 yn
 VL
 VL
 VL
 VL
-VL
-VL
-VL
-VL
-VL
+yn
+yn
+yn
+yn
+yn
+yn
+yn
+yn
 ac
 cb
 ac
@@ -32820,18 +32499,18 @@ ac
 ac
 cb
 ac
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
 yn
-VL
-VL
+yn
+yn
+yn
+yn
+yn
+yn
+yn
+ac
+ac
+ac
+yn
 VL
 VL
 VL
@@ -33053,19 +32732,19 @@ VL
 VL
 VL
 VL
-VL
-VL
-VL
 yn
 VL
 VL
 VL
 VL
-VL
-VL
-VL
-VL
-VL
+yn
+ah
+gq
+jl
+gq
+jl
+gq
+po
 ac
 cb
 ac
@@ -33077,18 +32756,18 @@ ac
 ac
 cb
 ac
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+ac
 yn
-VL
-VL
+OR
+OR
+VH
+Xo
+iM
+yn
+ac
+ac
+ac
+yn
 VL
 VL
 VL
@@ -33310,19 +32989,19 @@ VL
 VL
 VL
 VL
-VL
-VL
-VL
+yn
+yn
+yn
 yn
 VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+yn
+ah
+ac
+lW
+ac
+lW
+ac
+pZ
 ac
 cb
 ac
@@ -33334,18 +33013,18 @@ ac
 ac
 cb
 ac
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 yn
 VL
-VL
+yn
+yn
+yn
 VL
 VL
 VL
@@ -33572,14 +33251,14 @@ VL
 VL
 yn
 VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+yn
+ah
+ac
+lW
+ac
+lW
+ac
+pZ
 ac
 cb
 ac
@@ -33591,14 +33270,14 @@ ac
 ac
 cb
 ac
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+ac
+ac
+cb
+cb
+WV
+ac
+ac
+yn
 VL
 yn
 VL
@@ -33829,14 +33508,14 @@ VL
 VL
 yn
 VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+yn
+ah
+ac
+lW
+ac
+lW
+ac
+pZ
 ac
 cb
 ac
@@ -33848,14 +33527,14 @@ ac
 ac
 cb
 ac
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+yn
 VL
 yn
 VL
@@ -34086,14 +33765,14 @@ VL
 VL
 yn
 VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+yn
+aL
+gK
+mw
+gK
+mw
+gK
+rj
 ac
 cb
 ac
@@ -34105,14 +33784,14 @@ ac
 ac
 cb
 ac
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+ac
+ac
+cb
+cb
+cb
+ac
+ac
+yn
 VL
 yn
 VL
@@ -34343,14 +34022,14 @@ VL
 VL
 yn
 VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+yn
+bT
+gZ
+mJ
+gZ
+mJ
+gZ
+rn
 ac
 cb
 ac
@@ -34362,14 +34041,14 @@ ac
 ac
 cb
 ac
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+yn
 VL
 yn
 VL
@@ -34600,14 +34279,14 @@ VL
 VL
 yn
 VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+yn
+ah
+ib
+lW
+ib
+lW
+ib
+pZ
 ac
 cb
 ac
@@ -34619,14 +34298,14 @@ ac
 ac
 cb
 ac
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+ac
+ac
+cb
+cb
+WV
+ac
+ac
+yn
 VL
 yn
 VL
@@ -34857,14 +34536,14 @@ VL
 VL
 yn
 VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+yn
+ah
+ac
+jl
+ac
+jl
+ac
+po
 ac
 cb
 ac
@@ -34876,14 +34555,14 @@ ac
 ac
 cb
 ac
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+yn
 VL
 yn
 VL
@@ -35089,39 +34768,39 @@ VL
 VL
 VL
 VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
 yn
-yn
-yn
-yn
-yn
-yn
-yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
 VL
 yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+ah
+ac
+lW
+ac
+lW
+ac
+pZ
 ac
 cb
 ac
@@ -35133,14 +34812,14 @@ ac
 ac
 cb
 ac
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+ac
+ac
+cb
+cb
+cb
+ac
+ac
+yn
 VL
 yn
 VL
@@ -35343,42 +35022,50 @@ VL
 VL
 VL
 VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
 yn
+VL
 yn
-yn
-yn
-yn
-yn
-yn
-yn
-yn
-yn
-yn
+ah
 ac
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+lW
+ac
+lW
+ac
+pZ
+ac
+cb
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 cb
 ac
@@ -35388,16 +35075,8 @@ ac
 ac
 ac
 ac
-cb
 ac
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+yn
 VL
 yn
 VL
@@ -35602,40 +35281,40 @@ VL
 VL
 VL
 VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
 yn
-bZ
-AX
-ZG
-Nl
-gg
-mF
-PU
 yn
 VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
 yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+yn
+yn
+yn
+yn
+yn
+yn
+yn
 ac
 cb
 ac
@@ -35858,41 +35537,41 @@ VL
 VL
 VL
 VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
 yn
-yn
-Pf
-Lb
-Vn
-Vn
-Vn
-po
-CK
-yn
-yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
 VL
 VL
 yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 cb
 ac
@@ -36115,41 +35794,41 @@ VL
 VL
 VL
 VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
 yn
-Lb
-Vn
-Xo
-Rs
-pW
-Rs
-SI
-Vn
-po
-yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
 VL
 yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+yn
+ac
+cb
+cb
+cb
+cb
+cb
+cb
 ac
 cb
 ac
@@ -36372,41 +36051,41 @@ VL
 VL
 VL
 VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
 yn
-OR
-Bt
-bz
-yn
-yn
-yn
-Fd
-sv
-OR
-yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
 VL
 yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+ac
+ac
+cb
+Fv
+Fv
+Fv
+Fv
+cb
 ac
 cb
 ac
@@ -36629,56 +36308,56 @@ VL
 VL
 VL
 VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+yn
+VL
+yn
+PS
+ac
+cb
+Fv
+Fv
+Fv
+Fv
+cb
+ac
+cb
+ac
+ac
+ac
+ac
+ac
+ac
+ac
+cb
+ac
+yn
+yn
 yn
 SI
-Vn
-po
-ND
-mw
-rp
-Lb
-Vn
-Xo
-yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-ac
-cb
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-cb
-ac
-yn
-yn
-yn
-DI
 ac
 ac
 ac
@@ -36886,41 +36565,41 @@ VL
 VL
 VL
 VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
 yn
-yn
-Mz
-SI
-Vn
-gK
-zI
-Xo
-OL
-yn
-yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
 VL
 yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+ac
+ac
+cb
+Fv
+Fv
+Fv
+Fv
+cb
 ac
 cb
 ac
@@ -36933,9 +36612,9 @@ ac
 cb
 ac
 yn
-as
-xD
-WI
+FS
+Qt
+SZ
 ac
 ac
 ac
@@ -37144,40 +36823,40 @@ VL
 VL
 VL
 VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
 yn
-hw
-dN
-Nl
-ib
-Nl
-PV
-Gz
-yn
-yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
 VL
 yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+yn
+ac
+cb
+cb
+cb
+cb
+cb
+cb
 ac
 cb
 ac
@@ -37190,9 +36869,9 @@ ac
 cb
 ac
 yn
-Gx
+Ht
 KH
-Yi
+Tk
 ac
 ac
 yn
@@ -37401,40 +37080,40 @@ VL
 VL
 VL
 VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
 yn
-yn
-hM
-Fy
-gZ
-wM
-NN
-yn
-yn
-yn
-yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
 VL
 VL
 yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+ac
+ac
+ac
+ac
+ac
+ac
+ac
 ac
 cb
 ac
@@ -37447,12 +37126,12 @@ ac
 cb
 ac
 yn
-LW
+Jl
 KH
 ac
 ac
 ac
-MN
+qU
 yn
 VL
 yn
@@ -37659,39 +37338,39 @@ VL
 VL
 VL
 VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+yn
+yn
+VL
 yn
 yn
 yn
-ac
 yn
 yn
 yn
-VL
-VL
 yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
 yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
 ac
 cb
 ac
@@ -37704,12 +37383,12 @@ ac
 cb
 ac
 yn
-WQ
-iw
-xC
-ac
-ac
 Jo
+QH
+UZ
+ac
+ac
+gJ
 yn
 VL
 yn
@@ -37917,15 +37596,12 @@ VL
 VL
 VL
 VL
-yn
-ac
-ac
-ac
-ac
-yn
 VL
 VL
-yn
+VL
+VL
+VL
+VL
 VL
 VL
 VL
@@ -37940,15 +37616,18 @@ VL
 VL
 VL
 yn
+yn
+yn
+yn
 VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+yn
+ah
+gq
+jl
+gq
+jl
+gq
+po
 ac
 cb
 ac
@@ -37969,9 +37648,9 @@ ac
 yn
 yn
 VL
-VL
-VL
-VL
+yn
+yn
+yn
 VL
 VL
 VL
@@ -38174,38 +37853,38 @@ VL
 VL
 VL
 VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
 yn
+ah
 ac
-WV
+lW
 ac
+lW
 ac
-VL
-VL
-Ni
-yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+pZ
 ac
 cb
 ac
@@ -38218,8 +37897,8 @@ ac
 cb
 ac
 yn
-nV
-nV
+Lb
+Lb
 ac
 ac
 ac
@@ -38228,7 +37907,7 @@ VL
 VL
 VL
 VL
-VL
+yn
 VL
 VL
 VL
@@ -38432,37 +38111,37 @@ VL
 VL
 VL
 VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+yn
+yn
+yn
+yn
+yn
+yn
+VL
+VL
+yn
+VL
+yn
+ah
 ac
+lW
 ac
+lW
 ac
-ac
-yn
-yn
-yn
-yn
-yn
-VL
-VL
-VL
-VL
-yn
-yn
-yn
-yn
-yn
-yn
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+pZ
 ac
 cb
 ac
@@ -38485,7 +38164,7 @@ yn
 VL
 VL
 VL
-VL
+yn
 VL
 VL
 VL
@@ -38712,14 +38391,14 @@ yn
 yn
 yn
 VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+yn
+ah
+ac
+lW
+ac
+lW
+ac
+pZ
 ac
 cb
 ac
@@ -38732,12 +38411,12 @@ ac
 cb
 ac
 yn
-Xe
-Xe
-zr
+Mj
+Mj
+Vn
 yn
-rE
-rE
+Zj
+Zj
 yn
 VL
 VL
@@ -38969,14 +38648,14 @@ yn
 yn
 VL
 VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+yn
+aL
+gK
+mw
+gK
+mw
+gK
+rj
 ac
 cb
 ac
@@ -38999,11 +38678,11 @@ yn
 yn
 VL
 yn
-ac
-ac
-ac
-ac
-ac
+Fv
+Fv
+Fv
+Fv
+Fv
 yn
 VL
 VL
@@ -39226,14 +38905,14 @@ Gz
 yn
 VL
 VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+yn
+bT
+gZ
+mJ
+gZ
+mJ
+gZ
+rn
 ac
 cb
 ac
@@ -39256,11 +38935,11 @@ ac
 ac
 ac
 gD
-ac
-ac
-ac
-ac
-ac
+Fv
+Fv
+Fv
+Fv
+Fv
 yn
 VL
 VL
@@ -39483,14 +39162,14 @@ PV
 yn
 VL
 VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+yn
+ah
+ib
+lW
+ib
+lW
+ib
+pZ
 ac
 cb
 ac
@@ -39513,11 +39192,11 @@ ac
 ac
 ac
 gD
-ac
-ac
-ac
-ac
-ac
+Fv
+Fv
+Fv
+Fv
+Fv
 yn
 VL
 VL
@@ -39740,14 +39419,14 @@ NN
 yn
 VL
 VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+yn
+ah
+ac
+jl
+ac
+jl
+ac
+po
 ac
 cb
 ac
@@ -39770,11 +39449,11 @@ ac
 ac
 ac
 gD
-ac
-ac
-ac
-ac
-ac
+Fv
+Fv
+Fv
+Fv
+Fv
 yn
 VL
 VL
@@ -39997,14 +39676,14 @@ ac
 yn
 VL
 VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+yn
+ah
+ac
+lW
+ac
+lW
+ac
+pZ
 ac
 cb
 ac
@@ -40027,11 +39706,11 @@ ac
 UP
 ac
 ky
-ac
-ac
-ac
-ac
-ac
+Fv
+Fv
+Fv
+Fv
+Fv
 yn
 VL
 VL
@@ -40254,14 +39933,14 @@ ac
 VL
 VL
 VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
-VL
+yn
+ah
+ac
+lW
+ac
+lW
+ac
+pZ
 ac
 cb
 ac
@@ -40513,7 +40192,7 @@ VL
 VL
 yn
 yn
-VL
+yn
 yn
 yn
 yn
@@ -41025,7 +40704,7 @@ dN
 yn
 VL
 VL
-yn
+VL
 ac
 ac
 ac
@@ -41035,13 +40714,13 @@ Fv
 yn
 ac
 cb
+cb
 ac
 ac
 ac
 ac
 ac
-ac
-ac
+cb
 cb
 ac
 yn
@@ -41291,15 +40970,15 @@ Fv
 Fv
 yn
 ac
-cb
-ac
-ac
-ac
-ac
-ac
-ac
 ac
 cb
+ac
+ac
+ac
+ac
+ac
+cb
+ac
 ac
 yn
 yn
@@ -41538,11 +41217,12 @@ yn
 yn
 yn
 VL
-VL
+yn
 yn
 ac
 ac
 ac
+yn
 yn
 yn
 yn
@@ -41554,10 +41234,9 @@ ac
 ac
 ac
 ac
-ac
-ac
 cb
 ac
+yn
 yn
 yn
 yn
@@ -41802,13 +41481,6 @@ db
 db
 yn
 yn
-yn
-ac
-ac
-cb
-ac
-ac
-ac
 ac
 ac
 ac
@@ -41816,7 +41488,14 @@ ac
 cb
 ac
 ac
-yn
+ac
+ac
+ac
+cb
+ac
+ac
+ac
+ac
 yn
 yn
 yn
@@ -42061,6 +41740,7 @@ VN
 yn
 ac
 ac
+uA
 ac
 cb
 ac
@@ -42068,12 +41748,11 @@ ac
 ac
 ac
 ac
-ac
-ac
 cb
 ac
 ac
 ac
+Nl
 yn
 RL
 ac
@@ -42319,15 +41998,15 @@ yn
 ac
 ac
 ac
-cb
-ac
-ac
-ac
-ac
-ac
-ac
 ac
 cb
+ac
+ac
+ac
+ac
+ac
+cb
+ac
 ac
 ac
 ac
@@ -42576,15 +42255,15 @@ yn
 ac
 ac
 ac
-cb
-ac
-ac
-ac
-ac
-ac
-ac
 ac
 cb
+ac
+ac
+ac
+ac
+ac
+cb
+ac
 ac
 ac
 ac
@@ -42830,13 +42509,6 @@ xF
 xF
 yn
 yn
-yn
-ac
-ac
-cb
-ac
-ac
-ac
 ac
 ac
 ac
@@ -42844,7 +42516,14 @@ ac
 cb
 ac
 ac
-yn
+ac
+ac
+ac
+cb
+ac
+ac
+ac
+ac
 yn
 yn
 xF
@@ -43089,6 +42768,7 @@ yn
 yn
 yn
 yn
+yn
 ac
 cb
 ac
@@ -43096,10 +42776,9 @@ ac
 ac
 ac
 ac
-ac
-ac
 cb
 ac
+yn
 yn
 yn
 yn
@@ -43347,15 +43026,15 @@ ac
 ac
 yn
 ac
-cb
-ac
-ac
-ac
-ac
-ac
-ac
 ac
 cb
+ac
+ac
+ac
+ac
+ac
+cb
+ac
 ac
 yn
 ac
@@ -43605,13 +43284,13 @@ ac
 Ob
 ac
 cb
+cb
 ac
 ac
 ac
 ac
 ac
-ac
-ac
+cb
 cb
 ac
 Ob
@@ -48455,12 +48134,12 @@ VL
 VL
 VL
 VL
-UZ
-yn
-yn
-yn
-yn
-UZ
+VL
+VL
+VL
+VL
+VL
+VL
 VL
 VL
 VL
@@ -48712,12 +48391,12 @@ VL
 VL
 VL
 VL
-yn
-yn
-Es
-rj
-yn
-yn
+VL
+VL
+VL
+VL
+VL
+VL
 VL
 VL
 VL
@@ -48969,12 +48648,12 @@ VL
 VL
 VL
 VL
-yn
-DC
-ac
-ac
-pZ
-yn
+VL
+VL
+VL
+VL
+VL
+VL
 VL
 VL
 VL
@@ -49226,12 +48905,12 @@ VL
 VL
 VL
 VL
-yn
-rZ
-ac
-ac
-pZ
-yn
+VL
+VL
+VL
+VL
+VL
+VL
 VL
 VL
 VL
@@ -49483,12 +49162,12 @@ VL
 VL
 VL
 VL
-yn
-Tk
-ac
-ac
-pZ
-yn
+VL
+VL
+VL
+VL
+VL
+VL
 VL
 VL
 VL
@@ -49740,12 +49419,12 @@ VL
 VL
 VL
 VL
-yn
-yn
-ac
-ac
-yn
-yn
+VL
+VL
+VL
+VL
+VL
+VL
 VL
 VL
 VL
@@ -51282,16 +50961,16 @@ VL
 VL
 VL
 VL
-yn
-yn
-yn
-yn
-yn
-yn
-yn
-yn
-yn
-yn
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
 VL
 VL
 VL
@@ -51539,16 +51218,16 @@ VL
 VL
 VL
 VL
-yn
-mJ
-aL
-FS
-gq
-yn
-Zj
-QH
-bT
-yn
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
 VL
 VL
 VL
@@ -51796,16 +51475,16 @@ VL
 VL
 VL
 VL
-yn
-ac
-ac
-ac
-ac
-ac
-ac
-ac
-Jl
-yn
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
 VL
 VL
 VL
@@ -52053,16 +51732,16 @@ VL
 VL
 VL
 VL
-yn
-rn
-SZ
-vE
-lW
-yn
-ac
-ac
-jl
-yn
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
 VL
 VL
 VL
@@ -52310,16 +51989,16 @@ VL
 VL
 VL
 VL
-yn
-yn
-yn
-yn
-yn
-yn
-ac
-ac
-yn
-yn
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
 VL
 VL
 VL
@@ -52565,18 +52244,18 @@ VL
 VL
 VL
 VL
-yn
-yn
-ac
-ac
-yn
-yn
-Jo
-ac
-ac
-ac
-Jo
-yn
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
 VL
 VL
 VL
@@ -52822,18 +52501,18 @@ VL
 VL
 VL
 VL
-yn
-xY
-ac
-ac
-Au
-yn
-yz
-ac
-ac
-ac
-Ht
-yn
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
 VL
 VL
 VL
@@ -53079,18 +52758,18 @@ VL
 VL
 VL
 VL
-yn
-BG
-ac
-ac
-uA
-yn
-ac
-ac
-ac
-ac
-ac
-yn
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
 VL
 VL
 VL
@@ -53336,18 +53015,18 @@ VL
 VL
 VL
 VL
-yn
-BG
-ac
-ac
-Qt
-yn
-VH
-ah
-Mj
-ah
-VH
-yn
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
 VL
 VL
 VL
@@ -53593,18 +53272,18 @@ VL
 VL
 VL
 VL
-yn
-yn
-yn
-yn
-yn
-yn
-yn
-yn
-yn
-yn
-yn
-yn
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
+VL
 VL
 VL
 VL
