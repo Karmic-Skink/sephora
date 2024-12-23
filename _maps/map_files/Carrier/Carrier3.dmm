@@ -12,26 +12,9 @@
 	},
 /turf/open/floor/plating,
 /area/space)
-"ax" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/space)
 "aS" = (
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/plating,
-/area/space)
-"aZ" = (
-/obj/structure/particle_accelerator/particle_emitter/left{
-	anchored = 1;
-	construction_state = 1;
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/turf/open/floor/mineral/plastitanium,
 /area/space)
 "by" = (
 /obj/machinery/computer/cloning{
@@ -52,6 +35,30 @@
 	id = "disposals_secondary"
 	},
 /turf/open/floor/plating,
+/area/space)
+"ct" = (
+/obj/machinery/atmospherics/pipe/simple/brown/visible/layer4,
+/turf/open/space/basic,
+/area/space)
+"cC" = (
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple/layer2{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple/layer4{
+	dir = 5
+	},
+/obj/machinery/button/door{
+	id = "sm_s_i";
+	name = "supermatter internal blastdoor";
+	pixel_x = -5;
+	pixel_y = -24
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/open/floor/engine/vacuum{
+	initial_gas_mix = "n2=10;TEMP=50"
+	},
 /area/space)
 "cS" = (
 /obj/structure/table,
@@ -179,6 +186,31 @@
 	},
 /turf/open/floor/plating,
 /area/space)
+"gt" = (
+/obj/effect/turf_decal/stripes/box,
+/obj/machinery/power/supermatter_crystal,
+/obj/machinery/mass_driver{
+	dir = 8;
+	id = "SM_EJECT"
+	},
+/turf/open/floor/engine/vacuum{
+	initial_gas_mix = "n2=10;TEMP=50"
+	},
+/area/space)
+"gA" = (
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple/layer2{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple/layer4{
+	dir = 9
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/open/floor/engine/vacuum{
+	initial_gas_mix = "n2=10;TEMP=50"
+	},
+/area/space)
 "hM" = (
 /obj/machinery/door/poddoor/ship{
 	id_tag = "stormdrive_blastdoors"
@@ -265,6 +297,18 @@
 /obj/item/stack/package_wrap,
 /turf/open/floor/plating,
 /area/space)
+"iM" = (
+/obj/machinery/atmospherics/pipe/simple/brown/visible/layer4{
+	dir = 1
+	},
+/turf/open/space/basic,
+/area/space)
+"iN" = (
+/obj/machinery/atmospherics/pipe/simple/brown/visible/layer4{
+	dir = 5
+	},
+/turf/open/space/basic,
+/area/space)
 "jg" = (
 /obj/machinery/computer/apc_control{
 	dir = 4
@@ -274,6 +318,14 @@
 "js" = (
 /obj/structure/tank_dispenser/oxygen,
 /turf/open/floor/plating,
+/area/space)
+"jC" = (
+/obj/machinery/atmospherics/pipe/heat_exchanging/manifold/layer2,
+/obj/machinery/atmospherics/pipe/heat_exchanging/manifold/layer4,
+/obj/machinery/atmospherics/pipe/manifold/green/visible,
+/turf/open/floor/engine/vacuum{
+	initial_gas_mix = "n2=10;TEMP=50"
+	},
 /area/space)
 "jW" = (
 /obj/machinery/conveyor{
@@ -348,9 +400,6 @@
 /turf/open/floor/plating,
 /area/space)
 "mj" = (
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/brown{
 	dir = 4
 	},
@@ -384,15 +433,6 @@
 "ny" = (
 /obj/structure/chair/fancy/bench,
 /turf/open/floor/plating,
-/area/space)
-"nG" = (
-/obj/structure/particle_accelerator/particle_emitter/right{
-	anchored = 1;
-	construction_state = 1;
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/mineral/plastitanium,
 /area/space)
 "nS" = (
 /obj/structure/closet/crate{
@@ -441,23 +481,45 @@
 /obj/machinery/chem_master,
 /turf/open/floor/plating,
 /area/space)
+"pV" = (
+/obj/machinery/atmospherics/pipe/simple/brown/visible/layer4{
+	dir = 4
+	},
+/turf/open/space/basic,
+/area/space)
+"qi" = (
+/obj/machinery/atmospherics/pipe/heat_exchanging/junction/layer2,
+/obj/machinery/atmospherics/pipe/heat_exchanging/junction/layer4,
+/obj/machinery/atmospherics/pipe/simple/green/visible,
+/obj/machinery/door/airlock/ship/external/glass,
+/obj/machinery/door/poddoor/ship{
+	id = "sm_p_i"
+	},
+/turf/open/floor/plating/rusty_techgrid,
+/area/space)
 "rb" = (
 /obj/machinery/plumbing/tank,
 /turf/open/floor/plating,
+/area/space)
+"rm" = (
+/obj/machinery/atmospherics/pipe/simple/dark/visible,
+/obj/machinery/atmospherics/pipe/heat_exchanging/junction/layer2{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/heat_exchanging/junction/layer4{
+	dir = 1
+	},
+/obj/machinery/door/airlock/ship/external/glass,
+/obj/machinery/door/poddoor/ship{
+	id = "sm_s_i"
+	},
+/turf/open/floor/plating/rusty_techgrid,
 /area/space)
 "rr" = (
 /turf/open/space/basic,
 /area/space)
 "ru" = (
 /turf/closed/wall/ship,
-/area/space)
-"rD" = (
-/obj/structure/particle_accelerator/power_box{
-	anchored = 1;
-	construction_state = 1;
-	dir = 8
-	},
-/turf/open/floor/mineral/plastitanium,
 /area/space)
 "rQ" = (
 /obj/machinery/washing_machine,
@@ -517,11 +579,10 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor/durasteel/eris_techfloor_alt,
 /area/space)
-"uL" = (
-/obj/machinery/computer/ship/ftl_computer{
-	dir = 4
-	},
-/turf/open/space/basic,
+"ul" = (
+/obj/effect/spawner/structure/window/reinforced/ship,
+/obj/effect/landmark/zebra_interlock_point,
+/turf/open/floor/plating,
 /area/space)
 "uO" = (
 /obj/machinery/dna_scannernew,
@@ -552,11 +613,9 @@
 	},
 /turf/open/floor/plating,
 /area/space)
-"wP" = (
-/obj/machinery/computer/monitor{
-	dir = 1
-	},
-/turf/open/floor/plating,
+"wT" = (
+/obj/machinery/ore_silo,
+/turf/open/space/basic,
 /area/space)
 "wW" = (
 /obj/structure/rack,
@@ -617,6 +676,26 @@
 /obj/structure/window/reinforced/spawner/west,
 /turf/open/floor/plating,
 /area/space)
+"xh" = (
+/obj/machinery/atmospherics/pipe/simple{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/brown/visible/layer4{
+	dir = 9
+	},
+/turf/open/space/basic,
+/area/space)
+"xB" = (
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple/layer2{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple/layer4{
+	dir = 1
+	},
+/turf/open/floor/engine/vacuum{
+	initial_gas_mix = "n2=10;TEMP=50"
+	},
+/area/space)
 "xE" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
@@ -640,13 +719,11 @@
 /obj/item/dest_tagger,
 /turf/open/floor/plating,
 /area/space)
-"yW" = (
-/obj/structure/particle_accelerator/particle_emitter/center{
-	anchored = 1;
-	construction_state = 1;
-	dir = 8
+"yL" = (
+/obj/machinery/atmospherics/pipe/simple/brown/visible/layer4{
+	dir = 10
 	},
-/turf/open/floor/mineral/plastitanium,
+/turf/open/space/basic,
 /area/space)
 "zn" = (
 /obj/machinery/door/poddoor/shutters,
@@ -672,8 +749,7 @@
 /turf/open/floor/plating,
 /area/space)
 "zI" = (
-/obj/machinery/ore_silo,
-/turf/open/space/basic,
+/turf/closed/wall/r_wall/ship,
 /area/space)
 "Ag" = (
 /obj/structure/closet/crate,
@@ -696,6 +772,12 @@
 "AF" = (
 /obj/machinery/computer/med_data,
 /turf/open/floor/plating,
+/area/space)
+"Bk" = (
+/obj/machinery/atmospherics/pipe/manifold/brown/visible/layer4{
+	dir = 8
+	},
+/turf/open/space/basic,
 /area/space)
 "BB" = (
 /obj/machinery/atmospherics/pipe/manifold{
@@ -795,6 +877,13 @@
 /obj/machinery/disposal/bin,
 /turf/open/floor/plating,
 /area/space)
+"FK" = (
+/obj/machinery/door/poddoor/ship{
+	dir = 4;
+	id = "SM_EJECT_DOORS"
+	},
+/turf/open/floor/plating,
+/area/space)
 "Hh" = (
 /obj/structure/table/reinforced,
 /obj/item/reagent_containers/food/drinks/bottle/synthflesh{
@@ -817,9 +906,14 @@
 	},
 /turf/open/floor/durasteel/eris_techfloor_alt,
 /area/space)
-"Hn" = (
-/obj/effect/turf_decal/stripes/line,
-/turf/open/floor/mineral/plastitanium,
+"Hp" = (
+/obj/machinery/atmospherics/pipe/simple{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/brown/visible/layer4{
+	dir = 4
+	},
+/turf/open/space/basic,
 /area/space)
 "Hz" = (
 /obj/machinery/atmospherics/pipe/simple{
@@ -857,14 +951,6 @@
 	},
 /turf/open/space/basic,
 /area/space)
-"JC" = (
-/obj/structure/particle_accelerator/end_cap{
-	anchored = 1;
-	construction_state = 1;
-	dir = 8
-	},
-/turf/open/floor/mineral/plastitanium,
-/area/space)
 "Kr" = (
 /obj/effect/spawner/structure/window/reinforced/ship,
 /turf/open/floor/plating,
@@ -893,10 +979,6 @@
 	},
 /turf/open/space/basic,
 /area/space)
-"Mk" = (
-/obj/machinery/modular_computer/console/preset/engineering,
-/turf/open/floor/plating,
-/area/space)
 "ME" = (
 /turf/open/floor/plating,
 /area/space)
@@ -916,16 +998,6 @@
 /turf/open/floor/engine,
 /area/space)
 "Oa" = (
-/obj/machinery/atmospherics/components/binary/stormdrive_reactor{
-	reactor_id = "onlydrive"
-	},
-/obj/structure/cable/yellow{
-	icon_state = "0-8"
-	},
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/obj/effect/landmark/nuclear_waste_spawner/strong,
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
 "Oh" = (
@@ -958,10 +1030,6 @@
 /area/space)
 "PJ" = (
 /obj/machinery/recycler,
-/turf/open/floor/plating,
-/area/space)
-"PU" = (
-/obj/machinery/computer/ship/reactor_control_computer,
 /turf/open/floor/plating,
 /area/space)
 "Qv" = (
@@ -1057,19 +1125,67 @@
 	},
 /turf/open/floor/engine,
 /area/space)
-"UI" = (
-/obj/machinery/computer/station_alert{
-	dir = 1
+"Tq" = (
+/obj/machinery/atmospherics/pipe/simple/brown/visible/layer4{
+	dir = 9
+	},
+/turf/open/space/basic,
+/area/space)
+"Ty" = (
+/obj/machinery/door/poddoor/ship{
+	dir = 4;
+	id = "stormdrive_blastdoors"
+	},
+/obj/machinery/atmospherics/pipe/layer_manifold{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/space)
-"Ve" = (
-/obj/structure/particle_accelerator/fuel_chamber{
-	anchored = 1;
-	construction_state = 1;
-	dir = 8
+"Uc" = (
+/obj/machinery/atmospherics/pipe/multiz{
+	dir = 4
 	},
-/turf/open/floor/mineral/plastitanium,
+/obj/machinery/atmospherics/pipe/multiz/layer4{
+	dir = 4
+	},
+/turf/open/space/basic,
+/area/space)
+"Uz" = (
+/obj/machinery/atmospherics/pipe/simple{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/brown/visible/layer4{
+	dir = 10
+	},
+/turf/open/space/basic,
+/area/space)
+"UT" = (
+/obj/machinery/atmospherics/pipe/simple/brown{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
+"UV" = (
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple/layer2{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple/layer4{
+	dir = 6
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
+	dir = 4;
+	filter_types = list("o2","n2","plasma","n2o","bz","nob","water_vapor","tritium","stim","no2","pluox","constricted_plasma","nucleium");
+	widenet = 1
+	},
+/obj/machinery/button/door{
+	id = "sm_p_i";
+	name = "supermatter internal blastdoor";
+	pixel_x = -5;
+	pixel_y = 24
+	},
+/turf/open/floor/engine/vacuum{
+	initial_gas_mix = "n2=10;TEMP=50"
+	},
 /area/space)
 "Vs" = (
 /obj/structure/disposalpipe/segment{
@@ -1083,20 +1199,24 @@
 	},
 /turf/open/floor/plating,
 /area/space)
+"Wb" = (
+/obj/machinery/atmospherics/pipe/heat_exchanging/manifold/layer2{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/heat_exchanging/manifold/layer4{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/dark/visible{
+	dir = 1
+	},
+/turf/open/floor/engine/vacuum{
+	initial_gas_mix = "n2=10;TEMP=50"
+	},
+/area/space)
 "WY" = (
 /obj/structure/closet/secure_closet/munitions_technician,
 /obj/structure/window/reinforced/spawner,
 /turf/open/floor/plating,
-/area/space)
-"Xu" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 1
-	},
-/obj/machinery/particle_accelerator/control_box{
-	anchored = 1;
-	construction_state = 1
-	},
-/turf/open/floor/mineral/plastitanium,
 /area/space)
 "XS" = (
 /obj/effect/turf_decal/trimline/yellow/line{
@@ -1148,6 +1268,22 @@
 /obj/machinery/stasis,
 /turf/open/floor/plating,
 /area/space)
+"Zt" = (
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple/layer2{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/heat_exchanging/simple/layer4{
+	dir = 10
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
+	dir = 8;
+	filter_types = list("o2","n2","plasma","n2o","bz","nob","water_vapor","tritium","stim","no2","pluox","constricted_plasma","nucleium");
+	widenet = 1
+	},
+/turf/open/floor/engine/vacuum{
+	initial_gas_mix = "n2=10;TEMP=50"
+	},
+/area/space)
 "ZE" = (
 /obj/structure/disposalpipe/segment{
 	dir = 6
@@ -1157,6 +1293,12 @@
 "ZQ" = (
 /obj/structure/closet/secure_closet/munitions_technician,
 /turf/open/floor/plating,
+/area/space)
+"ZR" = (
+/obj/machinery/atmospherics/pipe/simple/brown/visible/layer4{
+	dir = 6
+	},
+/turf/open/space/basic,
 /area/space)
 
 (1,1,1) = {"
@@ -25186,11 +25328,11 @@ rr
 rr
 rr
 rr
-rr
-rr
-rr
-rr
-rr
+zI
+zI
+FK
+zI
+zI
 rr
 rr
 rr
@@ -25443,11 +25585,11 @@ rr
 rr
 rr
 rr
-rr
-rr
-rr
-rr
-rr
+zI
+UV
+xB
+cC
+zI
 rr
 rr
 rr
@@ -25700,11 +25842,11 @@ rr
 rr
 rr
 rr
-rr
-rr
-rr
-rr
-rr
+qi
+jC
+gt
+Wb
+rm
 rr
 rr
 rr
@@ -25957,11 +26099,11 @@ rr
 rr
 rr
 rr
-rr
-rr
-rr
-rr
-rr
+zI
+Zt
+xB
+gA
+zI
 rr
 rr
 rr
@@ -26214,11 +26356,11 @@ rr
 rr
 rr
 rr
-rr
-rr
-rr
-rr
-rr
+zI
+ul
+ul
+ul
+zI
 rr
 rr
 rr
@@ -27490,11 +27632,11 @@ rr
 rr
 rr
 rr
-rr
-rr
-rr
-rr
-rr
+ru
+ru
+ru
+ru
+ru
 ru
 rr
 rr
@@ -27508,11 +27650,11 @@ rr
 rr
 rr
 ru
-rr
-rr
-rr
-rr
-rr
+ru
+ru
+ru
+ru
+ru
 rr
 rr
 rr
@@ -27747,29 +27889,29 @@ rr
 rr
 rr
 rr
-rr
-rr
+ru
+Uc
 rr
 rr
 ru
 ru
 rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
+ZR
+ct
+ct
+ct
+Bk
+ct
+ct
+ct
+iN
 rr
 ru
 ru
 rr
 rr
-rr
-rr
+Uc
+ru
 rr
 rr
 rr
@@ -28004,29 +28146,29 @@ rr
 rr
 rr
 rr
-rr
-rr
+ru
+Hp
 rr
 rr
 ru
 rr
 rr
-rr
+pV
 ru
 Kr
 pv
-pv
+Ty
 pv
 Kr
 ru
-rr
+pV
 rr
 rr
 ru
 rr
 rr
-rr
-rr
+Hp
+ru
 rr
 rr
 rr
@@ -28262,28 +28404,28 @@ rr
 rr
 rr
 rr
-rr
-rr
-rr
-ru
-rr
-rr
-rr
-Kr
-ME
-ME
-ME
-ME
-ME
-Kr
-rr
+Hp
 rr
 rr
 ru
 rr
 rr
+pV
+Kr
+ME
+ME
+UT
+ME
+ME
+Kr
+pV
 rr
 rr
+ru
+rr
+rr
+Hp
+ru
 rr
 rr
 rr
@@ -28519,13 +28661,13 @@ rr
 rr
 rr
 rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
+Uz
+ct
+ct
+ct
+ct
+ct
+Tq
 hM
 ME
 sX
@@ -28533,13 +28675,13 @@ mj
 Tj
 ME
 hM
-rr
-rr
-rr
-rr
-rr
-rr
-rr
+yL
+iM
+iM
+iM
+iM
+iM
+xh
 rr
 rr
 rr
@@ -28776,7 +28918,7 @@ rr
 rr
 rr
 rr
-rr
+Lj
 rr
 rr
 ru
@@ -28796,7 +28938,7 @@ rr
 ru
 rr
 rr
-rr
+Lj
 rr
 rr
 rr
@@ -29033,7 +29175,7 @@ rr
 rr
 rr
 rr
-rr
+Nq
 hX
 hX
 hX
@@ -29053,7 +29195,7 @@ hX
 hX
 hX
 hX
-rr
+QH
 rr
 rr
 rr
@@ -30584,9 +30726,9 @@ rr
 ru
 ru
 rr
-ME
-ME
-ME
+rr
+rr
+rr
 rr
 ru
 ru
@@ -30841,9 +30983,9 @@ rr
 rr
 ru
 rr
-aZ
-yW
-nG
+rr
+rr
+rr
 rr
 ru
 rr
@@ -31098,9 +31240,9 @@ rr
 rr
 ru
 rr
-ax
-rD
-Hn
+rr
+rr
+rr
 rr
 ru
 rr
@@ -31355,9 +31497,9 @@ Mb
 rr
 ru
 rr
-Xu
-Ve
-Hn
+rr
+rr
+rr
 rr
 ru
 rr
@@ -31612,9 +31754,9 @@ ez
 XU
 ru
 rr
-ax
-JC
-Hn
+rr
+rr
+rr
 rr
 ru
 XU
@@ -32382,11 +32524,11 @@ ME
 ME
 ME
 ME
-ME
-ME
-ME
-ME
-ME
+rr
+rr
+rr
+rr
+rr
 ME
 rr
 rr
@@ -32639,11 +32781,11 @@ ME
 ME
 ME
 ru
-ME
-ME
-ME
-ME
-ME
+rr
+rr
+rr
+rr
+rr
 ru
 rr
 rr
@@ -32896,11 +33038,11 @@ ME
 ME
 ME
 ru
-PU
-ME
-ME
-ME
-UI
+rr
+rr
+rr
+rr
+rr
 ru
 rr
 rr
@@ -33153,11 +33295,11 @@ ME
 ME
 ME
 ru
-Mk
-ME
-ME
-ME
-wP
+rr
+rr
+rr
+rr
+rr
 ru
 rr
 rr
@@ -33410,11 +33552,11 @@ ME
 ME
 ME
 ru
-CU
-ME
 rr
-uL
-CU
+rr
+rr
+rr
+rr
 ru
 rr
 rr
@@ -36766,7 +36908,7 @@ ME
 ru
 ru
 rr
-rr
+wT
 rr
 ru
 rr
@@ -42670,7 +42812,7 @@ pa
 ru
 rr
 rr
-zI
+rr
 rr
 rr
 ru
