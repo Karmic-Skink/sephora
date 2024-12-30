@@ -6,6 +6,14 @@
 "ac" = (
 /turf/open/floor/plating,
 /area/space)
+"ae" = (
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk,
+/turf/open/floor/plating,
+/area/space)
 "ah" = (
 /obj/effect/turf_decal/stripes/line,
 /turf/open/floor/plating,
@@ -39,18 +47,10 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 6
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
 /turf/open/space/basic,
-/area/space)
-"aw" = (
-/obj/machinery/atmospherics/pipe/manifold/cyan/visible{
-	dir = 1;
-	icon_state = "manifold-5";
-	piping_layer = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/orange/visible{
-	dir = 4
-	},
-/turf/open/floor/plating,
 /area/space)
 "ax" = (
 /obj/machinery/atmospherics/components/binary/valve{
@@ -91,15 +91,6 @@
 	},
 /turf/open/floor/plating,
 /area/space)
-"aP" = (
-/obj/structure/window/reinforced/spawner/north,
-/obj/structure/window/reinforced/spawner/west,
-/obj/structure/window/reinforced/spawner,
-/obj/machinery/atmospherics/components/unary/outlet_injector/on/layer4{
-	dir = 1
-	},
-/turf/open/floor/mineral/plastitanium/airless,
-/area/space)
 "aR" = (
 /obj/machinery/atmospherics/pipe/simple/purple/visible{
 	dir = 1
@@ -127,8 +118,10 @@
 	},
 /area/space)
 "be" = (
-/obj/structure/window/reinforced/spawner/north,
-/obj/machinery/portable_atmospherics/canister/toxins,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/toxin_output{
+	dir = 8
+	},
+/obj/structure/window/reinforced/spawner/west,
 /turf/open/floor/mineral/plastitanium/airless,
 /area/space)
 "bf" = (
@@ -144,9 +137,12 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/cyan/visible{
-	dir = 9;
 	icon_state = "pipe11-5";
 	piping_layer = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	icon_state = "pipe11-1";
+	piping_layer = 1
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -179,6 +175,9 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 6
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
 /turf/open/space/basic,
 /area/space)
 "bw" = (
@@ -191,6 +190,15 @@
 /obj/machinery/telecomms/broadcaster/preset_right,
 /turf/open/floor/circuit/green/telecomms/mainframe,
 /area/space)
+"bE" = (
+/obj/structure/window/reinforced/spawner/north,
+/obj/structure/window/reinforced/spawner/west,
+/obj/structure/window/reinforced/spawner/east,
+/obj/machinery/air_sensor/atmos/carbon_tank,
+/turf/open/floor/mineral/plastitanium/airless{
+	initial_gas_mix = "n2=100000;TEMP=293.15"
+	},
+/area/space)
 "bF" = (
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 1
@@ -202,6 +210,11 @@
 	dir = 1;
 	icon_state = "pump_map-5";
 	piping_layer = 5
+	},
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 1;
+	icon_state = "pump_map-1";
+	piping_layer = 1
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -216,6 +229,9 @@
 /obj/machinery/atmospherics/pipe/multiz/layer2{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
 /turf/open/floor/plating,
 /area/space)
 "bJ" = (
@@ -223,9 +239,10 @@
 /turf/open/floor/plating,
 /area/space)
 "bK" = (
-/obj/structure/window/reinforced/spawner,
 /obj/structure/window/reinforced/spawner/east,
-/obj/machinery/portable_atmospherics/canister/nucleium,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon{
+	dir = 1
+	},
 /turf/open/floor/mineral/plastitanium/airless{
 	initial_gas_mix = "n2=100000;TEMP=293.15"
 	},
@@ -243,11 +260,11 @@
 /obj/machinery/atmospherics/components/trinary/mixer{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/cyan/visible{
-	icon_state = "manifold-5";
-	piping_layer = 5
-	},
 /obj/machinery/atmospherics/pipe/simple/supplymain/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
 /turf/open/floor/plating,
 /area/space)
 "bZ" = (
@@ -265,6 +282,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/space)
 "cf" = (
@@ -314,11 +332,19 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 4;
+	icon_state = "pipe11-5";
+	piping_layer = 5
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -346,16 +372,6 @@
 	},
 /turf/open/floor/plating,
 /area/space)
-"cy" = (
-/obj/machinery/atmospherics/pipe/simple/orange/visible{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/cyan/visible{
-	icon_state = "manifold-5";
-	piping_layer = 5
-	},
-/turf/open/floor/plating,
-/area/space)
 "cF" = (
 /obj/machinery/door/poddoor/ship{
 	id_tag = "stormdrive_blastdoors"
@@ -370,12 +386,30 @@
 	initial_gas_mix = "n2=100000;TEMP=293.15"
 	},
 /area/space)
+"cJ" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/space/basic,
+/area/space)
 "cL" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -397,6 +431,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/space/basic,
 /area/space)
 "cT" = (
@@ -406,12 +443,19 @@
 /turf/open/floor/plating,
 /area/space)
 "cU" = (
-/obj/structure/window/reinforced/spawner,
-/obj/structure/window/reinforced/spawner/east,
-/obj/machinery/portable_atmospherics/canister,
-/turf/open/floor/mineral/plastitanium/airless{
-	initial_gas_mix = "co2=50000;TEMP=293.15"
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 6
+	},
+/turf/open/floor/plating,
 /area/space)
 "cX" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
@@ -419,6 +463,10 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
 /turf/open/floor/plating,
 /area/space)
 "db" = (
@@ -426,9 +474,52 @@
 	dir = 4
 	},
 /area/space)
+"dd" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 4;
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 4;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
+/turf/open/floor/plating,
+/area/space)
+"df" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/space/basic,
+/area/space)
 "di" = (
 /obj/machinery/door/airlock/ship/external/glass,
 /turf/open/space/basic,
+/area/space)
+"dm" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/plating,
 /area/space)
 "ds" = (
 /turf/closed/wall/r_wall/ship,
@@ -458,6 +549,9 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
 	dir = 1
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/space/basic,
 /area/space)
 "dy" = (
@@ -476,7 +570,16 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 5;
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
 /turf/open/floor/plating,
+/area/space)
+"dA" = (
+/obj/structure/railing,
+/turf/open/openspace,
 /area/space)
 "dG" = (
 /obj/machinery/door/airlock/ship/external/glass,
@@ -513,10 +616,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -532,6 +635,12 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 1;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "eh" = (
@@ -541,18 +650,25 @@
 	piping_layer = 5
 	},
 /obj/machinery/atmospherics/components/binary/pump/layer2,
+/obj/machinery/atmospherics/components/binary/pump{
+	icon_state = "pump_map-1";
+	piping_layer = 1
+	},
 /turf/open/floor/plating,
 /area/space)
 "ej" = (
-/obj/machinery/atmospherics/pipe/simple/orange/visible{
-	dir = 6
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/space)
 "ek" = (
-/obj/machinery/atmospherics/pipe/simple/purple/visible{
-	dir = 4
-	},
 /obj/machinery/door/poddoor/shutters/ship/preopen{
 	dir = 4
 	},
@@ -565,6 +681,9 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/orange/visible{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/space)
 "en" = (
@@ -572,11 +691,20 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/space)
 "es" = (
-/obj/machinery/atmospherics/pipe/simple/orange/visible{
-	dir = 5
+/obj/machinery/atmospherics/components/trinary/filter/flipped/on/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -612,6 +740,12 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 1;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "eM" = (
@@ -670,6 +804,18 @@
 	initial_gas_mix = "n2=100000;TEMP=293.15"
 	},
 /area/space)
+"fv" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/space)
 "fx" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 5
@@ -677,9 +823,6 @@
 /turf/open/floor/plating,
 /area/space)
 "fA" = (
-/obj/machinery/atmospherics/pipe/simple/orange/visible{
-	dir = 10
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -687,6 +830,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/orange/visible{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -711,6 +857,9 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 9
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 9
 	},
 /turf/open/floor/plating,
@@ -768,13 +917,9 @@
 /obj/machinery/atmospherics/components/trinary/mixer{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/dark/visible{
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
 	icon_state = "pipe11-1";
 	piping_layer = 1
-	},
-/obj/machinery/atmospherics/pipe/manifold/cyan/visible{
-	icon_state = "manifold-5";
-	piping_layer = 5
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -797,6 +942,12 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/multiz/layer2{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/multiz/layer5{
 	dir = 8
 	},
 /turf/open/openspace,
@@ -879,23 +1030,43 @@
 /turf/open/floor/plating,
 /area/space)
 "hk" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
-/obj/machinery/atmospherics/pipe/simple/orange/visible{
-	dir = 9
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/purple/visible{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 8
+	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 5;
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
 /turf/open/floor/plating,
 /area/space)
 "hl" = (
-/obj/structure/window/reinforced/spawner/west,
-/obj/structure/window/reinforced/spawner,
-/obj/machinery/atmospherics/components/unary/outlet_injector/on/layer4,
-/turf/open/floor/mineral/plastitanium/airless{
-	initial_gas_mix = "co2=50000;TEMP=293.15"
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/plating,
+/area/space)
+"hm" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 6
+	},
+/turf/open/floor/plating,
 /area/space)
 "hn" = (
 /obj/structure/cable{
@@ -905,9 +1076,39 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /turf/open/floor/plating,
 /area/space)
+"hr" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 6
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/turf/open/floor/plating,
+/area/space)
 "hw" = (
 /obj/machinery/telecomms/processor/preset_two,
 /turf/open/floor/circuit/green/telecomms/mainframe,
+/area/space)
+"hy" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 9
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/turf/open/floor/plating,
 /area/space)
 "hB" = (
 /obj/structure/cable{
@@ -919,7 +1120,18 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
 	dir = 1
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/space/basic,
+/area/space)
+"hL" = (
+/obj/structure/window/reinforced/spawner,
+/obj/structure/window/reinforced/spawner/east,
+/obj/machinery/portable_atmospherics/canister,
+/turf/open/floor/mineral/plastitanium/airless{
+	initial_gas_mix = "co2=50000;TEMP=293.15"
+	},
 /area/space)
 "hM" = (
 /obj/machinery/telecomms/bus/preset_one,
@@ -938,9 +1150,11 @@
 /turf/open/space/basic,
 /area/space)
 "hW" = (
-/obj/structure/window/reinforced/spawner,
+/obj/structure/window/reinforced/spawner/north,
 /obj/structure/window/reinforced/spawner/east,
-/obj/machinery/portable_atmospherics/canister/nitrogen,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon{
+	dir = 1
+	},
 /turf/open/floor/mineral/plastitanium/airless{
 	initial_gas_mix = "o2=100000;TEMP=293.15"
 	},
@@ -970,15 +1184,6 @@
 /area/space)
 "id" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/space)
-"ie" = (
-/obj/machinery/atmospherics/pipe/simple/orange/visible{
-	dir = 4
-	},
-/obj/machinery/door/poddoor/shutters/ship/preopen{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -1013,6 +1218,12 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 1;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "io" = (
@@ -1036,11 +1247,32 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 1;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "iz" = (
 /obj/machinery/atmospherics/pipe/simple/purple/visible{
 	dir = 5
+	},
+/turf/open/floor/plating,
+/area/space)
+"iF" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 10
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 10
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -1059,9 +1291,6 @@
 /turf/open/floor/plating,
 /area/space)
 "iP" = (
-/obj/machinery/atmospherics/pipe/simple/orange/visible{
-	dir = 9
-	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -1071,34 +1300,70 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/orange/visible{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
+"iR" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/space)
 "ja" = (
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 6
 	},
 /turf/open/floor/plating,
 /area/space)
 "jj" = (
 /obj/machinery/atmospherics/components/binary/pump{
-	dir = 1
+	dir = 1;
+	icon_state = "pump_map-1";
+	piping_layer = 1
 	},
 /obj/machinery/atmospherics/components/binary/pump{
 	dir = 1;
 	icon_state = "pump_map-5";
 	piping_layer = 5
 	},
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/space)
 "jl" = (
 /obj/structure/overmap/small_craft/combat,
 /obj/effect/turf_decal/stripes/closeup,
+/turf/open/floor/plating,
+/area/space)
+"jm" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/space)
 "jr" = (
@@ -1114,6 +1379,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
 /turf/open/floor/carpet/black,
 /area/space)
 "jw" = (
@@ -1145,6 +1413,9 @@
 	icon_state = "1-4"
 	},
 /obj/structure/lattice/catwalk,
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
 /turf/open/openspace,
 /area/space)
 "jE" = (
@@ -1159,6 +1430,11 @@
 	icon_state = "pipe11-1";
 	piping_layer = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 4;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "jI" = (
@@ -1168,6 +1444,20 @@
 	piping_layer = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 4;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
+/turf/open/floor/plating,
+/area/space)
+"jJ" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/space)
 "jP" = (
@@ -1194,14 +1484,6 @@
 /obj/machinery/atmospherics/pipe/manifold/dark/visible,
 /turf/open/floor/plating,
 /area/space)
-"kx" = (
-/obj/machinery/atmospherics/components/trinary/mixer/on/layer2{
-	dir = 8;
-	node1_concentration = 0.79;
-	node2_concentration = 0.21
-	},
-/turf/open/floor/plating,
-/area/space)
 "ky" = (
 /obj/machinery/lazylift_button,
 /turf/closed/wall/ship,
@@ -1213,6 +1495,9 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/space)
 "kB" = (
@@ -1222,6 +1507,26 @@
 	req_one_access_txt = "12"
 	},
 /turf/open/floor/plating,
+/area/space)
+"kC" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating,
+/area/space)
+"kD" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/space)
+"kE" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
+	dir = 1
+	},
+/turf/open/space/basic,
 /area/space)
 "kI" = (
 /obj/structure/cable/green{
@@ -1235,13 +1540,13 @@
 /obj/machinery/door/poddoor/shutters/ship/preopen{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/orange/visible{
+/obj/machinery/atmospherics/pipe/simple/purple/visible{
 	dir = 4
 	},
 /turf/open/floor/plating,
 /area/space)
 "kP" = (
-/obj/machinery/atmospherics/pipe/simple/dark/visible{
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
 	dir = 9;
 	icon_state = "pipe11-1";
 	piping_layer = 1
@@ -1261,15 +1566,63 @@
 	},
 /turf/open/space/basic,
 /area/space)
+"kW" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/space)
+"li" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 6
+	},
+/turf/open/floor/plating,
+/area/space)
 "lj" = (
 /obj/structure/stairs{
 	dir = 8
 	},
 /turf/open/space/basic,
 /area/space)
+"lF" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating,
+/area/space)
 "lG" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/junction{
 	dir = 8
+	},
+/turf/open/floor/plating,
+/area/space)
+"lQ" = (
+/obj/machinery/atmospherics/components/trinary/filter/flipped/on/layer4{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -1312,10 +1665,13 @@
 /obj/machinery/atmospherics/components/trinary/mixer/flipped{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/cyan/visible{
-	dir = 1;
-	icon_state = "manifold-5";
+/obj/machinery/atmospherics/pipe/simple/cyan/visible{
+	icon_state = "pipe11-5";
 	piping_layer = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	icon_state = "pipe11-1";
+	piping_layer = 1
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -1328,6 +1684,19 @@
 "mF" = (
 /obj/machinery/telecomms/server/presets/security,
 /turf/open/floor/circuit/telecomms/mainframe,
+/area/space)
+"mH" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/plating,
 /area/space)
 "mI" = (
 /obj/structure/cable{
@@ -1347,6 +1716,19 @@
 	},
 /turf/open/floor/plating,
 /area/space)
+"mM" = (
+/obj/structure/cable/green,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 5
+	},
+/turf/open/floor/plating,
+/area/space)
 "mQ" = (
 /obj/machinery/door/poddoor/ship{
 	id_tag = "stormdrive_blastdoors"
@@ -1361,22 +1743,18 @@
 /turf/open/floor/plating,
 /area/space)
 "mW" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/dark/visible{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/open/floor/plating,
+/obj/structure/window/reinforced/spawner/north,
+/obj/machinery/portable_atmospherics/canister/toxins,
+/turf/open/floor/mineral/plastitanium/airless,
 /area/space)
 "nd" = (
 /obj/machinery/atmospherics/pipe/simple/dark/visible{
-	dir = 4;
+	dir = 9;
 	icon_state = "pipe11-1";
 	piping_layer = 1
+	},
+/obj/machinery/atmospherics/pipe/layer_manifold/visible{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -1395,6 +1773,14 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 6;
+	icon_state = "pipe11-5";
+	piping_layer = 5
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -1464,6 +1850,10 @@
 	},
 /turf/open/floor/plating,
 /area/space)
+"nF" = (
+/obj/structure/disposalpipe/trunk/multiz,
+/turf/open/floor/plating,
+/area/space)
 "nN" = (
 /obj/structure/window/reinforced/spawner/east,
 /obj/structure/window/reinforced/spawner,
@@ -1471,13 +1861,13 @@
 /turf/open/floor/plating,
 /area/space)
 "nP" = (
-/obj/machinery/computer/atmos_control/tank/toxin_tank{
-	dir = 8
+/obj/structure/window/reinforced/spawner/west,
+/obj/structure/window/reinforced/spawner,
+/obj/structure/window/reinforced/spawner/north,
+/obj/machinery/air_sensor/atmos{
+	id_tag = "sdpluoxium_sensor"
 	},
-/obj/machinery/atmospherics/pipe/layer_manifold/visible{
-	dir = 4
-	},
-/turf/open/floor/plating,
+/turf/open/floor/mineral/plastitanium/airless,
 /area/space)
 "nU" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
@@ -1496,6 +1886,9 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/open/space/basic,
@@ -1528,12 +1921,29 @@
 /area/space)
 "or" = (
 /obj/structure/window/reinforced/spawner/east,
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon{
-	dir = 1
-	},
+/obj/structure/window/reinforced/spawner/north,
 /turf/open/floor/mineral/plastitanium/airless{
 	initial_gas_mix = "n2=100000;TEMP=293.15"
 	},
+/area/space)
+"os" = (
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 1;
+	icon_state = "pump_map-5";
+	piping_layer = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/supplymain/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 1;
+	icon_state = "pump_map-1";
+	piping_layer = 1
+	},
+/turf/open/floor/plating,
 /area/space)
 "oz" = (
 /obj/structure/stairs{
@@ -1572,16 +1982,31 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
 	},
 /turf/open/floor/plating,
 /area/space)
 "oT" = (
 /obj/machinery/light/small{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
+"pc" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -1602,6 +2027,12 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 5
 	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 5;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "pl" = (
@@ -1621,6 +2052,14 @@
 	piping_layer = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/supply/visible/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 4;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "po" = (
@@ -1631,9 +2070,19 @@
 /turf/open/floor/plating,
 /area/space)
 "pp" = (
-/obj/machinery/computer/atmos_control/tank/nucleium_tank,
-/obj/machinery/atmospherics/pipe/layer_manifold/visible,
-/turf/open/floor/durasteel,
+/obj/machinery/atmospherics/components/binary/pump,
+/obj/machinery/atmospherics/pipe/simple/supplymain/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/components/binary/pump{
+	icon_state = "pump_map-1";
+	piping_layer = 1
+	},
+/obj/machinery/atmospherics/components/binary/pump{
+	icon_state = "pump_map-5";
+	piping_layer = 5
+	},
+/turf/open/floor/plating,
 /area/space)
 "pq" = (
 /obj/machinery/atmospherics/pipe/simple/purple/visible{
@@ -1648,6 +2097,12 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 1;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "pw" = (
@@ -1656,6 +2111,24 @@
 	},
 /obj/machinery/atmospherics/pipe/multiz/layer4{
 	dir = 1
+	},
+/turf/open/floor/plating,
+/area/space)
+"pE" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 5
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -1738,24 +2211,33 @@
 /turf/open/floor/plating,
 /area/space)
 "qv" = (
-/obj/structure/window/reinforced/spawner/north,
-/obj/structure/window/reinforced/spawner/west,
-/obj/structure/window/reinforced/spawner/east,
-/obj/machinery/air_sensor/atmos/carbon_tank,
-/turf/open/floor/mineral/plastitanium/airless{
-	initial_gas_mix = "n2=100000;TEMP=293.15"
+/obj/machinery/atmospherics/components/trinary/mixer/on/layer2{
+	dir = 8;
+	node1_concentration = 0.79;
+	node2_concentration = 0.21
 	},
+/turf/open/floor/plating,
 /area/space)
 "qw" = (
-/obj/structure/window/reinforced/spawner/north,
-/obj/structure/window/reinforced/spawner/west,
-/obj/machinery/atmospherics/components/unary/outlet_injector/on{
-	dir = 1
+/obj/machinery/atmospherics/components/trinary/filter/flipped/on/layer4{
+	dir = 4
 	},
-/obj/machinery/atmospherics/components/unary/outlet_injector/on/layer4{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 10
 	},
-/turf/open/floor/mineral/plastitanium/airless,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/open/floor/plating,
+/area/space)
+"qx" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/plating,
 /area/space)
 "qD" = (
 /obj/machinery/atmospherics/pipe/simple/purple/visible,
@@ -1767,6 +2249,20 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 1;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
+/turf/open/floor/plating,
+/area/space)
+"qI" = (
+/obj/machinery/atmospherics/pipe/simple/cyan/visible{
+	dir = 6;
+	icon_state = "pipe11-5";
+	piping_layer = 5
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -1797,6 +2293,9 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/space)
 "qU" = (
@@ -1820,8 +2319,24 @@
 /turf/open/floor/plating,
 /area/space)
 "rb" = (
-/obj/structure/ladder,
+/obj/structure/cable/green{
+	icon_state = "1-16"
+	},
+/obj/structure/railing{
+	dir = 9
+	},
 /turf/open/openspace,
+/area/space)
+"re" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/turf/open/floor/plating,
 /area/space)
 "rj" = (
 /obj/effect/turf_decal/stripes/corner{
@@ -1835,7 +2350,38 @@
 	},
 /obj/machinery/atmospherics/pipe/multiz/layer4,
 /obj/machinery/atmospherics/pipe/multiz/layer2,
+/obj/structure/railing{
+	dir = 10
+	},
 /turf/open/openspace,
+/area/space)
+"rl" = (
+/obj/machinery/atmospherics/pipe/simple/purple/visible{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 4;
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
+/obj/structure/cable/white{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 4;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
+/turf/open/floor/plating,
 /area/space)
 "rn" = (
 /obj/effect/turf_decal/stripes/corner{
@@ -1857,6 +2403,13 @@
 /obj/structure/closet/radiation,
 /turf/open/floor/plating,
 /area/space)
+"rB" = (
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/space)
 "rF" = (
 /obj/structure/window/reinforced/spawner/west,
 /obj/machinery/suit_storage_unit/atmos,
@@ -1867,12 +2420,20 @@
 	icon_state = "2-4"
 	},
 /obj/structure/lattice/catwalk,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
 /turf/open/openspace,
 /area/space)
 "rL" = (
 /obj/machinery/atmospherics/components/trinary/mixer/flipped{
 	dir = 4
 	},
+/turf/open/floor/plating,
+/area/space)
+"rP" = (
+/obj/machinery/atmospherics/pipe/manifold/purple/visible,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
 /turf/open/floor/plating,
 /area/space)
 "rR" = (
@@ -1923,6 +2484,20 @@
 /obj/structure/window/reinforced/spawner/west,
 /turf/open/floor/plating,
 /area/space)
+"sH" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/turf/open/space/basic,
+/area/space)
+"sL" = (
+/obj/structure/window/reinforced/spawner,
+/obj/structure/window/reinforced/spawner/east,
+/obj/machinery/portable_atmospherics/canister/nitrous_oxide,
+/turf/open/floor/mineral/plastitanium/airless{
+	initial_gas_mix = "n2=100000;TEMP=293.15"
+	},
+/area/space)
 "sS" = (
 /obj/structure/closet/secure_closet/engineering_welding,
 /turf/open/floor/plating,
@@ -1934,10 +2509,8 @@
 /turf/open/floor/plating,
 /area/space)
 "sW" = (
-/obj/structure/window/reinforced/spawner/west,
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/toxin_output{
-	dir = 8
-	},
+/obj/structure/window/reinforced/spawner/north,
+/obj/machinery/air_sensor/atmos/carbon_tank,
 /turf/open/floor/mineral/plastitanium/airless{
 	initial_gas_mix = "n2=100000;TEMP=293.15"
 	},
@@ -1959,12 +2532,54 @@
 /obj/structure/closet/secure_closet/atmospherics,
 /turf/open/floor/plating,
 /area/space)
+"tp" = (
+/obj/structure/window/reinforced/spawner/west,
+/obj/structure/window/reinforced/spawner,
+/obj/machinery/atmospherics/components/unary/outlet_injector/on/layer4,
+/turf/open/floor/mineral/plastitanium/airless{
+	initial_gas_mix = "co2=50000;TEMP=293.15"
+	},
+/area/space)
+"ts" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/turf/open/floor/plating,
+/area/space)
 "tB" = (
 /obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/space)
+"tH" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
+"tK" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
 /turf/open/floor/plating,
 /area/space)
 "tM" = (
 /obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
 /turf/open/floor/carpet/black,
 /area/space)
 "tY" = (
@@ -1974,6 +2589,34 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
+"ue" = (
+/obj/machinery/atmospherics/pipe/simple/purple/visible{
+	dir = 4
+	},
+/obj/structure/cable/white{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 4;
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/disposalpipe/sorting/mail/flip{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 4;
+	icon_state = "pipe11-5";
+	piping_layer = 5
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -1994,9 +2637,23 @@
 /obj/machinery/door/window/northleft,
 /turf/open/floor/plating,
 /area/space)
-"ur" = (
-/obj/structure/reagent_dispensers/water_cooler,
+"un" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 8
+	},
 /turf/open/floor/plating,
+/area/space)
+"ur" = (
+/obj/machinery/defence_screen_relay{
+	pixel_y = 20
+	},
+/turf/open/space/basic,
 /area/space)
 "uv" = (
 /obj/machinery/door/airlock/ship/external/glass,
@@ -2004,31 +2661,54 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /turf/open/space/basic,
 /area/space)
-"uA" = (
-/obj/structure/cable{
-	icon_state = "4-8"
+"uw" = (
+/obj/machinery/atmospherics/pipe/simple/orange/visible{
+	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 4;
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
+/turf/open/floor/plating,
+/area/space)
+"uA" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
-	dir = 4
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
-/turf/open/space/basic,
+/turf/open/floor/plating,
 /area/space)
 "uC" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/dark/visible{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
-	dir = 5
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 8
+	},
+/turf/open/floor/plating,
+/area/space)
+"uE" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -2041,8 +2721,9 @@
 /turf/open/floor/mineral/plastitanium/airless,
 /area/space)
 "uP" = (
-/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+/obj/machinery/atmospherics/pipe/manifold/cyan/visible{
 	dir = 1;
+	icon_state = "manifold-5";
 	piping_layer = 5
 	},
 /turf/open/floor/plating,
@@ -2071,6 +2752,19 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 4;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
+/turf/open/floor/plating,
+/area/space)
+"vg" = (
+/obj/machinery/atmospherics/pipe/simple/purple/visible,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/space)
 "vo" = (
@@ -2101,6 +2795,10 @@
 	},
 /turf/open/floor/plasteel/showroomfloor,
 /area/space)
+"vu" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2,
+/turf/open/floor/plating,
+/area/space)
 "vv" = (
 /obj/structure/window/reinforced/spawner/west,
 /obj/structure/window/reinforced/spawner,
@@ -2124,26 +2822,25 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/space)
 "vz" = (
-/obj/structure/window/reinforced/spawner,
-/obj/structure/window/reinforced/spawner/east,
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon,
-/turf/open/floor/mineral/plastitanium/airless,
+/obj/machinery/computer/atmos_control/tank/nucleium_tank,
+/obj/machinery/atmospherics/pipe/layer_manifold/visible,
+/turf/open/floor/durasteel,
 /area/space)
 "vC" = (
 /obj/structure/bedsheetbin,
 /turf/open/floor/plating,
 /area/space)
 "vE" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/open/floor/plating,
+/obj/structure/window/reinforced/spawner/north,
+/obj/structure/window/reinforced/spawner/east,
+/obj/machinery/portable_atmospherics/canister/nucleium,
+/turf/open/floor/mineral/plastitanium/airless,
 /area/space)
 "vM" = (
 /obj/effect/turf_decal/stripes/line{
@@ -2169,12 +2866,7 @@
 /obj/machinery/atmospherics/components/trinary/mixer/flipped{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/cyan/visible{
-	dir = 1;
-	icon_state = "manifold-5";
-	piping_layer = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/dark/visible{
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
 	icon_state = "pipe11-1";
 	piping_layer = 1
 	},
@@ -2204,10 +2896,16 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/space)
 "wk" = (
-/obj/structure/window/reinforced/spawner,
+/obj/structure/window/reinforced/spawner/west,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/toxin_output{
+	dir = 8
+	},
 /turf/open/floor/mineral/plastitanium/airless{
 	initial_gas_mix = "n2=100000;TEMP=293.15"
 	},
@@ -2267,6 +2965,14 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 6
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 6;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "wE" = (
@@ -2277,6 +2983,9 @@
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 10
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 10
 	},
 /turf/open/space/basic,
@@ -2291,6 +3000,18 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/turf/open/floor/plating,
+/area/space)
+"wO" = (
+/obj/machinery/atmospherics/pipe/manifold/cyan/visible{
+	icon_state = "manifold-5";
+	piping_layer = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 4;
+	icon_state = "pipe11-1";
+	piping_layer = 1
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -2312,6 +3033,14 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 4;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "wU" = (
@@ -2325,6 +3054,15 @@
 	},
 /turf/open/floor/engine,
 /area/space)
+"wX" = (
+/obj/machinery/atmospherics/pipe/manifold/purple/visible{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/space)
 "xb" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 9
@@ -2333,6 +3071,17 @@
 	dir = 4;
 	icon_state = "pipe11-1";
 	piping_layer = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 4;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
+/turf/open/floor/plating,
+/area/space)
+"xc" = (
+/obj/machinery/door/poddoor/ship{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -2350,13 +3099,11 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/space)
-"xt" = (
-/obj/structure/window/reinforced/spawner/west,
-/obj/structure/window/reinforced/spawner/north,
-/obj/structure/window/reinforced/spawner,
-/turf/open/floor/mineral/plastitanium/airless{
-	initial_gas_mix = "n2=100000;TEMP=293.15"
+"xs" = (
+/obj/machinery/defence_screen_relay{
+	pixel_y = -10
 	},
+/turf/open/space/basic,
 /area/space)
 "xz" = (
 /obj/machinery/atmospherics/pipe/simple/dark/visible{
@@ -2367,10 +3114,44 @@
 	},
 /turf/open/floor/plating,
 /area/space)
+"xC" = (
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
 "xF" = (
 /turf/open/floor/stairs{
 	dir = 8
 	},
+/area/space)
+"xH" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/cyan/visible{
+	dir = 10;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 10;
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
+/turf/open/floor/plating,
 /area/space)
 "xJ" = (
 /obj/machinery/announcement_system,
@@ -2383,11 +3164,9 @@
 	},
 /area/space)
 "xY" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 10
-	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /obj/structure/cable{
-	icon_state = "4-8"
+	icon_state = "1-4"
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -2409,6 +3188,14 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 4;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "yg" = (
@@ -2420,15 +3207,29 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 4;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "yi" = (
-/obj/structure/window/reinforced/spawner/east,
-/obj/structure/window/reinforced/spawner/north,
-/turf/open/floor/mineral/plastitanium/airless,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/open/floor/plating,
 /area/space)
 "yn" = (
 /turf/closed/wall/ship,
+/area/space)
+"yo" = (
+/obj/structure/window/reinforced/spawner/east,
+/obj/structure/window/reinforced/spawner/north,
+/turf/open/floor/mineral/plastitanium/airless,
 /area/space)
 "yq" = (
 /obj/structure/cable{
@@ -2437,17 +3238,39 @@
 /turf/open/space/basic,
 /area/space)
 "yx" = (
-/obj/machinery/atmospherics/components/binary/pump,
+/obj/machinery/atmospherics/pipe/manifold/cyan/visible{
+	icon_state = "manifold-5";
+	piping_layer = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/orange/visible,
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 9;
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 6;
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
+/turf/open/floor/plating,
+/area/space)
+"yy" = (
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 1;
+	icon_state = "pump_map-5";
+	piping_layer = 5
+	},
 /obj/machinery/atmospherics/pipe/simple/supplymain/hidden/layer2{
 	dir = 8
 	},
 /obj/machinery/atmospherics/components/binary/pump{
+	dir = 1;
 	icon_state = "pump_map-1";
 	piping_layer = 1
-	},
-/obj/machinery/atmospherics/components/binary/pump{
-	icon_state = "pump_map-5";
-	piping_layer = 5
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -2456,6 +3279,11 @@
 	icon_state = "4-8"
 	},
 /turf/open/space/basic,
+/area/space)
+"yI" = (
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk,
+/turf/open/floor/plating,
 /area/space)
 "yR" = (
 /obj/effect/turf_decal/trimline/yellow/line{
@@ -2475,6 +3303,27 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
+"zv" = (
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 9
+	},
+/obj/machinery/atmospherics/components/trinary/filter/flipped/on/layer4{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/space)
 "zx" = (
@@ -2508,6 +3357,22 @@
 "zI" = (
 /turf/open/floor/glass/reinforced,
 /area/space)
+"zJ" = (
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 1;
+	icon_state = "pump_map-5";
+	piping_layer = 5
+	},
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 1;
+	icon_state = "pump_map-1";
+	piping_layer = 1
+	},
+/turf/open/floor/plating,
+/area/space)
 "zP" = (
 /obj/machinery/washing_machine,
 /turf/open/floor/plating,
@@ -2520,28 +3385,30 @@
 /turf/open/floor/plating,
 /area/space)
 "zW" = (
-/obj/structure/window/reinforced/spawner,
+/obj/structure/window/reinforced/spawner/north,
 /obj/structure/window/reinforced/spawner/east,
-/obj/machinery/portable_atmospherics/canister/nitrous_oxide,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon{
+	dir = 1
+	},
 /turf/open/floor/mineral/plastitanium/airless{
 	initial_gas_mix = "n2=100000;TEMP=293.15"
 	},
 /area/space)
 "Ai" = (
-/obj/machinery/atmospherics/components/binary/pump{
-	dir = 1
-	},
-/obj/machinery/atmospherics/components/binary/pump{
+/obj/machinery/atmospherics/pipe/manifold/cyan/visible{
 	dir = 1;
-	icon_state = "pump_map-5";
+	icon_state = "manifold-5";
 	piping_layer = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/supplymain/hidden/layer2{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/orange/visible,
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 10;
+	icon_state = "pipe11-1";
+	piping_layer = 1
 	},
-/obj/machinery/atmospherics/components/binary/pump{
-	dir = 1;
-	icon_state = "pump_map-1";
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 5;
+	icon_state = "pipe11-1";
 	piping_layer = 1
 	},
 /turf/open/floor/plating,
@@ -2556,9 +3423,39 @@
 	initial_gas_mix = "n2=100000;TEMP=293.15"
 	},
 /area/space)
+"As" = (
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 9
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/turf/open/space/basic,
+/area/space)
 "Au" = (
 /obj/structure/cable{
 	icon_state = "2-8"
+	},
+/turf/open/space/basic,
+/area/space)
+"AC" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/disposalpipe/sorting/mail{
+	dir = 8
 	},
 /turf/open/space/basic,
 /area/space)
@@ -2578,6 +3475,14 @@
 	},
 /turf/open/floor/plating,
 /area/space)
+"AR" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/turf/open/floor/plating,
+/area/space)
 "AS" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 5
@@ -2594,6 +3499,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/space/basic,
 /area/space)
 "AV" = (
@@ -2608,9 +3516,37 @@
 /obj/machinery/telecomms/server/presets/munitions,
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/space)
+"Bd" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/turf/open/space/basic,
+/area/space)
 "Bg" = (
 /obj/structure/window/reinforced/spawner/west,
 /obj/machinery/portable_atmospherics/canister/toxins,
+/turf/open/floor/plating,
+/area/space)
+"Bo" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
+"Bq" = (
+/obj/structure/reagent_dispensers/water_cooler,
 /turf/open/floor/plating,
 /area/space)
 "Bs" = (
@@ -2624,14 +3560,21 @@
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/space)
 "Bv" = (
-/obj/machinery/atmospherics/components/trinary/mixer{
-	dir = 8
+/obj/structure/window/reinforced/spawner/north,
+/obj/structure/window/reinforced/spawner/east,
+/obj/machinery/portable_atmospherics/canister/pluoxium,
+/turf/open/floor/mineral/plastitanium/airless{
+	initial_gas_mix = "n2=100000;TEMP=293.15"
 	},
-/obj/machinery/atmospherics/pipe/manifold/cyan/visible{
-	icon_state = "manifold-5";
-	piping_layer = 5
+/area/space)
+"Bw" = (
+/obj/structure/window/reinforced/spawner/west,
+/obj/structure/window/reinforced/spawner/east,
+/obj/structure/window/reinforced/spawner/north,
+/obj/machinery/air_sensor/atmos/carbon_tank,
+/turf/open/floor/mineral/plastitanium/airless{
+	initial_gas_mix = "co2=50000;TEMP=293.15"
 	},
-/turf/open/floor/plating,
 /area/space)
 "BC" = (
 /obj/machinery/atmospherics/pipe/simple/purple/visible,
@@ -2652,11 +3595,44 @@
 	},
 /turf/open/floor/plating,
 /area/space)
-"Ci" = (
-/obj/structure/window/reinforced/spawner/north,
-/obj/structure/window/reinforced/spawner/east,
-/obj/machinery/portable_atmospherics/canister/nitrous_oxide,
-/turf/open/floor/mineral/plastitanium/airless,
+"BP" = (
+/obj/structure/railing{
+	dir = 10
+	},
+/turf/open/openspace,
+/area/space)
+"BR" = (
+/obj/machinery/atmospherics/pipe/simple/orange/visible{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
+/turf/open/floor/plating,
+/area/space)
+"BX" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/space/basic,
+/area/space)
+"BY" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 4
+	},
+/turf/open/space/basic,
 /area/space)
 "Cs" = (
 /obj/machinery/atmospherics/pipe/simple/purple/visible,
@@ -2672,6 +3648,14 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/structure/disposalpipe/sorting/mail{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 1;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "Cv" = (
@@ -2718,6 +3702,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/space)
 "Dc" = (
@@ -2735,12 +3722,21 @@
 	},
 /turf/open/floor/plating,
 /area/space)
-"Dl" = (
-/obj/structure/window/reinforced/spawner/north,
-/obj/machinery/air_sensor/atmos/carbon_tank,
-/turf/open/floor/mineral/plastitanium/airless{
-	initial_gas_mix = "n2=100000;TEMP=293.15"
+"Di" = (
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
+"Dr" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
+/turf/open/floor/plating,
 /area/space)
 "Ds" = (
 /obj/structure/window/reinforced/spawner,
@@ -2749,6 +3745,12 @@
 /turf/open/floor/mineral/plastitanium/airless{
 	initial_gas_mix = "n2=100000;TEMP=293.15"
 	},
+/area/space)
+"Dw" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 4
+	},
+/turf/open/floor/carpet/black,
 /area/space)
 "DA" = (
 /obj/machinery/door/airlock/ship/external/glass,
@@ -2760,8 +3762,8 @@
 /turf/open/floor/plating,
 /area/space)
 "DB" = (
-/obj/machinery/atmospherics/pipe/multiz{
-	dir = 1
+/obj/machinery/atmospherics/pipe/multiz/layer1{
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -2782,6 +3784,13 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /turf/open/space/basic,
 /area/space)
+"DG" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/turf/open/openspace,
+/area/space)
 "DH" = (
 /obj/machinery/atmospherics/pipe/simple/purple/visible,
 /obj/structure/cable/green{
@@ -2799,20 +3808,18 @@
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
 /turf/open/floor/plating,
 /area/space)
-"DN" = (
-/obj/structure/window/reinforced/spawner/west,
-/obj/structure/window/reinforced/spawner,
-/obj/structure/window/reinforced/spawner/north,
-/obj/machinery/air_sensor/atmos{
-	id_tag = "sdpluoxium_sensor"
-	},
-/turf/open/floor/mineral/plastitanium/airless,
-/area/space)
 "DP" = (
 /obj/structure/window/reinforced/spawner/north,
 /obj/structure/window/reinforced/spawner/east,
 /obj/machinery/portable_atmospherics/canister/air,
 /turf/open/floor/mineral/plastitanium/airless,
+/area/space)
+"DQ" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/turf/open/openspace,
 /area/space)
 "DS" = (
 /obj/machinery/atmospherics/pipe/simple/purple/visible{
@@ -2824,24 +3831,31 @@
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
 "DU" = (
-/obj/machinery/atmospherics/components/binary/pump{
-	dir = 8;
-	icon_state = "pump_map-5";
-	piping_layer = 5
-	},
 /obj/machinery/atmospherics/pipe/simple/orange/visible{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/supplymain/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 9;
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
+/turf/open/floor/plating,
+/area/space)
+"Ea" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/space)
 "Ed" = (
-/obj/structure/window/reinforced/spawner/west,
-/obj/structure/window/reinforced/spawner,
-/obj/machinery/atmospherics/components/unary/outlet_injector/on/layer4,
-/turf/open/floor/mineral/plastitanium/airless{
-	initial_gas_mix = "n2=100000;TEMP=293.15"
-	},
+/obj/structure/window/reinforced/spawner/north,
+/obj/structure/window/reinforced/spawner/east,
+/obj/machinery/portable_atmospherics/canister/nitrous_oxide,
+/turf/open/floor/mineral/plastitanium/airless,
 /area/space)
 "Ek" = (
 /obj/structure/cable/white{
@@ -2880,6 +3894,12 @@
 	},
 /turf/open/floor/plating,
 /area/space)
+"Eu" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/space)
 "Ex" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/ladder,
@@ -2898,14 +3918,30 @@
 	},
 /turf/open/floor/plating,
 /area/space)
-"EM" = (
-/obj/machinery/atmospherics/components/trinary/mixer/flipped{
+"EC" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/cyan/visible{
-	dir = 1;
-	icon_state = "manifold-5";
-	piping_layer = 5
+/turf/open/floor/plating,
+/area/space)
+"EM" = (
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 10
+	},
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 8;
+	icon_state = "pump_map-1";
+	piping_layer = 1
+	},
+/turf/open/floor/plating,
+/area/space)
+"EP" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -2918,9 +3954,39 @@
 	},
 /turf/open/floor/plating,
 /area/space)
+"EY" = (
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 4
+	},
+/obj/machinery/atmospherics/components/trinary/filter/flipped/on/layer4{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
 "Fd" = (
 /obj/machinery/telecomms/broadcaster/preset_left,
 /turf/open/floor/circuit/green/telecomms/mainframe,
+/area/space)
+"Fe" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 10
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/turf/open/floor/plating,
 /area/space)
 "Fh" = (
 /obj/structure/rack,
@@ -2946,11 +4012,34 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 5
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 5;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "Fk" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
+	},
+/turf/open/floor/plating,
+/area/space)
+"Fq" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 9
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -2999,13 +4088,15 @@
 	},
 /turf/open/floor/plating,
 /area/space)
-"FY" = (
-/obj/structure/window/reinforced/spawner/north,
-/obj/structure/window/reinforced/spawner/east,
-/obj/machinery/portable_atmospherics/canister/pluoxium,
-/turf/open/floor/mineral/plastitanium/airless{
-	initial_gas_mix = "n2=100000;TEMP=293.15"
+"FW" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
+/turf/open/floor/plating,
+/area/space)
+"FY" = (
+/obj/machinery/portable_atmospherics/canister,
+/turf/open/space/basic,
 /area/space)
 "FZ" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
@@ -3014,16 +4105,16 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/space/basic,
 /area/space)
-"Ge" = (
-/obj/machinery/atmospherics/components/binary/pump{
+"Gf" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 9
-	},
-/turf/open/floor/plating,
+/turf/open/space/basic,
 /area/space)
 "Gg" = (
 /obj/machinery/atmospherics/pipe/simple/purple/visible{
@@ -3043,6 +4134,14 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 4;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "Gk" = (
@@ -3059,18 +4158,34 @@
 /turf/open/floor/plating,
 /area/space)
 "Gm" = (
-/obj/machinery/atmospherics/pipe/simple/orange/visible{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/purple/visible{
-	dir = 4
-	},
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/orange/visible{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 1;
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
+/turf/open/floor/plating,
+/area/space)
+"Gp" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 9
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -3102,7 +4217,7 @@
 	icon_state = "2-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 4
+	dir = 6
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -3124,8 +4239,14 @@
 /turf/open/floor/plating,
 /area/space)
 "GD" = (
-/obj/structure/cable/green{
-	icon_state = "1-16"
+/obj/machinery/atmospherics/pipe/multiz/layer4{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/multiz/layer2{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 1
 	},
 /turf/open/openspace,
 /area/space)
@@ -3148,8 +4269,17 @@
 	},
 /turf/open/floor/plating,
 /area/space)
+"GP" = (
+/obj/structure/window/reinforced/spawner,
+/obj/structure/window/reinforced/spawner/east,
+/obj/machinery/portable_atmospherics/canister/nucleium,
+/turf/open/floor/mineral/plastitanium/airless{
+	initial_gas_mix = "n2=100000;TEMP=293.15"
+	},
+/area/space)
 "GQ" = (
-/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+/obj/machinery/atmospherics/pipe/manifold/cyan/visible{
+	icon_state = "manifold-5";
 	piping_layer = 5
 	},
 /turf/open/floor/plating,
@@ -3171,12 +4301,6 @@
 "GZ" = (
 /turf/open/floor/plasteel/showroomfloor,
 /area/space)
-"Hb" = (
-/obj/machinery/atmospherics/pipe/simple/supplymain/hidden/layer2{
-	dir = 10
-	},
-/turf/open/floor/plating,
-/area/space)
 "Hg" = (
 /obj/structure/shuttle/engine/huge{
 	dir = 8
@@ -3188,10 +4312,8 @@
 /turf/open/floor/plating,
 /area/space)
 "Ho" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/atmos/toxin_output{
-	dir = 8
-	},
-/obj/structure/window/reinforced/spawner/west,
+/obj/structure/window/reinforced/spawner/east,
+/obj/structure/window/reinforced/spawner,
 /turf/open/floor/mineral/plastitanium/airless,
 /area/space)
 "Hp" = (
@@ -3222,14 +4344,32 @@
 	},
 /turf/open/floor/plating,
 /area/space)
+"HB" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/space/basic,
+/area/space)
 "HI" = (
+/obj/machinery/atmospherics/pipe/simple/orange/visible{
+	dir = 10
+	},
 /obj/machinery/atmospherics/pipe/simple/cyan/visible{
-	dir = 10;
 	icon_state = "pipe11-5";
 	piping_layer = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/orange/visible{
-	dir = 10
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	icon_state = "pipe11-1";
+	piping_layer = 1
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -3253,19 +4393,13 @@
 /turf/open/floor/plating,
 /area/space)
 "HV" = (
-/obj/machinery/atmospherics/pipe/simple/dark/visible{
-	dir = 9
+/obj/structure/window/reinforced/spawner/west,
+/obj/structure/window/reinforced/spawner,
+/obj/machinery/atmospherics/components/unary/outlet_injector/on/layer4,
+/obj/machinery/atmospherics/components/unary/outlet_injector/on,
+/turf/open/floor/mineral/plastitanium/airless{
+	initial_gas_mix = "o2=100000;TEMP=293.15"
 	},
-/obj/machinery/atmospherics/components/trinary/filter/flipped/on/layer4{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
-	dir = 4
-	},
-/turf/open/floor/plating,
 /area/space)
 "Ib" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
@@ -3293,6 +4427,9 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 5
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "Ik" = (
@@ -3306,14 +4443,8 @@
 /obj/machinery/atmospherics/pipe/simple/dark/visible{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
-	dir = 4
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -3327,6 +4458,21 @@
 /obj/structure/window/reinforced/spawner/east,
 /obj/machinery/portable_atmospherics/canister/nitrogen,
 /turf/open/floor/mineral/plastitanium/airless,
+/area/space)
+"Ir" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/turf/open/floor/plating,
 /area/space)
 "Iu" = (
 /obj/structure/cable/green{
@@ -3356,26 +4502,19 @@
 /turf/open/floor/plating,
 /area/space)
 "II" = (
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
-	dir = 9
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/space)
 "IM" = (
-/obj/structure/window/reinforced/spawner/north,
+/obj/structure/window/reinforced/spawner,
 /obj/structure/window/reinforced/spawner/east,
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon{
-	dir = 1
+/obj/structure/window/reinforced/spawner/west,
+/obj/machinery/air_sensor/atmos{
+	id_tag = "sdpluoxium_sensor"
 	},
-/turf/open/floor/mineral/plastitanium/airless{
-	initial_gas_mix = "n2=100000;TEMP=293.15"
-	},
+/turf/open/floor/mineral/plastitanium/airless,
 /area/space)
 "IO" = (
 /obj/structure/cable/green{
@@ -3384,17 +4523,26 @@
 /turf/open/floor/plating,
 /area/space)
 "IY" = (
-/obj/structure/window/reinforced/spawner/west,
 /obj/structure/window/reinforced/spawner,
-/obj/machinery/atmospherics/components/unary/outlet_injector/on/layer4,
-/obj/machinery/atmospherics/components/unary/outlet_injector/on,
+/obj/structure/window/reinforced/spawner/east,
+/obj/structure/window/reinforced/spawner/west,
+/obj/machinery/air_sensor/atmos{
+	id_tag = "sdpluoxium_sensor"
+	},
 /turf/open/floor/mineral/plastitanium/airless{
-	initial_gas_mix = "o2=100000;TEMP=293.15"
+	initial_gas_mix = "n2=100000;TEMP=293.15"
 	},
 /area/space)
 "Ja" = (
-/obj/machinery/atmospherics/pipe/simple/supplymain/hidden/layer2{
-	dir = 9
+/obj/machinery/atmospherics/pipe/manifold/cyan/visible{
+	icon_state = "manifold-5";
+	piping_layer = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/supplymain/hidden/layer2,
+/obj/machinery/atmospherics/components/trinary/mixer{
+	dir = 8;
+	icon_state = "mixer_off-1";
+	piping_layer = 1
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -3408,10 +4556,23 @@
 /turf/open/floor/plating,
 /area/space)
 "Jc" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating,
+/area/space)
+"Je" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/space)
 "Jg" = (
@@ -3449,13 +4610,10 @@
 /turf/open/floor/plating,
 /area/space)
 "Jn" = (
-/obj/structure/window/reinforced/spawner/north,
-/obj/structure/window/reinforced/spawner/west,
-/obj/structure/window/reinforced/spawner/east,
-/obj/machinery/air_sensor/atmos/carbon_tank,
-/turf/open/floor/mineral/plastitanium/airless{
-	initial_gas_mix = "o2=100000;TEMP=293.15"
+/obj/machinery/atmospherics/pipe/simple/supplymain/hidden/layer2{
+	dir = 5
 	},
+/turf/open/floor/plating,
 /area/space)
 "Jo" = (
 /obj/machinery/conveyor{
@@ -3468,17 +4626,46 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
+"JI" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
-/turf/open/floor/plating,
-/area/space)
-"JJ" = (
-/obj/machinery/atmospherics/pipe/simple/orange/visible{
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/open/floor/plating,
+/area/space)
+"JJ" = (
+/obj/machinery/computer/atmos_control/tank,
+/obj/machinery/atmospherics/pipe/layer_manifold/visible,
+/turf/open/floor/durasteel,
+/area/space)
+"JV" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/space/basic,
 /area/space)
 "Kb" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
@@ -3488,6 +4675,11 @@
 	dir = 4;
 	icon_state = "pipe11-1";
 	piping_layer = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 4;
+	icon_state = "pipe11-5";
+	piping_layer = 5
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -3514,6 +4706,9 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
 	dir = 4
 	},
+/obj/structure/disposalpipe/sorting/mail{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/space)
 "Kj" = (
@@ -3527,7 +4722,21 @@
 	},
 /area/space)
 "Kk" = (
-/obj/machinery/atmospherics/pipe/multiz,
+/obj/machinery/atmospherics/pipe/simple/supplymain/hidden/layer2{
+	dir = 10
+	},
+/turf/open/floor/plating,
+/area/space)
+"Ko" = (
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "Kr" = (
@@ -3538,10 +4747,28 @@
 /obj/structure/cable/green{
 	icon_state = "4-16"
 	},
+/obj/structure/disposalpipe/trunk/multiz{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/space)
 "KH" = (
 /obj/effect/spawner/structure/window/reinforced/ship,
+/turf/open/floor/plating,
+/area/space)
+"KJ" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 6
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
 /turf/open/floor/plating,
 /area/space)
 "KM" = (
@@ -3555,13 +4782,10 @@
 	},
 /area/space)
 "KP" = (
-/obj/structure/window/reinforced/spawner/west,
-/obj/structure/window/reinforced/spawner/east,
-/obj/structure/window/reinforced/spawner/north,
-/obj/machinery/air_sensor/atmos/carbon_tank,
-/turf/open/floor/mineral/plastitanium/airless{
-	initial_gas_mix = "co2=50000;TEMP=293.15"
+/obj/machinery/atmospherics/pipe/simple/supplymain/hidden/layer2{
+	dir = 9
 	},
+/turf/open/floor/plating,
 /area/space)
 "KQ" = (
 /obj/structure/cable/white{
@@ -3584,6 +4808,15 @@
 	pixel_y = 10
 	},
 /turf/open/floor/carpet/black,
+/area/space)
+"KW" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/plating,
 /area/space)
 "Lb" = (
 /obj/structure/closet/secure_closet/miner{
@@ -3620,16 +4853,15 @@
 /turf/open/floor/plating,
 /area/space)
 "Lo" = (
-/obj/machinery/atmospherics/components/trinary/filter/flipped/on/layer4{
-	dir = 4
+/obj/structure/window/reinforced/spawner/north,
+/obj/structure/window/reinforced/spawner/west,
+/obj/machinery/atmospherics/components/unary/outlet_injector/on{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/dark/visible{
-	dir = 10
+/obj/machinery/atmospherics/components/unary/outlet_injector/on/layer4{
+	dir = 1
 	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/open/floor/plating,
+/turf/open/floor/mineral/plastitanium/airless,
 /area/space)
 "Lw" = (
 /obj/structure/cable{
@@ -3641,33 +4873,32 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 5
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
 /turf/open/space/basic,
 /area/space)
 "LB" = (
-/obj/machinery/atmospherics/components/binary/pump{
-	dir = 1
-	},
-/obj/machinery/atmospherics/components/binary/pump{
+/obj/machinery/atmospherics/pipe/manifold/cyan/visible{
 	dir = 1;
-	icon_state = "pump_map-5";
+	icon_state = "manifold-5";
 	piping_layer = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/supplymain/hidden/layer2{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/orange/visible,
+/obj/machinery/atmospherics/components/trinary/mixer/flipped{
+	dir = 4;
+	icon_state = "mixer_off-1_f";
+	piping_layer = 1
 	},
 /turf/open/floor/plating,
 /area/space)
 "LF" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 4
+/obj/structure/window/reinforced/spawner,
+/obj/structure/window/reinforced/spawner/east,
+/obj/machinery/portable_atmospherics/canister/nitrogen,
+/turf/open/floor/mineral/plastitanium/airless{
+	initial_gas_mix = "o2=100000;TEMP=293.15"
 	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
-	dir = 4
-	},
-/turf/open/floor/plating,
 /area/space)
 "LH" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
@@ -3678,12 +4909,35 @@
 	},
 /turf/open/floor/plating,
 /area/space)
+"LM" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
 "LR" = (
 /obj/machinery/atmospherics/pipe/simple/orange/visible{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 6;
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
 /turf/open/floor/plating,
 /area/space)
 "LS" = (
@@ -3704,6 +4958,14 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 4;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "LU" = (
@@ -3717,9 +4979,6 @@
 /obj/machinery/door/poddoor/shutters/ship/preopen{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/purple/visible{
-	dir = 4
-	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -3727,6 +4986,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/orange/visible{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -3769,7 +5031,14 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
 /turf/open/space/basic,
+/area/space)
+"Mo" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
+/turf/open/floor/plating,
 /area/space)
 "Mr" = (
 /obj/effect/turf_decal/trimline/yellow/line{
@@ -3789,15 +5058,27 @@
 	},
 /turf/open/floor/plating,
 /area/space)
+"My" = (
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/turf/open/floor/plating,
+/area/space)
 "Mz" = (
 /obj/machinery/telecomms/processor/preset_one,
 /turf/open/floor/circuit/green/telecomms/mainframe,
 /area/space)
 "MD" = (
-/obj/machinery/atmospherics/components/trinary/mixer/flipped/on/layer2{
+/obj/machinery/atmospherics/pipe/manifold/cyan/visible{
+	dir = 1;
+	icon_state = "manifold-5";
+	piping_layer = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/supplymain/hidden/layer2,
+/obj/machinery/atmospherics/components/trinary/mixer/flipped{
 	dir = 4;
-	node1_concentration = 0.79;
-	node2_concentration = 0.21
+	icon_state = "mixer_off-1_f";
+	piping_layer = 1
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -3834,14 +5115,14 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
 /obj/structure/lattice/catwalk,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 4
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/open/openspace,
@@ -3857,7 +5138,21 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 1;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
+/area/space)
+"Nq" = (
+/obj/structure/window/reinforced/spawner/west,
+/obj/structure/window/reinforced/spawner/north,
+/obj/structure/window/reinforced/spawner,
+/turf/open/floor/mineral/plastitanium/airless{
+	initial_gas_mix = "n2=100000;TEMP=293.15"
+	},
 /area/space)
 "Nx" = (
 /obj/machinery/atmospherics/pipe/simple/orange/visible{
@@ -3865,6 +5160,24 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 1;
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
+/turf/open/floor/plating,
+/area/space)
+"Nz" = (
+/obj/machinery/atmospherics/pipe/manifold/cyan/visible{
+	dir = 1;
+	icon_state = "manifold-5";
+	piping_layer = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 5;
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
 /turf/open/floor/plating,
 /area/space)
 "ND" = (
@@ -3878,7 +5191,29 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4,
 /turf/open/floor/plating,
+/area/space)
+"NK" = (
+/obj/machinery/atmospherics/pipe/multiz{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/multiz/layer1{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/multiz/layer4{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/multiz/layer2{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/multiz/layer5{
+	dir = 8
+	},
+/turf/open/openspace,
 /area/space)
 "NM" = (
 /obj/structure/window/reinforced/spawner/north,
@@ -3893,16 +5228,14 @@
 /turf/open/floor/circuit/green/telecomms/mainframe,
 /area/space)
 "NO" = (
-/obj/machinery/atmospherics/pipe/layer_manifold/visible,
+/obj/machinery/atmospherics/components/binary/valve{
+	icon_state = "mvalve_map-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "NP" = (
-/obj/machinery/atmospherics/components/binary/pump{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 10
-	},
+/obj/machinery/atmospherics/pipe/layer_manifold/visible,
 /turf/open/floor/plating,
 /area/space)
 "NQ" = (
@@ -3913,6 +5246,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 1
 	},
+/obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/space)
 "NR" = (
@@ -3941,6 +5275,12 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 1;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "Oa" = (
@@ -3964,6 +5304,9 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/space)
 "Oj" = (
@@ -3972,14 +5315,16 @@
 /turf/open/floor/plating,
 /area/space)
 "On" = (
-/obj/structure/window/reinforced/spawner/north,
-/obj/structure/window/reinforced/spawner/east,
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon{
-	dir = 1
+/obj/machinery/atmospherics/components/binary/pump,
+/obj/machinery/atmospherics/components/binary/pump{
+	icon_state = "pump_map-5";
+	piping_layer = 5
 	},
-/turf/open/floor/mineral/plastitanium/airless{
-	initial_gas_mix = "o2=100000;TEMP=293.15"
+/obj/machinery/atmospherics/components/binary/pump{
+	icon_state = "pump_map-1";
+	piping_layer = 1
 	},
+/turf/open/floor/plating,
 /area/space)
 "Ot" = (
 /obj/structure/cable{
@@ -3998,7 +5343,7 @@
 /turf/open/floor/plating,
 /area/space)
 "OA" = (
-/obj/machinery/atmospherics/pipe/simple/dark/visible{
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
 	dir = 10;
 	icon_state = "pipe11-1";
 	piping_layer = 1
@@ -4035,12 +5380,19 @@
 /turf/open/floor/plating,
 /area/space)
 "OY" = (
-/obj/machinery/atmospherics/pipe/simple/orange/visible{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/purple/visible{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 6;
+	icon_state = "pipe11-1";
+	piping_layer = 1
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -4061,6 +5413,14 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
 	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 10;
+	icon_state = "pipe11-5";
+	piping_layer = 5
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -4092,6 +5452,14 @@
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
 	dir = 1
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 6;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "Pj" = (
@@ -4105,27 +5473,58 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 1;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
+/turf/open/floor/plating,
+/area/space)
+"Po" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/cyan/visible{
+	dir = 9;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 9;
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
 /turf/open/floor/plating,
 /area/space)
 "Pt" = (
-/obj/machinery/atmospherics/pipe/simple/purple/visible{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/orange/visible{
-	dir = 1
-	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/orange/visible{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
 /turf/open/floor/plating,
+/area/space)
+"Pu" = (
+/obj/structure/window/reinforced/spawner,
+/turf/open/floor/mineral/plastitanium/airless{
+	initial_gas_mix = "n2=100000;TEMP=293.15"
+	},
 /area/space)
 "Pz" = (
 /obj/machinery/atmospherics/components/binary/stormdrive_reactor{
-	reactor_id = "onlydrive"
+	reactor_id = "SD_STARBOARD"
 	},
 /obj/effect/landmark/nuclear_waste_spawner/strong,
 /turf/open/floor/plating/rusty_techgrid,
@@ -4140,6 +5539,9 @@
 /obj/machinery/door/poddoor/shutters/ship/preopen{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/space)
 "PE" = (
@@ -4148,18 +5550,13 @@
 /turf/open/floor/plating,
 /area/space)
 "PF" = (
-/obj/machinery/atmospherics/pipe/simple/dark/visible{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
-	dir = 1
-	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/structure/cable{
-	icon_state = "2-4"
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/scrubbers/hidden/layer4,
 /turf/open/floor/plating,
 /area/space)
 "PG" = (
@@ -4172,6 +5569,19 @@
 	dir = 4
 	},
 /turf/open/floor/plasteel/showroomfloor,
+/area/space)
+"PN" = (
+/obj/machinery/atmospherics/pipe/manifold/cyan/visible{
+	dir = 1;
+	icon_state = "manifold-5";
+	piping_layer = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 4;
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
+/turf/open/floor/plating,
 /area/space)
 "PQ" = (
 /obj/machinery/door/airlock/ship/external/glass,
@@ -4194,6 +5604,18 @@
 /obj/machinery/telecomms/bus/preset_four,
 /turf/open/floor/circuit/green/telecomms/mainframe,
 /area/space)
+"Qa" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
 "Qe" = (
 /obj/structure/cable/white{
 	icon_state = "1-16"
@@ -4215,17 +5637,43 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 4;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
-"Ql" = (
-/obj/machinery/atmospherics/pipe/simple/supplymain/hidden/layer2{
-	dir = 6
+"Qg" = (
+/obj/machinery/atmospherics/pipe/simple/purple/visible{
+	dir = 4
+	},
+/obj/structure/cable/white{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 4;
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 4;
+	icon_state = "pipe11-5";
+	piping_layer = 5
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -4239,6 +5687,12 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/structure/disposalpipe/sorting/mail/flip{
+	dir = 4
 	},
 /turf/open/openspace,
 /area/space)
@@ -4295,6 +5749,15 @@
 /obj/structure/plasticflaps,
 /turf/open/floor/plating,
 /area/space)
+"QI" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 9
+	},
+/turf/open/floor/plating,
+/area/space)
 "QM" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -4304,6 +5767,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
 	dir = 8
+	},
+/obj/structure/disposalpipe/sorting/mail{
+	dir = 1
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -4349,14 +5815,6 @@
 	},
 /turf/open/floor/plating,
 /area/space)
-"Rj" = (
-/obj/machinery/atmospherics/components/binary/pump,
-/obj/machinery/atmospherics/components/binary/pump{
-	icon_state = "pump_map-5";
-	piping_layer = 5
-	},
-/turf/open/floor/plating,
-/area/space)
 "Ro" = (
 /obj/structure/closet/secure_closet/brig,
 /turf/open/floor/plating,
@@ -4394,9 +5852,21 @@
 	},
 /turf/open/floor/plating,
 /area/space)
+"RJ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/turf/open/floor/plating,
+/area/space)
 "RL" = (
 /obj/structure/stairs{
 	dir = 1
+	},
+/turf/open/space/basic,
+/area/space)
+"RO" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 8
 	},
 /turf/open/space/basic,
 /area/space)
@@ -4409,21 +5879,18 @@
 /turf/open/openspace,
 /area/space)
 "RQ" = (
-/obj/machinery/atmospherics/components/trinary/filter/flipped/on/layer4{
-	dir = 8
+/obj/structure/window/reinforced/spawner/west,
+/obj/structure/window/reinforced/spawner,
+/obj/machinery/atmospherics/components/unary/outlet_injector/on/layer4,
+/turf/open/floor/mineral/plastitanium/airless{
+	initial_gas_mix = "n2=100000;TEMP=293.15"
 	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
-	dir = 4
-	},
-/turf/open/floor/plating,
 /area/space)
 "RR" = (
-/obj/structure/window/reinforced/spawner/east,
-/obj/structure/window/reinforced/spawner,
-/turf/open/floor/mineral/plastitanium/airless,
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+	piping_layer = 5
+	},
+/turf/open/floor/plating,
 /area/space)
 "RV" = (
 /obj/machinery/atmospherics/pipe/simple/purple/visible{
@@ -4439,6 +5906,14 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 9;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "Sa" = (
@@ -4453,14 +5928,22 @@
 	},
 /turf/open/floor/plating,
 /area/space)
-"Su" = (
-/obj/machinery/atmospherics/pipe/simple/cyan/visible{
-	dir = 6;
-	icon_state = "pipe11-5";
-	piping_layer = 5
+"Sl" = (
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating,
+/area/space)
+"Sy" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/orange/visible{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/turf/open/space/basic,
+/area/space)
+"SE" = (
+/obj/structure/disposalpipe/segment{
+	dir = 10
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -4509,6 +5992,14 @@
 /obj/effect/turf_decal/ship/techfloor,
 /turf/open/floor/engine,
 /area/space)
+"ST" = (
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 4;
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
+/turf/open/floor/plating,
+/area/space)
 "SY" = (
 /obj/machinery/atmospherics/pipe/simple/purple/visible{
 	dir = 9
@@ -4540,6 +6031,14 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 4;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "Td" = (
@@ -4551,6 +6050,21 @@
 /obj/structure/closet/secure_closet/engineering_welding,
 /turf/open/floor/plating,
 /area/space)
+"Ti" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/disposalpipe/sorting/mail{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
 "Tk" = (
 /obj/machinery/conveyor_switch/oneway{
 	id = "mining_internal";
@@ -4559,8 +6073,9 @@
 /turf/open/floor/plating,
 /area/space)
 "Tm" = (
-/obj/machinery/atmospherics/components/binary/valve{
-	icon_state = "mvalve_map-5";
+/obj/machinery/atmospherics/pipe/simple/cyan/visible{
+	dir = 5;
+	icon_state = "pipe11-5";
 	piping_layer = 5
 	},
 /turf/open/floor/plating,
@@ -4573,24 +6088,18 @@
 /turf/open/floor/plating,
 /area/space)
 "Tx" = (
-/obj/machinery/atmospherics/pipe/simple/dark/visible{
-	dir = 4
+/obj/structure/window/reinforced/spawner/west,
+/obj/structure/window/reinforced/spawner/north,
+/obj/structure/window/reinforced/spawner,
+/obj/machinery/atmospherics/components/unary/outlet_injector/on/layer4,
+/turf/open/floor/mineral/plastitanium/airless{
+	initial_gas_mix = "n2=100000;TEMP=293.15"
 	},
-/obj/machinery/atmospherics/components/trinary/filter/flipped/on/layer4{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
-	dir = 4
-	},
-/turf/open/floor/plating,
 /area/space)
 "TC" = (
-/obj/structure/window/reinforced/spawner/north,
+/obj/structure/window/reinforced/spawner,
 /obj/structure/window/reinforced/spawner/east,
-/obj/machinery/portable_atmospherics/canister/nucleium,
+/obj/machinery/atmospherics/components/unary/vent_pump/siphon,
 /turf/open/floor/mineral/plastitanium/airless,
 /area/space)
 "TE" = (
@@ -4610,6 +6119,9 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/open/space/basic,
@@ -4634,8 +6146,39 @@
 /turf/open/floor/plasteel/showroomfloor,
 /area/space)
 "TM" = (
-/obj/machinery/atmospherics/pipe/simple/supplymain/hidden/layer2{
-	dir = 5
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 8;
+	icon_state = "pump_map-5";
+	piping_layer = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/supplymain/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 4;
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
+/turf/open/floor/plating,
+/area/space)
+"TT" = (
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 10;
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
+/obj/machinery/atmospherics/pipe/layer_manifold/visible{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
+"Uc" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 1
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -4692,6 +6235,23 @@
 	},
 /turf/open/space/basic,
 /area/space)
+"UE" = (
+/obj/structure/cable/white{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 6;
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
+/turf/open/floor/plating,
+/area/space)
 "UF" = (
 /obj/machinery/door/airlock/ship/external/glass,
 /obj/structure/cable{
@@ -4703,6 +6263,15 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /turf/open/floor/plating,
 /area/space)
+"UO" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/obj/structure/disposalpipe/trunk/multiz/down{
+	dir = 4
+	},
+/turf/open/openspace,
+/area/space)
 "UP" = (
 /obj/effect/turf_decal/bot,
 /obj/effect/landmark/trader_drop_point,
@@ -4712,10 +6281,10 @@
 /obj/machinery/atmospherics/pipe/simple/orange/visible{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/cyan/visible{
-	dir = 5;
-	icon_state = "pipe11-5";
-	piping_layer = 5
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 4;
+	icon_state = "pipe11-1";
+	piping_layer = 1
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -4730,7 +6299,7 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
-	dir = 4
+	dir = 5
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -4755,6 +6324,14 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/structure/disposalpipe/sorting/mail{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 1;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "Vg" = (
@@ -4764,6 +6341,18 @@
 "Vn" = (
 /obj/structure/tank_dispenser/oxygen,
 /turf/open/floor/plating,
+/area/space)
+"Vo" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/space)
+"Vp" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/carpet/black,
 /area/space)
 "Vs" = (
 /obj/structure/window/reinforced/spawner/west,
@@ -4800,7 +6389,28 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/plating,
+/area/space)
+"VC" = (
+/obj/machinery/atmospherics/pipe/simple/supplymain/hidden/layer2,
+/obj/machinery/atmospherics/components/trinary/mixer/flipped{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
+"VF" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/turf/open/space/basic,
 /area/space)
 "VH" = (
 /obj/machinery/computer/ship/navigation/public{
@@ -4814,6 +6424,15 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/plating,
+/area/space)
+"VJ" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -4837,6 +6456,20 @@
 	},
 /turf/open/floor/plating,
 /area/space)
+"Wb" = (
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 9
+	},
+/obj/machinery/atmospherics/components/binary/pump{
+	dir = 8;
+	icon_state = "pump_map-1";
+	piping_layer = 1
+	},
+/turf/open/floor/plating,
+/area/space)
 "Wc" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
@@ -4847,21 +6480,18 @@
 /turf/open/floor/plating,
 /area/space)
 "Wt" = (
-/obj/structure/window/reinforced/spawner,
-/obj/structure/window/reinforced/spawner/east,
-/obj/structure/window/reinforced/spawner/west,
-/obj/machinery/air_sensor/atmos{
-	id_tag = "sdpluoxium_sensor"
+/obj/machinery/atmospherics/components/trinary/mixer/flipped/on/layer2{
+	dir = 4;
+	node1_concentration = 0.79;
+	node2_concentration = 0.21
 	},
-/turf/open/floor/mineral/plastitanium/airless{
-	initial_gas_mix = "n2=100000;TEMP=293.15"
-	},
+/turf/open/floor/plating,
 /area/space)
 "Wu" = (
 /obj/machinery/atmospherics/pipe/simple/supplymain/hidden/layer2,
-/obj/machinery/atmospherics/pipe/simple/dark/visible{
-	dir = 4;
-	icon_state = "pipe11-1";
+/obj/machinery/atmospherics/components/trinary/mixer{
+	dir = 8;
+	icon_state = "mixer_off-1";
 	piping_layer = 1
 	},
 /turf/open/floor/plating,
@@ -4873,6 +6503,13 @@
 	},
 /turf/open/floor/mineral/plastitanium/airless,
 /area/space)
+"WD" = (
+/obj/structure/cable/white{
+	icon_state = "1-2"
+	},
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating,
+/area/space)
 "WG" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -4882,14 +6519,15 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 1
 	},
+/obj/structure/disposalpipe/segment,
 /turf/open/openspace,
 /area/space)
 "WH" = (
-/obj/structure/window/reinforced/spawner/east,
-/obj/structure/window/reinforced/spawner/north,
-/turf/open/floor/mineral/plastitanium/airless{
-	initial_gas_mix = "n2=100000;TEMP=293.15"
+/obj/machinery/atmospherics/components/unary/portables_connector/visible{
+	dir = 1;
+	piping_layer = 5
 	},
+/turf/open/floor/plating,
 /area/space)
 "WL" = (
 /obj/machinery/atmospherics/components/unary/thermomachine/freezer/on,
@@ -4909,10 +6547,10 @@
 /obj/machinery/atmospherics/pipe/simple/orange/visible{
 	dir = 4
 	},
-/obj/machinery/atmospherics/components/binary/pump{
-	dir = 8;
-	icon_state = "pump_map-5";
-	piping_layer = 5
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 10;
+	icon_state = "pipe11-1";
+	piping_layer = 1
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -4927,19 +6565,65 @@
 /turf/open/floor/plating,
 /area/space)
 "WX" = (
-/obj/structure/window/reinforced/spawner/west,
-/obj/structure/window/reinforced/spawner/north,
-/obj/structure/window/reinforced/spawner,
-/obj/machinery/atmospherics/components/unary/outlet_injector/on/layer4,
-/turf/open/floor/mineral/plastitanium/airless{
-	initial_gas_mix = "n2=100000;TEMP=293.15"
+/obj/machinery/computer/atmos_control/tank/toxin_tank{
+	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/layer_manifold/visible{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
+"WZ" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 4
+	},
+/turf/open/floor/plasteel/showroomfloor,
+/area/space)
+"Xg" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
+"Xi" = (
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 9
+	},
+/turf/open/floor/plating,
+/area/space)
+"Xl" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating,
 /area/space)
 "Xm" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 9
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 9
 	},
 /turf/open/space/basic,
@@ -4961,19 +6645,19 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/space)
 "Xu" = (
-/obj/machinery/atmospherics/components/trinary/filter/flipped/on/layer4{
-	dir = 4
+/obj/structure/window/reinforced/spawner/north,
+/obj/structure/window/reinforced/spawner/west,
+/obj/structure/window/reinforced/spawner,
+/obj/machinery/atmospherics/components/unary/outlet_injector/on/layer4{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/dark/visible{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/open/floor/plating,
+/turf/open/floor/mineral/plastitanium/airless,
 /area/space)
 "XJ" = (
 /obj/structure/window/reinforced/spawner/north,
@@ -4990,10 +6674,13 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /turf/open/space/basic,
 /area/space)
-"XR" = (
-/obj/machinery/atmospherics/pipe/simple/purple/visible{
-	dir = 5
+"XL" = (
+/obj/structure/disposalpipe/segment{
+	dir = 10
 	},
+/turf/open/space/basic,
+/area/space)
+"XR" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -5006,6 +6693,11 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/orange/visible{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/purple/visible,
 /turf/open/floor/plating,
 /area/space)
 "XV" = (
@@ -5019,6 +6711,15 @@
 /obj/machinery/air_sensor/atmos/air_tank,
 /turf/open/floor/mineral/plastitanium/airless{
 	initial_gas_mix = "co2=50000;TEMP=293.15"
+	},
+/area/space)
+"Ye" = (
+/obj/structure/window/reinforced/spawner/north,
+/obj/structure/window/reinforced/spawner/west,
+/obj/structure/window/reinforced/spawner/east,
+/obj/machinery/air_sensor/atmos/carbon_tank,
+/turf/open/floor/mineral/plastitanium/airless{
+	initial_gas_mix = "o2=100000;TEMP=293.15"
 	},
 /area/space)
 "Yf" = (
@@ -5037,6 +6738,9 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 9
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 9
 	},
 /turf/open/space/basic,
@@ -5058,6 +6762,18 @@
 	},
 /turf/open/floor/mineral/plastitanium,
 /area/space)
+"Yu" = (
+/obj/machinery/atmospherics/pipe/manifold/cyan/visible{
+	icon_state = "manifold-5";
+	piping_layer = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	dir = 6;
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
+/turf/open/floor/plating,
+/area/space)
 "Yx" = (
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
 	dir = 8
@@ -5065,13 +6781,15 @@
 /turf/open/floor/plating,
 /area/space)
 "YF" = (
-/obj/machinery/atmospherics/components/binary/pump,
-/obj/machinery/atmospherics/pipe/simple/supplymain/hidden/layer2{
-	dir = 8
-	},
-/obj/machinery/atmospherics/components/binary/pump{
-	icon_state = "pump_map-5";
+/obj/machinery/atmospherics/pipe/manifold/cyan/visible{
+	icon_state = "manifold-5";
 	piping_layer = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/orange/visible,
+/obj/machinery/atmospherics/components/trinary/mixer{
+	dir = 8;
+	icon_state = "mixer_off-1";
+	piping_layer = 1
 	},
 /turf/open/floor/plating,
 /area/space)
@@ -5082,9 +6800,6 @@
 /turf/open/floor/plating,
 /area/space)
 "YI" = (
-/obj/machinery/atmospherics/pipe/simple/purple/visible{
-	dir = 6
-	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -5095,6 +6810,10 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/purple/visible,
+/obj/machinery/atmospherics/pipe/simple/orange/visible{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -5109,6 +6828,25 @@
 /obj/structure/window/reinforced/spawner/east,
 /obj/structure/tank_dispenser/oxygen,
 /obj/structure/window/reinforced/spawner/north,
+/turf/open/floor/plating,
+/area/space)
+"YQ" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2{
+	dir = 4
+	},
+/turf/open/space/basic,
+/area/space)
+"YU" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/space)
 "Zj" = (
@@ -5150,6 +6888,9 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/openspace,
 /area/space)
 "Zv" = (
@@ -5166,11 +6907,19 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/visible{
+	dir = 5;
+	icon_state = "pipe11-5";
+	piping_layer = 5
+	},
 /turf/open/floor/plating,
 /area/space)
 "Zw" = (
 /obj/machinery/atmospherics/components/binary/stormdrive_reactor{
-	reactor_id = "onlydrive"
+	reactor_id = "SD_PORT"
 	},
 /obj/effect/landmark/nuclear_waste_spawner/strong,
 /obj/structure/cable/white{
@@ -5184,23 +6933,43 @@
 	},
 /turf/open/floor/plating,
 /area/space)
-"ZF" = (
-/obj/structure/window/reinforced/spawner,
-/obj/structure/window/reinforced/spawner/east,
-/obj/structure/window/reinforced/spawner/west,
-/obj/machinery/air_sensor/atmos{
-	id_tag = "sdpluoxium_sensor"
+"ZE" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/atmospherics/pipe/simple/purple/visible{
+	dir = 5
 	},
-/turf/open/floor/mineral/plastitanium/airless,
+/turf/open/floor/plating,
+/area/space)
+"ZF" = (
+/obj/machinery/atmospherics/pipe/simple/supplymain/hidden/layer2{
+	dir = 6
+	},
+/turf/open/floor/plating,
 /area/space)
 "ZG" = (
 /obj/machinery/telecomms/server/presets/common,
 /turf/open/floor/circuit/telecomms/mainframe,
 /area/space)
+"ZT" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer2{
+	dir = 1
+	},
+/turf/open/space/basic,
+/area/space)
 "ZU" = (
-/obj/machinery/computer/atmos_control/tank,
-/obj/machinery/atmospherics/pipe/layer_manifold/visible,
-/turf/open/floor/durasteel,
+/obj/machinery/atmospherics/components/binary/pump,
+/obj/machinery/atmospherics/pipe/simple/supplymain/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/components/binary/pump{
+	icon_state = "pump_map-5";
+	piping_layer = 5
+	},
+/obj/machinery/atmospherics/components/binary/pump{
+	icon_state = "pump_map-1";
+	piping_layer = 1
+	},
+/turf/open/floor/plating,
 /area/space)
 
 (1,1,1) = {"
@@ -29222,7 +30991,7 @@ ac
 cF
 ac
 fY
-fx
+ac
 ui
 Hp
 yn
@@ -29242,7 +31011,7 @@ VL
 yn
 rZ
 Fy
-zA
+ac
 Rc
 ac
 cF
@@ -29468,7 +31237,7 @@ eQ
 yn
 Rf
 zA
-ac
+kD
 ac
 cF
 ac
@@ -29510,7 +31279,7 @@ qh
 ac
 cF
 ac
-ac
+Mo
 fx
 Rf
 yn
@@ -30242,11 +32011,11 @@ DC
 wn
 Jk
 yn
-KH
-KH
-KH
-KH
-KH
+xc
+xc
+xc
+xc
+xc
 yn
 yn
 VY
@@ -30274,11 +32043,11 @@ EQ
 Uy
 yn
 yn
-KH
-KH
-KH
-KH
-KH
+xc
+xc
+xc
+xc
+xc
 yn
 Oa
 qR
@@ -30503,8 +32272,8 @@ ac
 ac
 ac
 ac
-ac
-ac
+ts
+tB
 yn
 Mg
 EQ
@@ -30753,19 +32522,19 @@ yn
 yn
 qN
 SJ
-wn
+wX
 iz
 yn
 ac
 Yq
 xr
 oF
-ac
+FW
 ac
 yn
 Sd
 KQ
-ac
+Eu
 yn
 VL
 VL
@@ -30783,19 +32552,19 @@ ac
 VL
 VL
 yn
-ac
+vu
 NR
 Qe
 yn
-ac
-ac
+yI
+RJ
 Yq
 xr
 oF
 ac
 yn
 nq
-qR
+rP
 hc
 qN
 yn
@@ -31017,7 +32786,7 @@ ac
 vM
 vp
 Td
-wa
+uE
 Hn
 yn
 eP
@@ -31045,7 +32814,7 @@ Ld
 pw
 yn
 Pb
-Fk
+qx
 vM
 vp
 Td
@@ -31274,10 +33043,10 @@ ac
 qO
 kn
 Td
-fY
+Di
 PS
 yn
-Kk
+ac
 Ek
 ac
 yn
@@ -31298,11 +33067,11 @@ yn
 VL
 yn
 ac
-Ek
+UE
 DB
 yn
 PS
-Rc
+KW
 qO
 kn
 Td
@@ -31522,7 +33291,7 @@ VL
 VL
 yn
 xz
-ej
+ac
 iP
 Mv
 Mv
@@ -31531,7 +33300,7 @@ ac
 vM
 wr
 Td
-fY
+Di
 yn
 yn
 yn
@@ -31559,7 +33328,7 @@ OH
 yn
 yn
 yn
-Rc
+KW
 vM
 wr
 Td
@@ -31568,7 +33337,7 @@ yn
 Mv
 Mv
 fA
-es
+ac
 Gx
 yn
 VL
@@ -31779,7 +33548,7 @@ VL
 VL
 yn
 xz
-JJ
+nq
 YI
 oo
 oo
@@ -31821,12 +33590,12 @@ Pj
 NX
 Pj
 ph
-DH
+vg
 ce
 ce
 XR
-JJ
-xz
+ZE
+Ko
 yn
 VL
 VL
@@ -32041,7 +33810,7 @@ LY
 yn
 yn
 yn
-jE
+dd
 yn
 yn
 yn
@@ -32049,8 +33818,8 @@ yn
 yn
 so
 fY
-wQ
-ac
+rl
+Eu
 ac
 yn
 ac
@@ -32068,8 +33837,8 @@ ac
 ac
 yn
 ac
-ac
-yc
+vu
+Qg
 Rc
 RA
 yn
@@ -32082,7 +33851,7 @@ yn
 yn
 yn
 ek
-ie
+kJ
 PA
 ds
 ds
@@ -32291,7 +34060,7 @@ VL
 aa
 VL
 ds
-bs
+cU
 PF
 OY
 Gm
@@ -32299,8 +34068,8 @@ Nx
 Nx
 dz
 pn
-Oj
-Oj
+lF
+kC
 Jc
 If
 yn
@@ -32332,16 +34101,16 @@ fB
 yn
 zA
 Yx
-ai
+Yx
 ai
 vd
 LR
-Nx
+BR
 cX
 Pt
 hk
 uC
-Zm
+mM
 ds
 VL
 aa
@@ -32548,18 +34317,18 @@ yn
 aa
 yn
 ds
-ac
-mW
-ac
+ej
+II
+EM
 NP
 NO
 Tm
 UQ
 yg
 Vg
-ac
+VJ
 Vg
-Wc
+Qa
 yn
 Fh
 fY
@@ -32589,16 +34358,16 @@ Gs
 yn
 id
 Vg
-ac
+II
 Vg
 jI
-Su
-Tm
+UQ
+qI
 NO
-Ge
-ac
+NP
+Wb
 In
-ac
+tH
 ds
 yn
 aa
@@ -32805,23 +34574,23 @@ VL
 VL
 VL
 ds
-ac
+es
 Xu
-aP
+WX
 nP
-DN
+RR
 GQ
-cy
+UQ
 Kb
 jx
 lZ
 Mm
-Wc
+Qa
 yn
 HT
 FU
 cq
-Dc
+jJ
 Dc
 RP
 yn
@@ -32839,7 +34608,7 @@ ac
 yn
 bf
 Em
-Em
+Dr
 Qf
 nC
 PG
@@ -32849,13 +34618,13 @@ QE
 ir
 eM
 xb
-aw
+UQ
 uP
-xt
-nP
+WH
+Nq
 WX
 Tx
-ac
+EY
 ds
 VL
 VL
@@ -33062,18 +34831,18 @@ VL
 VL
 VL
 ds
-ac
+hl
 mW
 be
-Ho
 wJ
-GQ
-cy
+RR
+Yu
+uw
 nd
 ac
 cr
 xN
-Wc
+Qa
 yn
 PE
 ac
@@ -33097,22 +34866,22 @@ yn
 yn
 CF
 tn
-yc
-ac
+ue
+Sl
 tB
 yn
 id
 ma
 wJ
 ac
-nd
-aw
-uP
-Dl
+TT
+uw
+Nz
+WH
 sW
 wk
-In
-ac
+Pu
+xC
 ds
 VL
 VL
@@ -33319,18 +35088,18 @@ yn
 aa
 yn
 ds
-ac
-mW
-yi
+hl
+yo
 uO
+Ho
 RR
-GQ
-cy
-nd
+wO
+UQ
+ST
 sA
 jr
 xN
-Wc
+Qa
 yn
 ac
 ac
@@ -33362,14 +35131,14 @@ id
 ma
 Wv
 XV
-nd
-aw
-uP
+ST
+UQ
+PN
 WH
 or
 bK
-In
-ac
+GP
+xC
 ds
 yn
 aa
@@ -33576,18 +35345,18 @@ VL
 aa
 VL
 ds
-ac
-Lo
 qw
+Lo
 ir
+IM
 ZF
-Ql
+TM
 WQ
 Wu
 nu
 qX
 AV
-Wc
+Qa
 yn
 qf
 yn
@@ -33595,7 +35364,7 @@ tY
 yn
 Gg
 yn
-Fv
+UO
 yn
 ac
 cb
@@ -33607,7 +35376,7 @@ ac
 cb
 ac
 yn
-Fv
+UO
 yn
 yc
 yn
@@ -33619,14 +35388,14 @@ id
 DP
 uO
 uh
-Wu
+VC
 DU
 TM
 Jn
+Ye
 Vv
-IY
 HV
-ac
+zv
 ds
 VL
 aa
@@ -33833,7 +35602,7 @@ yn
 aa
 yn
 ds
-ac
+uA
 vE
 TC
 vz
@@ -33851,7 +35620,7 @@ ai
 LH
 yn
 Tc
-wp
+WD
 jC
 yn
 ac
@@ -33865,7 +35634,7 @@ cb
 ac
 yn
 rH
-wp
+WD
 LS
 yn
 FR
@@ -33879,11 +35648,11 @@ cG
 OA
 vT
 Ai
+os
 Ug
-On
 hW
 LF
-ac
+Bo
 ds
 yn
 aa
@@ -34090,10 +35859,10 @@ VL
 VL
 VL
 ds
-ac
 wM
 KM
 fO
+IY
 Wt
 MD
 mn
@@ -34101,11 +35870,11 @@ bF
 Ug
 Ke
 GT
-Wc
+Qa
 yn
+II
 ac
-ac
-ac
+VJ
 yn
 gt
 bR
@@ -34123,11 +35892,11 @@ ac
 yn
 kQ
 bR
-gt
+NK
 yn
+II
 ac
-ac
-ac
+VJ
 yn
 id
 fl
@@ -34135,12 +35904,12 @@ Yf
 oc
 eh
 bU
-kx
+Ja
 qv
+bE
 fO
-Ed
 RQ
-ac
+lQ
 ds
 VL
 VL
@@ -34347,13 +36116,13 @@ VL
 VL
 VL
 ds
-ac
-vE
-FY
+uA
+Bv
 Ds
+JJ
 ZU
 YF
-Bv
+GX
 ac
 du
 fO
@@ -34391,13 +36160,13 @@ NM
 ir
 Bs
 ac
-EM
+rL
 LB
+yy
 RE
-IM
 zW
-LF
-ac
+sL
+Bo
 ds
 VL
 VL
@@ -34604,18 +36373,18 @@ yn
 aa
 yn
 ds
-ac
 wM
 NM
 ir
-ZF
-Hb
+IM
+Kk
+MD
 mn
 bF
 RE
 An
 Jj
-Wc
+Qa
 yn
 db
 db
@@ -34651,10 +36420,10 @@ eh
 bU
 Ja
 KP
+Bw
 SL
-hl
-RQ
-ac
+tp
+lQ
 ds
 yn
 aa
@@ -34861,13 +36630,13 @@ VL
 aa
 VL
 ds
-ac
-vE
-Ci
-vz
+uA
+Ed
+TC
 ml
-Rj
-Bv
+On
+YF
+GX
 ac
 XY
 SL
@@ -34905,13 +36674,13 @@ KM
 fO
 cG
 ac
-EM
-jj
+rL
+LB
+zJ
 Qz
 dy
-cU
-LF
-ac
+hL
+Bo
 ds
 VL
 aa
@@ -35118,18 +36887,18 @@ yn
 aa
 yn
 ds
-ac
+yi
 xY
 ai
 ai
 ai
-fx
+xH
 HI
 jj
 Qz
 dy
 qs
-Wc
+Qa
 yn
 ac
 ac
@@ -35161,14 +36930,14 @@ id
 XJ
 Ds
 Cv
-Rj
+On
 bg
-zA
+Po
 ai
 ai
 ai
-cL
-ac
+li
+Xi
 ds
 yn
 aa
@@ -35424,7 +37193,7 @@ jP
 ds
 ds
 ds
-hT
+HB
 ds
 ds
 VL
@@ -35632,10 +37401,10 @@ VL
 VL
 VL
 yn
-VL
+ur
 yz
-VL
-VL
+FY
+FY
 ds
 ds
 ds
@@ -35679,10 +37448,10 @@ ds
 ds
 ds
 ds
-VL
-VL
-hT
-VL
+FY
+FY
+HB
+xs
 yn
 VL
 VL
@@ -35889,7 +37658,7 @@ yn
 aa
 yn
 yn
-VL
+ur
 Au
 yq
 yq
@@ -35899,7 +37668,7 @@ yq
 yq
 yq
 au
-DF
+sH
 Xm
 yn
 ac
@@ -35925,21 +37694,21 @@ yn
 yn
 yn
 ac
-ac
+EP
 ac
 yn
 ac
-fa
-Ut
-kI
-kI
-kI
-kI
-kI
-kI
-kI
-oC
-VL
+KJ
+Xl
+Sy
+Sy
+Sy
+Sy
+Sy
+Sy
+Sy
+As
+xs
 yn
 yn
 aa
@@ -36155,11 +37924,11 @@ yn
 yn
 yn
 yn
-uA
+cJ
 yn
 yn
 yn
-ac
+EP
 ac
 ac
 ac
@@ -36413,7 +38182,7 @@ VL
 yn
 VL
 wE
-Ic
+Bd
 Mn
 Ic
 mI
@@ -36435,11 +38204,11 @@ cb
 cb
 Hq
 yn
-ac
-ac
+II
+VJ
 yn
 ac
-Rc
+Ea
 ac
 ac
 ac
@@ -36671,9 +38440,9 @@ yn
 VL
 VL
 VL
-uA
+cJ
 yn
-ac
+II
 Ot
 ac
 ac
@@ -36928,7 +38697,7 @@ yn
 VL
 VL
 VL
-uA
+cJ
 yn
 yn
 yn
@@ -37185,7 +38954,7 @@ yn
 VL
 VL
 VL
-uA
+cJ
 yn
 ah
 gq
@@ -37213,9 +38982,9 @@ VH
 Xo
 iM
 yn
-ac
-CE
-ac
+Mo
+Gp
+Eu
 yn
 VL
 VL
@@ -37442,7 +39211,7 @@ yn
 yn
 yn
 yn
-uA
+cJ
 yn
 ah
 ac
@@ -37471,7 +39240,7 @@ fi
 ac
 yn
 ac
-ac
+FW
 ac
 Ob
 VL
@@ -37699,7 +39468,7 @@ VL
 VL
 VL
 yn
-uA
+cJ
 yn
 ah
 ac
@@ -37727,8 +39496,8 @@ WV
 Hq
 ac
 yn
-ac
-ac
+ts
+My
 ac
 yn
 VL
@@ -37956,7 +39725,7 @@ VL
 VL
 VL
 yn
-uA
+cJ
 yn
 ah
 ac
@@ -37984,7 +39753,7 @@ ac
 Hq
 ac
 yn
-VL
+FW
 yn
 yn
 yn
@@ -38213,7 +39982,7 @@ VL
 VL
 VL
 yn
-uA
+cJ
 yn
 aL
 gK
@@ -38241,7 +40010,7 @@ cb
 Hq
 ac
 yn
-VL
+FW
 yn
 VL
 VL
@@ -38470,7 +40239,7 @@ VL
 VL
 VL
 yn
-uA
+cJ
 yn
 bT
 gZ
@@ -38498,7 +40267,7 @@ ac
 Vt
 Zm
 yn
-VL
+FW
 yn
 VL
 VL
@@ -38727,7 +40496,7 @@ VL
 VL
 VL
 yn
-uA
+cJ
 yn
 ah
 ib
@@ -38755,7 +40524,7 @@ WV
 Hq
 ac
 yn
-VL
+FW
 yn
 VL
 VL
@@ -38984,7 +40753,7 @@ VL
 VL
 VL
 yn
-uA
+cJ
 yn
 ah
 ac
@@ -39012,7 +40781,7 @@ ac
 Hq
 ac
 yn
-VL
+FW
 yn
 VL
 VL
@@ -39241,7 +41010,7 @@ VL
 VL
 VL
 yn
-uA
+cJ
 yn
 ah
 ac
@@ -39269,7 +41038,7 @@ cb
 Hq
 ac
 yn
-VL
+FW
 yn
 VL
 VL
@@ -39498,7 +41267,7 @@ VL
 VL
 VL
 yn
-uA
+cJ
 yn
 ah
 ac
@@ -39526,7 +41295,7 @@ ac
 Hq
 ac
 yn
-VL
+FW
 yn
 VL
 VL
@@ -39755,7 +41524,7 @@ VL
 VL
 yn
 yn
-uA
+cJ
 yn
 yn
 yn
@@ -39783,7 +41552,7 @@ yn
 dG
 Ob
 yn
-VL
+FW
 yn
 VL
 VL
@@ -40038,9 +41807,9 @@ ac
 yn
 ac
 oQ
-ac
+Eu
 yn
-VL
+FW
 yn
 VL
 VL
@@ -40268,7 +42037,7 @@ VL
 VL
 VL
 yn
-uA
+cJ
 yn
 yn
 ac
@@ -40295,9 +42064,9 @@ ac
 yn
 ac
 ea
-ac
+kD
 yn
-VL
+FW
 yn
 VL
 VL
@@ -40525,7 +42294,7 @@ VL
 VL
 VL
 yn
-uA
+cJ
 yn
 ac
 ac
@@ -40554,7 +42323,7 @@ yn
 dG
 Ob
 yn
-VL
+FW
 yn
 VL
 VL
@@ -40782,7 +42551,7 @@ VL
 VL
 VL
 yn
-uA
+cJ
 yn
 PS
 ac
@@ -40811,7 +42580,7 @@ ac
 Hq
 ac
 yn
-VL
+FW
 yn
 VL
 VL
@@ -41039,7 +42808,7 @@ VL
 VL
 VL
 yn
-uA
+cJ
 yn
 ac
 ac
@@ -41064,11 +42833,11 @@ yn
 FS
 Qt
 SZ
-ac
-Hq
+vu
+Xg
 ac
 yn
-VL
+FW
 yn
 VL
 VL
@@ -41296,7 +43065,7 @@ VL
 VL
 VL
 yn
-uA
+cJ
 yn
 yn
 ac
@@ -41322,10 +43091,10 @@ Ht
 KH
 Tk
 ac
-Hq
+Ir
+tB
 yn
-yn
-VL
+FW
 yn
 VL
 VL
@@ -41579,10 +43348,10 @@ Jl
 KH
 ac
 ac
-Hq
+JI
 qU
 yn
-VL
+FW
 yn
 VL
 VL
@@ -41835,14 +43604,14 @@ yn
 Jo
 QH
 UZ
-ac
-Hq
+Mo
+cL
 gJ
 yn
-VL
+FW
 yn
-VL
-VL
+yn
+yn
 VL
 VL
 VL
@@ -42096,9 +43865,9 @@ Pb
 Og
 yn
 yn
-ac
-yn
-yn
+DQ
+DG
+bR
 yn
 VL
 VL
@@ -42350,7 +44119,7 @@ Lb
 Lb
 ac
 ac
-Zn
+iF
 NQ
 NQ
 WG
@@ -42579,8 +44348,8 @@ yn
 yn
 yn
 yn
-VL
-VL
+RO
+Gf
 yn
 nX
 yn
@@ -42610,7 +44379,7 @@ ac
 ac
 ac
 yn
-Fv
+BP
 Nk
 GD
 yn
@@ -42867,7 +44636,7 @@ yn
 Zj
 Zj
 yn
-Fv
+dA
 Zu
 yn
 yn
@@ -43125,7 +44894,7 @@ yn
 yn
 yn
 yn
-Hq
+JI
 yn
 Fv
 Fv
@@ -43382,7 +45151,7 @@ ac
 ac
 ac
 ac
-Hq
+JI
 gD
 Fv
 Fv
@@ -43609,8 +45378,8 @@ AS
 ac
 PV
 yn
-nX
-VL
+df
+ZT
 yn
 ah
 ib
@@ -43631,15 +45400,15 @@ ac
 cb
 ac
 yn
-ac
-ac
+dm
+EP
 yn
 ac
+dm
 ac
+EP
 ac
-ac
-ac
-Hq
+JI
 gD
 Fv
 Fv
@@ -43892,9 +45661,9 @@ Gk
 Ib
 io
 Oj
+YU
 Oj
-Oj
-Oj
+EC
 Oj
 zk
 gD
@@ -44123,7 +45892,7 @@ Rs
 Tn
 ac
 yn
-nX
+BX
 VL
 yn
 ah
@@ -44153,7 +45922,7 @@ ac
 UP
 ac
 UP
-Hq
+JI
 ky
 Fv
 Fv
@@ -44410,7 +46179,7 @@ ac
 UP
 ac
 UP
-Hq
+JI
 yn
 yn
 yn
@@ -44637,8 +46406,8 @@ Rs
 Tn
 ac
 yn
-nX
-VL
+JV
+kE
 yn
 yn
 yn
@@ -44667,7 +46436,7 @@ ac
 UP
 ac
 UP
-Hq
+JI
 yn
 xo
 cb
@@ -44897,7 +46666,7 @@ yn
 nX
 VL
 yn
-ac
+EP
 ac
 ac
 ac
@@ -44924,7 +46693,7 @@ ac
 UP
 ac
 UP
-Vt
+LM
 Em
 nC
 ac
@@ -44932,7 +46701,7 @@ ac
 ac
 bG
 ac
-ac
+Mo
 DJ
 bG
 VL
@@ -45181,7 +46950,7 @@ ac
 UP
 ac
 UP
-Hq
+JI
 ac
 ac
 ac
@@ -45411,7 +47180,7 @@ yn
 nX
 VL
 yn
-ac
+II
 ac
 ac
 ac
@@ -45438,15 +47207,15 @@ ac
 UP
 ac
 UP
-Hq
-ac
-ac
+Ti
+Sl
+RJ
 ac
 ac
 ac
 bG
 ac
-ac
+vu
 np
 bG
 VL
@@ -45697,7 +47466,7 @@ Em
 Em
 Og
 yn
-cb
+rB
 cb
 cb
 cb
@@ -45930,7 +47699,7 @@ db
 db
 yn
 yn
-ac
+vu
 ja
 UF
 zx
@@ -45952,7 +47721,7 @@ yn
 yn
 yn
 yn
-Hq
+JI
 yn
 yn
 yn
@@ -46180,14 +47949,14 @@ yn
 VL
 VL
 VL
-uA
+cJ
 yn
 ac
 ac
 ac
 VN
 yn
-ac
+Mo
 JH
 yn
 Iw
@@ -46209,10 +47978,10 @@ ac
 ac
 yn
 VL
-hT
+HB
 VL
 VL
-VL
+BY
 VL
 VL
 yn
@@ -46437,7 +48206,7 @@ yn
 VL
 VL
 VL
-uA
+cJ
 yn
 ac
 ac
@@ -46469,7 +48238,7 @@ kT
 dx
 kI
 kI
-kI
+YQ
 kI
 kI
 kI
@@ -46694,7 +48463,7 @@ yn
 yn
 yn
 yn
-Iw
+jm
 yn
 ac
 ac
@@ -46723,10 +48492,10 @@ ac
 ac
 yn
 VL
-hT
+HB
 VL
 VL
-VL
+Gf
 VL
 VL
 yn
@@ -46950,8 +48719,8 @@ ac
 ac
 ac
 ac
-oq
-ns
+hr
+hy
 yn
 xF
 xF
@@ -46980,7 +48749,7 @@ xF
 xF
 yn
 VL
-hT
+HB
 yn
 VL
 VL
@@ -47207,7 +48976,7 @@ ac
 ac
 ac
 ac
-Iw
+jm
 ac
 yn
 ac
@@ -47237,7 +49006,7 @@ ac
 ac
 yn
 yn
-hT
+HB
 yn
 yn
 yn
@@ -47463,16 +49232,16 @@ yn
 yn
 yn
 yn
-ac
-Iw
-ac
+Mo
+iR
+Eu
 yn
 bs
 AQ
 ac
 yn
 ac
-ac
+EP
 yn
 oq
 ns
@@ -47494,7 +49263,7 @@ ac
 ac
 yn
 ac
-Hq
+JI
 yn
 KU
 dK
@@ -47718,10 +49487,10 @@ VL
 yn
 rr
 ac
-ac
+EP
 yn
 ac
-Iw
+jm
 ac
 yn
 ac
@@ -47729,7 +49498,7 @@ hX
 hn
 DA
 hn
-hn
+Je
 DA
 ns
 cb
@@ -47748,10 +49517,10 @@ ac
 Ob
 ac
 ac
-ac
+EP
 yn
 ac
-Hq
+JI
 yn
 KU
 dK
@@ -47981,12 +49750,12 @@ Oj
 wj
 ac
 yn
-ac
-Iw
-ac
+Mo
+tK
+Eu
 yn
 ac
-ac
+II
 yn
 ac
 cb
@@ -48000,12 +49769,12 @@ ac
 cb
 ac
 yn
-ac
-ac
+dm
+EP
 yn
-ac
-fa
-Ut
+hm
+AR
+un
 Ut
 Ut
 Vx
@@ -48232,10 +50001,10 @@ VL
 yn
 HQ
 Ro
-ac
+II
 yn
 ac
-Iw
+jm
 ac
 yn
 ac
@@ -48260,12 +50029,12 @@ Ob
 Gk
 Ib
 io
-Oj
+QI
+gv
 II
-ac
 yn
 ac
-Hq
+JI
 yn
 KU
 dK
@@ -48521,8 +50290,8 @@ yn
 yn
 yn
 yn
-ac
-Hq
+Mo
+mH
 yn
 KU
 dK
@@ -48746,15 +50515,15 @@ VL
 yn
 rr
 ac
-ac
+EP
 yn
 ac
-Iw
+jm
 ac
 yn
 PG
-Iw
-ac
+fv
+Eu
 mT
 mT
 mT
@@ -48779,7 +50548,7 @@ yn
 yn
 yn
 ac
-Hq
+JI
 yn
 yn
 dK
@@ -49010,8 +50779,8 @@ wj
 ac
 yn
 Gs
-Iw
-ac
+Uc
+kD
 ac
 ac
 ac
@@ -49036,10 +50805,10 @@ yn
 zP
 vC
 ac
-Hq
+JI
 yn
 tM
-dK
+Dw
 dK
 FM
 yn
@@ -49260,14 +51029,14 @@ VL
 yn
 HQ
 Ro
-ac
+II
 yn
 ac
-Iw
+jm
 ac
 yn
-bs
-Xp
+ae
+pE
 cN
 Gs
 PG
@@ -49290,11 +51059,11 @@ yn
 GZ
 Uu
 yn
-fa
-Ut
-Ut
+KJ
+Xl
+re
 Ki
-Ut
+Xl
 js
 TI
 Uw
@@ -49520,11 +51289,11 @@ yn
 yn
 yn
 yn
-Iw
+jm
 yn
 yn
 yn
-Iw
+jm
 yn
 yn
 KH
@@ -49545,15 +51314,15 @@ yn
 PI
 AH
 GZ
-GZ
+WZ
 yn
-Hq
+JI
 ac
-ac
-ac
+SE
+My
 yn
 uH
-dK
+Vp
 et
 FM
 yn
@@ -49777,11 +51546,11 @@ VL
 VL
 VL
 yn
-uA
+cJ
 VL
 VL
 VL
-uA
+cJ
 VL
 yn
 ac
@@ -50035,9 +51804,9 @@ VL
 VL
 yn
 wE
-Ic
-Ic
-Ic
+Bd
+Bd
+VF
 AT
 VL
 yn
@@ -50059,7 +51828,7 @@ yn
 PI
 AH
 GZ
-GZ
+Vo
 yn
 vy
 ac
@@ -50294,8 +52063,8 @@ yn
 VL
 VL
 VL
-VL
-uA
+XL
+AC
 VL
 yn
 ac
@@ -50318,8 +52087,8 @@ yn
 GZ
 GZ
 yn
-Hq
-ac
+pc
+Eu
 fg
 ac
 ac
@@ -50552,7 +52321,7 @@ VL
 VL
 VL
 VL
-uA
+cJ
 VL
 yn
 ac
@@ -50575,7 +52344,7 @@ GZ
 GZ
 GZ
 yn
-Hq
+JI
 ac
 fg
 ac
@@ -50809,7 +52578,7 @@ yn
 yn
 yn
 yn
-Iw
+jm
 yn
 yn
 ac
@@ -50832,7 +52601,7 @@ GZ
 GZ
 GZ
 yn
-Hq
+JI
 ac
 yn
 yn
@@ -51065,8 +52834,8 @@ yn
 VL
 VL
 yn
-ac
-Iw
+nF
+Fq
 PS
 yn
 ac
@@ -51089,7 +52858,7 @@ vR
 TJ
 vR
 yn
-Hq
+JI
 yn
 yn
 VL
@@ -51346,7 +53115,7 @@ yn
 yn
 yn
 yn
-Hq
+JI
 yn
 VL
 VL
@@ -51598,12 +53367,12 @@ ac
 cb
 ac
 yn
-VL
+ac
 yn
 bH
 KC
 ac
-Hq
+JI
 yn
 VL
 VL
@@ -51855,11 +53624,11 @@ ac
 cb
 ac
 yn
-VL
+ac
 yn
-cp
+Fe
 QM
-Ut
+Xl
 fN
 yn
 VL
@@ -52112,10 +53881,10 @@ ac
 cb
 ac
 yn
-VL
+ac
 yn
 yn
-Wc
+Qa
 yn
 yn
 yn
@@ -52369,11 +54138,11 @@ ac
 cb
 ac
 yn
-VL
-VL
 ac
-Wc
-ur
+ac
+ac
+kW
+tB
 yn
 VL
 VL
@@ -52626,10 +54395,10 @@ ac
 cb
 ac
 yn
-VL
-VL
 ac
-CE
+ac
+ac
+Wc
 ac
 yn
 VL
@@ -52883,10 +54652,10 @@ ac
 cb
 ac
 yn
-VL
+Bq
 yn
 Ie
-ac
+Wc
 Jm
 yn
 VL
@@ -53142,9 +54911,9 @@ VL
 yn
 yn
 yn
-ac
-ac
-ac
+Mo
+CE
+Eu
 yn
 VL
 VL
