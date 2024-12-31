@@ -40,9 +40,6 @@
 /turf/open/floor/engine/airless,
 /area/space)
 "ak" = (
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 9
 	},
@@ -51,6 +48,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 9
+	},
+/obj/structure/cable/white{
+	icon_state = "1-8"
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
@@ -244,12 +244,6 @@
 /area/space)
 "bH" = (
 /obj/machinery/power/terminal,
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
 	},
@@ -258,6 +252,12 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
+	},
+/obj/structure/cable/white{
+	icon_state = "0-8"
+	},
+/obj/structure/cable/white{
+	icon_state = "4-8"
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
@@ -456,9 +456,6 @@
 /area/space)
 "dp" = (
 /obj/structure/cable/white{
-	icon_state = "4-8"
-	},
-/obj/structure/cable/white{
 	icon_state = "2-8"
 	},
 /turf/open/floor/plating/rusty_techgrid,
@@ -568,6 +565,16 @@
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
+"ey" = (
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/power/smes,
+/turf/open/floor/plating/rusty_techgrid,
+/area/space)
 "ez" = (
 /obj/structure/table,
 /obj/item/book/manual/wiki/sop/engineering,
@@ -590,18 +597,18 @@
 /area/space)
 "eG" = (
 /obj/machinery/power/terminal,
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
+	},
+/obj/structure/cable/white{
+	icon_state = "0-8"
+	},
+/obj/structure/cable/white{
+	icon_state = "6-8"
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
@@ -622,8 +629,8 @@
 /turf/open/floor/circuit/red,
 /area/space)
 "eN" = (
-/obj/structure/cable/green{
-	icon_state = "1-4"
+/obj/structure/cable/white{
+	icon_state = "4-9"
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
@@ -678,6 +685,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
 	},
 /turf/open/openspace,
@@ -1205,15 +1215,6 @@
 	},
 /turf/open/floor/plating,
 /area/space)
-"jf" = (
-/obj/machinery/computer/monitor{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/turf/open/floor/plating/rusty_techgrid,
-/area/space)
 "jk" = (
 /obj/machinery/vending/job_disk,
 /turf/open/floor/plasteel/ridged/steel,
@@ -1470,14 +1471,14 @@
 /turf/open/space/basic,
 /area/space)
 "lD" = (
-/obj/structure/cable/white{
-	icon_state = "4-8"
-	},
-/obj/structure/cable/white{
-	icon_state = "0-8"
-	},
 /obj/machinery/computer/monitor{
 	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
@@ -1576,10 +1577,10 @@
 /turf/open/floor/noslip/dark,
 /area/space)
 "mu" = (
-/obj/structure/grille,
-/obj/structure/cable/white{
+/obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/structure/grille,
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
 "mv" = (
@@ -1610,22 +1611,18 @@
 	},
 /turf/open/floor/durasteel,
 /area/space)
+"mC" = (
+/obj/structure/table/glass,
+/obj/structure/displaycase,
+/obj/item/toy/plush/transport,
+/turf/open/floor/carpet/black,
+/area/space)
 "mE" = (
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 10
-	},
-/turf/open/floor/plating/rusty_techgrid,
-/area/space)
-"mJ" = (
-/obj/machinery/power/smes/engineering,
-/obj/structure/cable/white{
-	icon_state = "4-8"
-	},
-/obj/structure/cable/white{
-	icon_state = "0-8"
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
@@ -1640,7 +1637,7 @@
 /obj/machinery/computer/monitor{
 	dir = 8
 	},
-/obj/structure/cable{
+/obj/structure/cable/white{
 	icon_state = "0-8"
 	},
 /turf/open/floor/plating/rusty_techgrid,
@@ -1675,6 +1672,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
+	},
+/obj/structure/cable/white{
+	icon_state = "4-8"
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
@@ -1799,12 +1799,6 @@
 /obj/machinery/power/terminal{
 	dir = 1
 	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
 	},
@@ -1813,6 +1807,12 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
+	},
+/obj/structure/cable/white{
+	icon_state = "0-8"
+	},
+/obj/structure/cable/white{
+	icon_state = "4-8"
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
@@ -1946,6 +1946,16 @@
 	},
 /turf/open/floor/plating,
 /area/space)
+"ow" = (
+/obj/structure/cable/green{
+	icon_state = "5-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/smes,
+/turf/open/floor/plating/rusty_techgrid,
+/area/space)
 "oB" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer4{
 	dir = 8
@@ -2069,12 +2079,12 @@
 /turf/open/floor/plasteel/ridged/steel,
 /area/space)
 "pQ" = (
-/obj/structure/cable/white{
-	icon_state = "4-8"
-	},
 /obj/machinery/computer/monitor,
-/obj/structure/cable/white{
-	icon_state = "0-8"
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
@@ -2273,12 +2283,6 @@
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
 "rL" = (
-/obj/structure/cable/white{
-	icon_state = "4-8"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
 /obj/machinery/atmospherics/pipe/simple/dark/visible{
@@ -2286,6 +2290,9 @@
 	piping_layer = 1
 	},
 /obj/structure/disposalpipe/segment,
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
 "rN" = (
@@ -2488,12 +2495,6 @@
 /obj/machinery/power/terminal{
 	dir = 1
 	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
 	},
@@ -2503,17 +2504,17 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/cable/white{
+	icon_state = "0-8"
+	},
+/obj/structure/cable/white{
+	icon_state = "4-8"
+	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
 "sY" = (
 /obj/machinery/power/terminal{
 	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/cable{
-	icon_state = "0-8"
 	},
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
 	dir = 1
@@ -2523,6 +2524,12 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
+	},
+/obj/structure/cable/white{
+	icon_state = "0-8"
+	},
+/obj/structure/cable/white{
+	icon_state = "5-8"
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
@@ -2588,18 +2595,18 @@
 /area/space)
 "tD" = (
 /obj/machinery/power/terminal,
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer2,
 /obj/structure/disposalpipe/segment{
 	dir = 4
+	},
+/obj/structure/cable/white{
+	icon_state = "0-8"
+	},
+/obj/structure/cable/white{
+	icon_state = "4-8"
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
@@ -2738,12 +2745,6 @@
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
 "uV" = (
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 10
 	},
@@ -2752,6 +2753,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 10
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
@@ -2965,9 +2969,6 @@
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
 "wJ" = (
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 5
 	},
@@ -2976,6 +2977,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 5
+	},
+/obj/structure/cable/white{
+	icon_state = "1-4"
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
@@ -3103,6 +3107,18 @@
 	dir = 4
 	},
 /turf/open/openspace,
+/area/space)
+"xC" = (
+/obj/structure/table/glass,
+/obj/item/paper_bin{
+	pixel_x = 8;
+	pixel_y = 7
+	},
+/obj/item/pen/fountain/captain{
+	pixel_x = 8;
+	pixel_y = 5
+	},
+/turf/open/floor/carpet/black,
 /area/space)
 "xL" = (
 /obj/machinery/door/airlock/ship/station/mining{
@@ -3402,9 +3418,9 @@
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
 "AZ" = (
-/obj/item/storage/secure/safe/caps_spare{
-	pixel_y = 32
-	},
+/obj/structure/table/glass,
+/obj/structure/displaycase,
+/obj/item/toy/plush/lfighter,
 /turf/open/floor/carpet/black,
 /area/space)
 "Be" = (
@@ -3448,6 +3464,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
+	},
+/obj/structure/cable/white{
+	icon_state = "4-8"
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
@@ -3879,9 +3898,6 @@
 /turf/open/openspace,
 /area/space)
 "EH" = (
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 6
 	},
@@ -3890,6 +3906,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 6
+	},
+/obj/structure/cable/white{
+	icon_state = "2-4"
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
@@ -4040,11 +4059,8 @@
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
 "FS" = (
-/obj/structure/cable/white{
-	icon_state = "4-8"
-	},
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "1-4"
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
@@ -4139,9 +4155,6 @@
 /turf/open/floor/monotile/steel,
 /area/space)
 "GK" = (
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 10
 	},
@@ -4150,6 +4163,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 10
+	},
+/obj/structure/cable/white{
+	icon_state = "2-8"
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
@@ -4243,10 +4259,10 @@
 /area/space)
 "Hy" = (
 /obj/structure/cable{
-	icon_state = "2-4"
+	icon_state = "2-8"
 	},
-/obj/structure/cable{
-	icon_state = "0-2"
+/obj/structure/cable/white{
+	icon_state = "4-10"
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
@@ -4280,6 +4296,9 @@
 /turf/open/floor/monofloor/corner{
 	dir = 4
 	},
+/area/space)
+"HM" = (
+/turf/open/floor/plating/rusty_techgrid,
 /area/space)
 "HP" = (
 /obj/machinery/modular_computer/console/preset/engineering{
@@ -4515,6 +4534,22 @@
 "JZ" = (
 /obj/structure/table,
 /turf/open/floor/plating,
+/area/space)
+"Kb" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/over/ship,
+/obj/item/storage/secure/safe/caps_spare{
+	pixel_y = 32
+	},
+/turf/open/floor/plating/rusty_techgrid,
 /area/space)
 "Kf" = (
 /obj/structure/cable{
@@ -4991,6 +5026,13 @@
 /obj/structure/closet/secure_closet/captains{
 	anchored = 1
 	},
+/obj/item/gun/energy/laser/captain{
+	cell_type = /obj/item/stock_parts/cell/empty;
+	desc = "This is a futuristic laser gun. All craftsmanship is of the highest quality. It is decorated with assistant leather and chrome. The object menaces with spikes of energy. On the item is an image of Space Station 13. The station is exploding.";
+	name = "futuristic laser gun model";
+	pin = null;
+	selfcharge = 0
+	},
 /turf/open/floor/carpet/black,
 /area/space)
 "Od" = (
@@ -5173,9 +5215,6 @@
 /turf/open/floor/circuit/red,
 /area/space)
 "Po" = (
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden/layer4{
 	dir = 1
 	},
@@ -5189,6 +5228,9 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 6
+	},
+/obj/structure/cable/white{
+	icon_state = "4-8"
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
@@ -5402,6 +5444,17 @@
 /area/space)
 "QN" = (
 /obj/structure/table/glass,
+/obj/item/flashlight/lamp{
+	pixel_x = -1;
+	pixel_y = 14
+	},
+/obj/item/disk/nuclear{
+	pixel_x = 6
+	},
+/obj/item/stamp/captain{
+	pixel_x = -5;
+	pixel_y = 4
+	},
 /turf/open/floor/carpet/black,
 /area/space)
 "QO" = (
@@ -5539,16 +5592,9 @@
 /turf/open/floor/monotile/steel,
 /area/space)
 "Sl" = (
-/obj/structure/cable/white{
-	icon_state = "2-4"
-	},
-/obj/structure/cable/white{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
-/obj/structure/disposalpipe/segment,
-/turf/open/floor/plating/rusty_techgrid,
+/obj/effect/spawner/structure/window/reinforced/ship,
+/obj/structure/curtain/obscuring/grey,
+/turf/open/floor/plating,
 /area/space)
 "St" = (
 /turf/open/floor/monofloor/corner{
@@ -5643,6 +5689,9 @@
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 5
+	},
+/obj/structure/cable/white{
+	icon_state = "2-4"
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
@@ -5769,12 +5818,6 @@
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
 "Ui" = (
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 9
 	},
@@ -5783,6 +5826,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-10"
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
@@ -6226,9 +6272,6 @@
 /turf/open/floor/monofloor,
 /area/space)
 "Xl" = (
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
 	},
@@ -6237,6 +6280,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2{
 	dir = 4
+	},
+/obj/structure/cable/white{
+	icon_state = "4-8"
 	},
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
@@ -6408,6 +6454,16 @@
 /obj/structure/hull_plate/end,
 /turf/open/floor/engine/airless,
 /area/space)
+"YN" = (
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4,
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer2,
+/obj/machinery/atmospherics/pipe/simple/dark/visible{
+	icon_state = "pipe11-1";
+	piping_layer = 1
+	},
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/plating/rusty_techgrid,
+/area/space)
 "YQ" = (
 /obj/machinery/door/airlock/ship/external/glass,
 /turf/open/floor/plating,
@@ -6455,10 +6511,13 @@
 /turf/open/floor/monotile/steel,
 /area/space)
 "Ze" = (
-/obj/machinery/power/smes/engineering,
-/obj/structure/cable/white{
-	icon_state = "0-8"
+/obj/structure/cable{
+	icon_state = "0-4"
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/power/smes,
 /turf/open/floor/plating/rusty_techgrid,
 /area/space)
 "Zg" = (
@@ -33202,7 +33261,7 @@ gv
 GU
 Nu
 Nu
-dF
+Kb
 Nu
 Nu
 Nu
@@ -33441,7 +33500,7 @@ uA
 mm
 yb
 yK
-Sl
+yb
 yb
 SX
 Wk
@@ -33698,9 +33757,9 @@ wh
 pd
 pd
 cA
-LR
 pd
-ne
+pd
+Xl
 Nu
 Nu
 Nu
@@ -33717,13 +33776,13 @@ ly
 Nu
 Nu
 AZ
-mk
+mC
 rs
 mv
 Nu
 mY
 pd
-LR
+HM
 Nu
 pd
 ss
@@ -33956,7 +34015,7 @@ vq
 vq
 vq
 FS
-vq
+pd
 Xl
 Nu
 jk
@@ -33972,14 +34031,14 @@ xr
 xr
 xr
 xr
-ly
+Sl
 mk
-QN
+mk
 ZM
 gk
 Nu
 Po
-uK
+YN
 rL
 uK
 uK
@@ -34212,9 +34271,9 @@ wh
 Nu
 Nu
 Nu
-mu
+iS
 Nu
-Jl
+Xl
 Nu
 SG
 Af
@@ -34229,13 +34288,13 @@ xr
 xr
 xr
 xr
-ly
+Sl
 Tj
 QN
 wB
 mk
 Nu
-Sf
+Xl
 Nu
 mu
 Nu
@@ -34486,9 +34545,9 @@ xr
 xr
 xr
 xr
-ly
+Sl
 iu
-QN
+xC
 uF
 he
 Nu
@@ -34726,7 +34785,7 @@ lT
 no
 lG
 Nu
-mJ
+Ze
 sX
 no
 Nu
@@ -34751,7 +34810,7 @@ Nu
 Nu
 bN
 tD
-mJ
+ey
 Nu
 Nu
 bE
@@ -34983,7 +35042,7 @@ wh
 pd
 jQ
 Nu
-mJ
+Ze
 nK
 pd
 Nu
@@ -35008,7 +35067,7 @@ St
 Nu
 pd
 bH
-mJ
+ey
 Nu
 Nu
 eL
@@ -35265,7 +35324,7 @@ Mj
 Nu
 bI
 eG
-Ze
+ow
 Nu
 Nu
 ke
@@ -35779,7 +35838,7 @@ GU
 Nu
 pE
 Bj
-jf
+mT
 Nu
 Nu
 kq
