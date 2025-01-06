@@ -2,14 +2,6 @@
 	name = "Shield Generator"
 	icon_state = "engine_smes"
 
-/area/engine/stormdrive
-	name = "Stormdrive Engine"
-	icon_state = "engine_sm"
-
-/area/engine/stormdrive/monitor
-	name = "Stormdrive Engine Monitoring"
-	icon_state = "engine_sm"
-
 /area/security/main/warroom
 	name = "Security War Room"
 

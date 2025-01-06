@@ -452,6 +452,10 @@
 	name = "Deck 1 Primary Hallway"
 	icon_state = "hallC"
 
+/area/hallway/nsv/deck1/frame1/port
+	name = "Deck 1 Frame 1 Port Hallway"
+	icon_state = "hallP"
+
 /area/hallway/nsv/deck1/frame1/central
 	name = "Deck 1 Frame 1 Central Hallway"
 	icon_state = "hallC"
@@ -472,9 +476,17 @@
 	name = "Deck 1 Frame 2 Starboard Hallway"
 	icon_state = "hallS"
 
+/area/hallway/nsv/deck1/frame3/port
+	name = "Deck 1 Frame 3 Port Hallway"
+	icon_state = "hallP"
+
 /area/hallway/nsv/deck1/frame3/central
 	name = "Deck 1 Frame 3 Central Hallway"
 	icon_state = "hallC"
+
+/area/hallway/nsv/deck1/frame3/starboard
+	name = "Deck 1 Frame 3 Starboard Hallway"
+	icon_state = "hallS"
 
 /area/hallway/nsv/deck1/frame4/central
 	name = "Deck 1 Frame 4 Central Hallway"
@@ -758,3 +770,67 @@
 	icon_state = "bunker"
 	ambientsounds = list('nsv13/sound/ambience/leit_motif.ogg','nsv13/sound/ambience/wind.ogg','nsv13/sound/ambience/ship_damage/creak1.ogg','nsv13/sound/ambience/ship_damage/creak2.ogg','nsv13/sound/ambience/ship_damage/creak3.ogg','nsv13/sound/ambience/ship_damage/creak4.ogg','nsv13/sound/ambience/ship_damage/creak5.ogg','nsv13/sound/ambience/ship_damage/creak6.ogg','nsv13/sound/ambience/ship_damage/creak7.ogg')
 	light_color = "#e69602"
+
+/area/engine/stormdrive
+	name = "Stormdrive Engine"
+	icon_state = "engine_sm"
+
+/area/engine/stormdrive/port
+	name = "Port Stormdrive Engine"
+	icon_state = "engine_sm"
+
+/area/engine/stormdrive/starboard
+	name = "Starboard Stormdrive Engine"
+	icon_state = "engine_sm"
+
+/area/engine/stormdrive/monitor
+	name = "Stormdrive Engine Monitoring"
+	icon_state = "engine_sm"
+
+/area/engine/stormdrive/monitor/port
+	name = "Port Stormdrive Engine Monitoring"
+	icon_state = "engine_sm"
+
+/area/engine/stormdrive/monitor/starboard
+	name = "Starboard Stormdrive Engine Monitoring"
+	icon_state = "engine_sm"
+
+/area/engine/stormdrive/gantry
+	name = "Stormdrive Gantry"
+	icon_state = "engine"
+
+/area/engine/stormdrive/gantry/port
+	name = "Port Stormdrive Gantry"
+	icon_state = "engine"
+
+/area/engine/stormdrive/gantry/starboard
+	name = "Starboard Stormdrive Gantry"
+	icon_state = "engine"
+
+/area/nsv/hangar/deck1_gantry
+	name = "Deck 1 Gantry"
+	icon_state = "shuttlegrn"
+
+/area/ai_monitored/security/armory/port
+	name = "Port Armory"
+	icon_state = "armory"
+
+/area/ai_monitored/security/armory/starboard
+	name = "Starboard Armory"
+	icon_state = "armory"
+
+/area/ai_monitored/ore_silo
+	name = "Ore Silo"
+	icon_state = "cargo_office"
+
+/area/nsv/weapons/locker_room
+	name = "Munitions Locker Room"
+	icon_state = "weapons_bay"
+
+/area/nsv/weapons/locker_room/pilot
+	name = "Pilots Locker Room"
+	icon_state = "weapons_bay"
+
+/area/nsv/weapons/locker_room/technician
+	name = "Technicians Locker Room"
+	icon_state = "weapons_bay"
