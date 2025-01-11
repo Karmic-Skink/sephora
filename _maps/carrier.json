@@ -1,0 +1,27 @@
+{
+	"map_name": "NSV Carrier",
+	"map_link": "carrier",
+    "map_path": "map_files/Carrier",
+    "map_file": ["Carrier3.dmm", "Carrier2.dmm", "Carrier1.dmm"],
+	"traits": [{"Up": 1, "Linkage": "Cross"}, {"Down": -1, "Up": 1, "Linkage": "Cross"}, {"Down": -1, "Linkage": "Cross"}],
+	"space_ruin_levels": -1,
+	"shuttles": {
+		"cargo": "cargo_shrike",
+		"ferry": "ferry_kilo",
+	    "emergency": "emergency_void"},
+    "mine_disable": 1,
+	"ship_type": "/obj/structure/overmap/nanotrasen/carrier/starter",
+	"starmap_path": "config/starmap/starmap.json",
+	"map_description": ".",
+	"manufacturer": "FrozenStar Armory",
+	"mapper": "Karmic-Skink",
+	"commission_date": ".",
+	"strengths": ["+"],
+	"weaknesses": ["-"],
+	"equipment": [
+		"12 light fighters",
+		"2 NT-BSG gauss turrets",
+		"1 supermatter crystal",
+		"2 class IV nuclear storm drive"
+	]
+}
