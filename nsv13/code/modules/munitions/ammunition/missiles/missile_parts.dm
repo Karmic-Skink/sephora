@@ -2,6 +2,20 @@
 	var/target_state = 0
 	var/fits_type = null
 
+	//Modular Stat Update
+	var/modular_part = FALSE
+	var/mass = 0
+	var/yield = 0
+	var/thrust = 0
+	var/max_velocuity = 0
+	var/turn_rate = 0
+	var/burn_time = 0
+	var/guidance_type = 0
+	var/guidance_accuracy = 0
+	var/special_properties = 0
+	var/faction_alignment = 0
+	var/target_selection = 0
+
 /obj/item/ship_weapon/parts/missile/warhead
 	name = "NTP-2 standard missile payload"
 	icon = 'nsv13/icons/obj/munitions.dmi'
@@ -14,7 +28,7 @@
 
 
 /obj/item/ship_weapon/parts/missile/guidance_system
-	name = "munition guidance system"
+	name = "guided munition guidance system"
 	icon = 'nsv13/icons/obj/munitions.dmi'
 	icon_state = "guidance"
 	desc = "A guidance module for soon-to-be guided munitions, allowing them to lock onto a target inside their operational range. The microcomputer inside it is capable of performing thousands of calculations a second."
@@ -48,3 +62,10 @@
 						"<span class='notice'>You short out the IFF protocols on [src].</span>",
 						"Bzzzt.")
 	icon_state = "iff_hacked"
+
+/obj/item/ship_weapon/parts/missile/modular_kit
+	name = "guided munition modular upgrade kit"
+	icon = 'nsv13/icons/obj/munitions.dmi'
+	icon_state = "upgrade_kit" //someone sprite me please
+	desc = "An upgrade kit that allows for the customisation of torpedo construction. Single use only."
+	w_class = WEIGHT_CLASS_SMALL

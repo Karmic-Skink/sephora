@@ -252,3 +252,11 @@
 	icon = 'nsv13/icons/obj/projectiles_nsv.dmi'
 	icon_state = "probe"
 	damage = 5
+
+//Modular Torpedo Start
+/obj/item/ship_weapon/ammunition/torpedo/modular
+	name = "\improper XPL-0 X30mm modular torpedo"
+	icon = 'nsv13/icons/obj/munition_types.dmi'
+	icon_state = "standard"
+	desc = "Words here."
+	projectile_type = /obj/item/projectile/guided_munition/torpedo //Likely override this or ignore it

@@ -53,3 +53,36 @@
 	desc = "A prototype warhead which carries an uranium-iron core EMP payload based on recovered syndicate duds. Causes a significant electromagnetic pulse upon detonation capable of causing havoc in ship systems."
 	fits_type = /obj/item/ship_weapon/ammunition/torpedo/torpedo_casing
 	build_path = /obj/item/ship_weapon/ammunition/torpedo/proto_disruption
+
+//Modular Parts
+/obj/item/ship_weapon/parts/missile/warhead/modular
+	name = "modular torpedo payload"
+	icon = 'nsv13/icons/obj/munitions.dmi'
+	icon_state = "warhead_highvelocity"
+	desc = "A heavy warhead designed to be fitted to a missile. It's currently inert."
+	fits_type = /obj/item/ship_weapon/ammunition/torpedo/torpedo_casing //Used for warheads, missiles are different from torp.
+	modular_part = TRUE
+
+/obj/item/ship_weapon/parts/missile/guidance_system/modular
+	name = "modular torpedo guidance system"
+	icon = 'nsv13/icons/obj/munitions.dmi'
+	icon_state = "guidance"
+	desc = "A guidance module for soon-to-be guided munitions, allowing them to lock onto a target inside their operational range. The microcomputer inside it is capable of performing thousands of calculations a second."
+	fits_type = /obj/item/ship_weapon/ammunition/torpedo/torpedo_casing
+	modular_part = TRUE
+
+/obj/item/ship_weapon/parts/missile/propulsion_system/modular
+	name = "modular torpedo propulsion system"
+	icon = 'nsv13/icons/obj/munitions.dmi'
+	icon_state = "propulsion"
+	desc = "A gimballed thruster with an attachment nozzle, designed to be mounted in guided munitions."
+	fits_type = /obj/item/ship_weapon/ammunition/torpedo/torpedo_casing
+	modular_part = TRUE
+
+/obj/item/ship_weapon/parts/missile/iff_card/modular
+	name = "modular torpedo IFF card"
+	icon = 'nsv13/icons/obj/munitions.dmi'
+	icon_state = "iff"
+	desc = "An IFF chip which allows a guided munition to distinguish friend from foe. The electronics contained herein are relatively simple, but nonetheless crucial."
+	fits_type = /obj/item/ship_weapon/ammunition/torpedo/torpedo_casing
+	modular_part = TRUE

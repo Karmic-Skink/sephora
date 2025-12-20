@@ -12,7 +12,7 @@
 	var/obj/item/ship_weapon/parts/missile/propulsion_system/ps = null
 	var/obj/item/ship_weapon/parts/missile/iff_card/iff = null
 	projectile_type = /obj/item/projectile/guided_munition/torpedo/dud //Forget to finish your torpedo? You get a dud torpedo that doesn't do anything
-
+	var/modular = FALSE //Flag used to determine if we are going to be standard torp or a special torp
 
 /obj/item/ship_weapon/ammunition/torpedo/torpedo_casing/examine(mob/user) //No better guide than an in-game play-by-play guide
 	. = ..()
@@ -39,9 +39,17 @@
 			. += "<span class='notice'>The casing has the following components installed: [wh?.name], [iff?.name], [gs?.name], [ps?.name]. It looks ready to close and bolt shut. </span>"
 		if(10)
 			. += "<span class='notice'>The casing has been closed and bolted shut. It only requires sealing with a welding tool to be ready for action.</span>"
+	if(modular)
+		. += "<span class='notice'>The casing of this torpedo has been modified to allow for non-standard parts!"
 
 /obj/item/ship_weapon/ammunition/torpedo/torpedo_casing/attackby(obj/item/W, mob/user, params)
 	add_fingerprint(user)
+	if(istype(W, /obj/item/ship_weapon/parts/missile))
+		var/obj/item/ship_weapon/parts/missile/M = W
+		if(M.modular_part && !modular) //Early return if attempting to put modular part into a standard torp case
+			to_chat(user, "<span class='notice'>Non-standard parts cannot be fit into unmodified torpedo casings.</span>")
+			return FALSE
+
 	if(istype(W, /obj/item/ship_weapon/parts/missile/warhead))
 		var/obj/item/ship_weapon/parts/missile/warhead/WW = W
 		if(WW.fits_type && !istype(src, WW.fits_type))
@@ -104,7 +112,15 @@
 			state = 9
 			update_icon()
 		return TRUE
-
+	else if(istype(W, /obj/item/ship_weapon/parts/missile/modular_kit))
+		if(state == 0 && !modular)
+			to_chat(user, "<span class='notice'>You start modifying the [src]...</span>")
+			if(!do_after(user, 5 SECONDS, target=src)) //Slow but you can just fab the modified versions
+				return
+			to_chat(user, "<span class='notice'>You modify the [src] to allow full customisation.")
+			modular = TRUE
+			qdel(W)
+			update_icon()
 /obj/item/ship_weapon/ammunition/torpedo/torpedo_casing/wrench_act(mob/user, obj/item/tool)
 	switch(state)
 		if(1)
@@ -223,7 +239,10 @@
 	if(state >= 11)
 		if(user && user.client)
 			INVOKE_ASYNC(user.client, TYPE_PROC_REF(/client, give_award), /datum/award/score/torpcount, user)
-		new_torpedo(wh, gs, ps, iff)
+		if(!modular)
+			new_torpedo(wh, gs, ps, iff)
+		else
+			new_modular_torpedo()
 		return TRUE
 
 /obj/item/ship_weapon/ammunition/torpedo/torpedo_casing/crowbar_act(mob/user, obj/item/tool)
@@ -268,31 +287,59 @@
 
 /obj/item/ship_weapon/ammunition/torpedo/torpedo_casing/update_icon()
 	cut_overlays()
-	switch(state)
-		if(1)
-			icon_state = "case_prop"
-		if(2)
-			icon_state = "case_prop_bolt"
-		if(3)
-			icon_state = "case_guide"
-		if(4)
-			icon_state = "case_guide_screw"
-		if(5)
-			icon_state = "case_iff"
-		if(6)
-			icon_state = "case_iff_screw"
-		if(7)
-			icon_state = "case_warhead"
-		if(8)
-			icon_state = "case_warhead_screw"
-		if(9)
-			icon_state = "case_warhead_wired"
-		if(10)
-			icon_state = "case_warhead_complete"
+	if(modular)
+		switch(state)
+			if(1)
+				icon_state = "mod_case_prop"
+			if(2)
+				icon_state = "mod_case_prop_bolt"
+			if(3)
+				icon_state = "mod_case_guide"
+			if(4)
+				icon_state = "mod_case_guide_screw"
+			if(5)
+				icon_state = "mod_case_iff"
+			if(6)
+				icon_state = "mod_case_iff_screw"
+			if(7)
+				icon_state = "mod_case_warhead"
+			if(8)
+				icon_state = "mod_case_warhead_screw"
+			if(9)
+				icon_state = "mod_case_warhead_wired"
+			if(10)
+				icon_state = "mod_case_warhead_complete"
+	else
+		switch(state)
+			if(1)
+				icon_state = "case_prop"
+			if(2)
+				icon_state = "case_prop_bolt"
+			if(3)
+				icon_state = "case_guide"
+			if(4)
+				icon_state = "case_guide_screw"
+			if(5)
+				icon_state = "case_iff"
+			if(6)
+				icon_state = "case_iff_screw"
+			if(7)
+				icon_state = "case_warhead"
+			if(8)
+				icon_state = "case_warhead_screw"
+			if(9)
+				icon_state = "case_warhead_wired"
+			if(10)
+				icon_state = "case_warhead_complete"
 
 /obj/item/ship_weapon/ammunition/torpedo/torpedo_casing/proc/new_torpedo()
 	wh = locate(/obj/item/ship_weapon/parts/missile/warhead) in src
 	new wh.build_path(get_turf(src))
 	for(var/I in contents)
 		qdel(I) //Change this if we ever need to add more component factoring in to performance. This avoids infinite torpedo parts because the torpedo gets Qdel'd
+	qdel(src)
+
+/obj/item/ship_weapon/ammunition/torpedo/torpedo_casing/proc/new_modular_torpedo()
+	new /obj/item/ship_weapon/ammunition/torpedo/modular(get_turf(src))
+
 	qdel(src)
